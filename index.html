@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auramy — Photo gallery, cleanup and backup for iPhone</title>
+<meta name="description" content="Auramy is an iPhone and iPad app that shows what is filling your storage, gives you a gallery simpler than Photos, and backs your library up to your own Google Drive. No account needed.">
+<link rel="icon" href="assets/icon.png">
+<meta property="og:title" content="Auramy">
+<meta property="og:description" content="See what is filling your iPhone, clean it up, and back it up to your own Google Drive.">
+<meta property="og:image" content="https://myagjz.github.io/auramy-app/assets/icon.png">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f6f8;
+    --border: #e3e3e8;
+    --text: #1c1c1e;
+    --muted: #6a6a72;
+    --accent: #6b4ee6;
+    --accent-soft: #f2eeff;
+    --hero: linear-gradient(180deg, #f4f0ff 0%, #ffffff 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131316;
+      --surface: #1c1c21;
+      --border: #2e2e36;
+      --text: #ececf0;
+      --muted: #a0a0aa;
+      --accent: #a48bff;
+      --accent-soft: #221d38;
+      --hero: linear-gradient(180deg, #1d1830 0%, #131316 100%);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 56rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
+  a { color: var(--accent); }
+
+  /* Hero */
+  .hero {
+    background: var(--hero);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 1.25rem 3.5rem;
+    text-align: center;
+  }
+  .hero-inner { max-width: 40rem; margin: 0 auto; }
+  .hero img.icon {
+    width: 92px; height: 92px; border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(80, 50, 180, .22);
+    margin-bottom: 1.25rem;
+  }
+  h1 { font-size: 2.6rem; line-height: 1.1; margin: 0 0 .6rem; letter-spacing: -.03em; }
+  .tagline { font-size: 1.2rem; color: var(--text); margin: 0 0 1rem; }
+  .sub { color: var(--muted); margin: 0 0 1.75rem; }
+  .badges { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+  .badge {
+    background: var(--accent-soft); border: 1px solid var(--border);
+    border-radius: 999px; padding: .35rem .85rem; font-size: .85rem; color: var(--text);
+  }
+
+  /* Sections */
+  h2 {
+    font-size: 1.5rem; margin: 3.5rem 0 1rem; letter-spacing: -.02em;
+    padding-top: 1.5rem; border-top: 1px solid var(--border);
+  }
+  h3 { font-size: 1.05rem; margin: 0 0 .35rem; }
+  p { margin: 0 0 1rem; }
+
+  /* Pillars with screenshots */
+  .pillars { display: grid; gap: 2.5rem; margin-top: 1.5rem; }
+  @media (min-width: 46rem) { .pillars { grid-template-columns: repeat(3, 1fr); } }
+  .pillar { text-align: center; }
+  .pillar img {
+    width: 100%; max-width: 260px; height: auto;
+    border: 1px solid var(--border); border-radius: 18px;
+    margin-bottom: 1.1rem;
+  }
+  .pillar p { color: var(--muted); font-size: .95rem; text-align: left; }
+  @media (min-width: 46rem) { .pillar p { text-align: center; } }
+
+  /* Feature cards */
+  .cards { display: grid; gap: 1rem; margin-top: 1.25rem; }
+  @media (min-width: 40rem) { .cards { grid-template-columns: 1fr 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.1rem 1.25rem;
+  }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+  .callout {
+    background: var(--accent-soft); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.2rem 1.35rem; margin: 1.5rem 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  ul { padding-left: 1.25rem; }
+  li { margin: .4rem 0; }
+
+  footer {
+    max-width: 56rem; margin: 0 auto; padding: 1.5rem 1.25rem 4rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: .9rem;
+  }
+  footer a { margin-right: 1rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <img class="icon" src="assets/icon.png" alt="Auramy app icon" width="92" height="92">
+    <h1>Auramy</h1>
+    <p class="tagline">See what is filling your iPhone, clear it out, and keep a copy in your own cloud.</p>
+    <p class="sub">A photo gallery, storage cleanup and backup app for iPhone and iPad.
+    <!-- After the app is live, link the App Store here:
+         <a href="https://apps.apple.com/app/idXXXXXXXXXX">Download on the App Store</a> -->
+    Coming to the App Store — requires iOS 26 or later.</p>
+    <div class="badges">
+      <span class="badge">No account required</span>
+      <span class="badge">No ads, no analytics</span>
+      <span class="badge">24 languages</span>
+      <span class="badge">Free to download</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <h2>Three things, one app</h2>
+
+  <div class="pillars">
+    <div class="pillar">
+      <img src="assets/home.png" alt="Auramy home screen showing a storage ring at 28.8% used, device totals, and Deep Clean and Quick Clean buttons" loading="lazy">
+      <h3>Know your storage</h3>
+      <p>A single figure for what is used and what is left, then a breakdown by photos,
+      videos, screenshots and recordings — with the size of every file, which Photos
+      never shows you anywhere.</p>
+    </div>
+    <div class="pillar">
+      <img src="assets/gallery.png" alt="Auramy gallery screen with search and category rows for camera photos, videos, screenshots and recordings" loading="lazy">
+      <h3>A gallery that stays out of the way</h3>
+      <p>Camera photos, videos, screenshots and downloads as plain rows you can scroll.
+      Search by name, date or keyword — the index is built for you in the background,
+      so it works the first time you look.</p>
+    </div>
+    <div class="pillar">
+      <img src="assets/drive.png" alt="Auramy Drive screen showing Google Drive usage, free space and a connected account" loading="lazy">
+      <h3>Back up in one place</h3>
+      <p>Send your library to a folder in <em>your own</em> Google Drive, filed by category
+      and date. There is no Auramy server and no account to create.</p>
+    </div>
+  </div>
+
+  <h2>What it does</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Find the clutter</h3>
+      <p>Screen recordings, videos over 100&nbsp;MB, screenshots older than six months
+      and oversized photos, each in its own group with a running total. Nothing is
+      ever pre-ticked, and favourites are never suggested.</p>
+    </div>
+    <div class="card">
+      <h3>Duplicates, side by side</h3>
+      <p>Every group is laid out so you can see which copy is being kept before
+      anything happens — overrule it, or wave the whole group off with Keep All.</p>
+    </div>
+    <div class="card">
+      <h3>Deleting is always reversible</h3>
+      <p>Removals go through the system's own confirmation into
+      Photos&nbsp;&rsaquo;&nbsp;Recently Deleted, where they stay recoverable for
+      30 days.</p>
+    </div>
+    <div class="card">
+      <h3>Shrink videos, keep the memory</h3>
+      <p>Re-encode 4K clips to 1080p, carrying the original date and location so they
+      stay put in your library. A re-encode that isn't meaningfully smaller is thrown
+      away and your original kept.</p>
+    </div>
+    <div class="card">
+      <h3>Restore to a new phone</h3>
+      <p>Connect the same Google account and Auramy downloads what your backup has and
+      the device doesn't. Restoring is never behind a paywall — your files are your files.</p>
+    </div>
+    <div class="card">
+      <h3>Widgets, Shortcuts, Control Centre</h3>
+      <p>Storage and a photo on your Home Screen, three Control Centre buttons, and
+      fourteen Shortcuts actions — back up now, scan for duplicates, search your
+      library — for Siri and automations.</p>
+    </div>
+    <div class="card">
+      <h3>Editors built in</h3>
+      <p>Crop, rotate, adjust and filter photos; trim, speed up and export videos.
+      No round trip through another app.</p>
+    </div>
+    <div class="card">
+      <h3>Locked, and quiet about your location</h3>
+      <p>An optional Face&nbsp;ID lock on the whole app, and GPS coordinates stripped
+      from anything you share out — both free, both switchable.</p>
+    </div>
+  </div>
+
+  <h2>Free, and Auramy Pro</h2>
+
+  <p>Auramy is free to download and stays genuinely useful without paying: the gallery,
+  search, the storage breakdown, both editors, the duplicate and cleanup scans, widgets,
+  Shortcuts, the Face&nbsp;ID lock, backing up on demand and restoring from Drive all
+  work as they are. Seeing exactly how much space you could recover is free and unlimited.</p>
+
+  <p><strong>Auramy Pro</strong> — a one-time lifetime purchase, or a yearly
+  subscription with a 3-day trial — adds:</p>
+
+  <ul>
+    <li><strong>Deep Clean</strong>: one pass over duplicates, near-identical bursts,
+    out-of-focus photos and stale screenshots, cleared in a single confirmation</li>
+    <li>Unlimited bulk delete, including Select All (free removes up to 10 items at a time)</li>
+    <li>Video compression to 1080p</li>
+    <li>Original-quality backup — ProRAW, 48&nbsp;MP and 4K reach Drive untouched</li>
+    <li>Automatic background backup, and Drive folders by category, year and month</li>
+    <li>Alternate app icons</li>
+  </ul>
+
+  <p>Turning a Pro feature <em>off</em> is never gated, so a lapsed subscription can
+  never strand a backup or lock you out of your own app.</p>
+
+  <h2>Your photos stay yours</h2>
+
+  <div class="callout">
+    <p>There are no analytics, no crash reporting, no advertising and no Auramy account.
+    Nothing about you or your library is sent to the developer.</p>
+    <p>Scanning, duplicate detection and focus assessment all run on your device.
+    Backups go to <em>your</em> Google Drive, and Auramy asks Google for only the
+    <code>drive.file</code> permission — it can see nothing in that Drive except the
+    files it created itself.</p>
+    <p>Read the full <a href="https://myagjz.github.io/auramy-privacy/">privacy policy</a>.</p>
+  </div>
+
+  <h2>Questions?</h2>
+
+  <p>The <a href="https://myagjz.github.io/auramy-privacy/support.html">support page</a>
+  answers the common ones. Anything else — bugs, feature requests, or just a question —
+  goes to <a href="mailto:yagjz@icloud.com">yagjz@icloud.com</a>. Auramy is made by one
+  person, so please allow a couple of days for a reply.</p>
+
+</main>
+
+<footer>
+  <a href="https://myagjz.github.io/auramy-privacy/">Privacy Policy</a>
+  <a href="https://myagjz.github.io/auramy-privacy/support.html">Support</a>
+  <a href="mailto:yagjz@icloud.com">Contact</a>
+  <p>© 2026 Mustafa Yağız. Auramy is not affiliated with Apple or Google.</p>
+</footer>
+
+</body>
+</html>

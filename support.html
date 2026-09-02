@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auramy — Support</title>
+<meta name="description" content="Support and answers to common questions for Auramy, an iOS photo gallery, cleanup and backup app.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f6f8;
+    --border: #e3e3e8;
+    --text: #1c1c1e;
+    --muted: #6a6a72;
+    --accent: #6b4ee6;
+    --accent-soft: #f2eeff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131316;
+      --surface: #1c1c21;
+      --border: #2e2e36;
+      --text: #ececf0;
+      --muted: #a0a0aa;
+      --accent: #a48bff;
+      --accent-soft: #221d38;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 5rem;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.02em; }
+  h2 {
+    font-size: 1.2rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em;
+    padding-top: 1.25rem; border-top: 1px solid var(--border);
+  }
+  h3 { font-size: 1rem; margin: 1.75rem 0 .4rem; }
+  p, li { color: var(--text); }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .callout p { margin: 0; }
+  ul { padding-left: 1.25rem; }
+  li { margin: .4rem 0; }
+  code {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 5px;
+    padding: .1rem .35rem; font-size: .88em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  footer {
+    margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: .9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>Auramy Support</h1>
+  <p class="meta">Last updated: 17 August 2026</p>
+
+  <div class="callout">
+    <p><strong>Need a hand?</strong> Email
+    <a href="mailto:yagjz@icloud.com">yagjz@icloud.com</a> and I'll get back to you.
+    Auramy is made by one person, so please allow a couple of days — and if you're
+    reporting a problem, telling me your iPhone model and iOS version saves a round trip.</p>
+  </div>
+
+  <p>Auramy is a photo gallery, storage cleanup and backup app for iPhone and iPad.
+  It requires iOS 26 or later.</p>
+
+  <h2>Getting started</h2>
+
+  <h3>Do I need a Google account?</h3>
+  <p>No. The gallery, search, storage breakdown, cleanup, duplicate finder, widgets and
+  Shortcuts all work with no account at all, entirely on your device. Connecting Google Drive
+  is optional and only adds backup, restore and Free Up Space.</p>
+
+  <h3>Why does Auramy ask for full photo access?</h3>
+  <p>To show your whole library and to find duplicates and clutter across all of it — a scan
+  can only see what you've granted. <em>Limited</em> access is fully supported: Auramy shows a
+  banner offering both "Select More Photos" and "Allow Full Access", and every screen explains
+  itself rather than sitting empty. You can change this any time in
+  Settings&nbsp;&rsaquo;&nbsp;Apps&nbsp;&rsaquo;&nbsp;Auramy&nbsp;&rsaquo;&nbsp;Photos.</p>
+
+  <h3>Where is my Hidden album?</h3>
+  <p>iOS does not let any third-party app see the Photos "Hidden" album, so Auramy can't show
+  it. The Hidden screen explains this and offers to open Photos instead.</p>
+
+  <h2>Cleaning up</h2>
+
+  <h3>Where do deleted photos go?</h3>
+  <p>Deleting always goes through iOS, so you get the system's own confirmation and everything
+  lands in <strong>Photos&nbsp;&rsaquo;&nbsp;Recently Deleted</strong>. Items stay there for 30
+  days, which is also when the space is actually freed. Nothing Auramy removes is gone
+  immediately, and you can recover it from Photos in the meantime.</p>
+
+  <h3>Auramy says I can only delete 10 items at a time</h3>
+  <p>That's the free tier. Without Auramy Pro, each delete removes up to 10 items, in Cleanup,
+  Duplicates and Free Up Space alike. Pro lifts the limit and enables "Select All". Scanning,
+  and seeing exactly how much space you could recover, is free and unlimited.</p>
+
+  <h3>Does Free Up Space delete anything from my Google Drive?</h3>
+  <p>No. It removes the copy on your device of files your Drive already holds. The Drive copies
+  are left exactly as they are. Matching is done by filename within your Auramy folder, which is
+  why the screen asks you to look before deleting.</p>
+
+  <h3>The duplicate finder pre-selected things — will it delete them on its own?</h3>
+  <p>Never. Nothing is deleted until you tap Delete and confirm. The preselection keeps the
+  largest copy in each group and marks the rest, as a starting point you can change. "Keep All"
+  takes a whole group out of the selection in one tap. Favourites are never suggested for
+  deletion anywhere in the app.</p>
+
+  <h2>Backup and restore</h2>
+
+  <h3>Where do my photos go when I back up?</h3>
+  <p>Into a folder named <strong>Auramy</strong> in <em>your own</em> Google Drive. There is no
+  Auramy server and I have no access to your files. Auramy requests only the
+  <code>drive.file</code> permission, which lets it see and manage nothing in your Drive except
+  the files it created itself.</p>
+
+  <h3>My backup seems stuck</h3>
+  <p>Check these in order:</p>
+  <ul>
+    <li><strong>Wi-Fi Only</strong> is on by default. On cellular, Auramy waits and shows
+    "Waiting for Wi-Fi to back up" rather than spending your data.</li>
+    <li>Large uploads continue in the background and resume where they left off — but iOS
+    decides when to run background work, so a big first backup can take a while. Leaving the app
+    open on Wi-Fi and power is the fastest way through it.</li>
+    <li>Open <strong>Upload Queue</strong> in Settings to see what's still pending.</li>
+    <li>Force-quitting the app cancels scheduled background work until you next open it.</li>
+  </ul>
+
+  <h3>I got a new phone — how do I get my photos back?</h3>
+  <p>Install Auramy, connect the same Google account, then use
+  <strong>Settings&nbsp;&rsaquo;&nbsp;Restore from Drive</strong>. It downloads what's in your
+  backup but missing from the device. Restoring is never limited by Auramy Pro — your files are
+  your files.</p>
+
+  <h2>Auramy Pro</h2>
+
+  <h3>What does Pro add?</h3>
+  <ul>
+    <li><strong>Deep Clean</strong> — one tap finds duplicates, near-identical bursts, blurry
+    photos and old screenshots, and clears them all together</li>
+    <li>Unlimited bulk delete, including "Select All", in Cleanup, Duplicates and Free Up Space</li>
+    <li>Compressing videos down to 1080p</li>
+    <li>Original-quality backup — ProRAW, 48 MP and 4K reach Drive untouched, filed by year
+    and month</li>
+    <li>Automatic background backup to your Drive</li>
+    <li>Alternate app icons</li>
+  </ul>
+  <p>Everything else is free and stays free — including the Face ID app lock, backing up on
+  demand with <strong>Backup Now</strong>, and restoring from Drive. Only the unattended,
+  automatic run is Pro.</p>
+
+  <h3>What does Deep Clean actually delete?</h3>
+  <p>Four things, and only these four: exact duplicates (the best copy is kept), near-identical
+  burst shots (one is kept), out-of-focus photos, and screenshots older than six months. Large
+  photos and large videos are deliberately <em>not</em> included — a big file is not the same
+  as a worthless one. Favourites are never touched, and deleted items go to
+  <strong>Photos&nbsp;&rsaquo;&nbsp;Recently Deleted</strong> for 30 days.</p>
+  <p>Each of the four is its own row, with its own count and size. Everything arrives ticked, so
+  you can press <em>Free</em> straight away — or tap a row to see exactly which photos are in it
+  and untick the ones you want to keep. The tick on a row turns that whole category off at once.</p>
+
+  <h3>How is Deep Clean different from Find Duplicates?</h3>
+  <p><strong>Find Duplicates</strong> (Settings) is for deciding: it lays each group out side by
+  side so you can see which copy is being kept, overrule it, or wave the whole group off with
+  <em>Keep All</em>. It covers duplicates only, and it's free.</p>
+  <p><strong>Deep Clean</strong> is for finishing: it covers the same duplicates <em>plus</em>
+  blurry photos and stale screenshots, totals everything, and clears it in one confirmation.
+  Both screens use the same detection and keep the same copy, so they can never disagree — and
+  each links to the other.</p>
+
+  <h3>Is my free backup lower quality?</h3>
+  <p>Yes, and deliberately so. Without Pro, photos are uploaded at 2048px and videos at 1080p —
+  full-screen quality on any phone, at roughly a fifth of the size. The capture date, camera and
+  GPS tag are all preserved. With Pro the file your camera actually wrote goes up untouched. If
+  you buy Pro later, Settings offers to re-upload what was saved at standard quality; nothing
+  re-uploads on its own.</p>
+
+  <h3>What exactly does Compress Videos do to my video?</h3>
+  <p>It re-encodes the video at 1080p, saves that as your video — keeping the original's
+  date and location so it stays where it belongs in your library — and moves the original to
+  <strong>Photos&nbsp;&rsaquo;&nbsp;Recently Deleted</strong>, where you can get it back for
+  30 days. The picture quality of the original is not recoverable after that, which is why
+  Auramy never offers favourites, slow-motion clips, or anything already at 1080p or below.
+  If a re-encode doesn't come out meaningfully smaller, Auramy throws it away and keeps your
+  original untouched.</p>
+
+  <h3>I paid, but Pro isn't showing</h3>
+  <p>Tap <strong>Restore Purchases</strong> — it's on the Pro card in Settings and on the
+  purchase screen. Make sure you're signed in to the same Apple Account you bought with. If a
+  family member approved the purchase, it unlocks by itself once the approval goes through.</p>
+
+  <h3>I reinstalled the app and Pro came back on its own. Is that right?</h3>
+  <p>Yes. The purchase belongs to your Apple Account, not to the installation, so deleting and
+  reinstalling Auramy doesn't cost you anything.</p>
+
+  <h3>How do I cancel the yearly subscription?</h3>
+  <p>Open the iOS Settings app, tap your name at the top, then
+  <strong>Subscriptions</strong>, then Auramy Pro. Cancelling there stops the renewal; you keep
+  Pro until the period you've paid for ends. The lifetime purchase has nothing to cancel.</p>
+
+  <h3>My subscription lapsed. Am I locked out of anything?</h3>
+  <p>No. Turning a Pro feature <em>off</em> is never gated — you can always switch off the app
+  lock or automatic backup, whatever your subscription status. Nothing you've already backed up
+  or unlocked is taken away from you.</p>
+
+  <h3>Refunds</h3>
+  <p>Purchases go through Apple, so refunds do too. Request one at
+  <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Email me as well if
+  something in the app didn't work as promised — I'd rather fix it.</p>
+
+  <h2>Privacy and security</h2>
+
+  <h3>What does Auramy send to you, the developer?</h3>
+  <p>Nothing. There are no analytics, no crash reporting, no advertising and no accounts. Full
+  details are in the <a href="https://myagjz.github.io/auramy-privacy/">privacy policy</a>.</p>
+
+  <h3>I turned on the app lock and now I can't get in</h3>
+  <p>The lock uses Face ID, Touch ID or your device passcode — the same credentials that unlock
+  your iPhone. It can't be switched on without passing authentication first, and on a device
+  with no passcode set, Auramy stays unlocked rather than locking you out. If Face ID fails,
+  tap the unlock button again and use your passcode.</p>
+
+  <h3>Does sharing a photo reveal where it was taken?</h3>
+  <p>Not by default. Auramy strips GPS location from photos and videos you share out of the app.
+  You can turn that off in Settings&nbsp;&rsaquo;&nbsp;Privacy if you want location to travel
+  with the file. Uploads to your own Drive keep the original metadata.</p>
+
+  <h2>Something else</h2>
+
+  <p>Found a bug, want a feature, or stuck on something not covered here? Write to
+  <a href="mailto:yagjz@icloud.com">yagjz@icloud.com</a>. Feature requests genuinely do shape
+  what gets built next.</p>
+
+  <footer>
+    Auramy — developed by Mustafa Yağız.
+    <a href="https://myagjz.github.io/auramy-privacy/">Privacy Policy</a>
+  </footer>
+
+</main>
+</body>
+</html>

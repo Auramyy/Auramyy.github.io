@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auramy — Privacy Policy</title>
+<meta name="description" content="Privacy policy for Auramy, an iOS photo gallery and backup app.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f6f8;
+    --border: #e3e3e8;
+    --text: #1c1c1e;
+    --muted: #6a6a72;
+    --accent: #6b4ee6;
+    --accent-soft: #f2eeff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131316;
+      --surface: #1c1c21;
+      --border: #2e2e36;
+      --text: #ececf0;
+      --muted: #a0a0aa;
+      --accent: #a48bff;
+      --accent-soft: #221d38;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 5rem;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.02em; }
+  h2 {
+    font-size: 1.2rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em;
+    padding-top: 1.25rem; border-top: 1px solid var(--border);
+  }
+  h3 { font-size: 1rem; margin: 1.5rem 0 .4rem; }
+  p, li { color: var(--text); }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .callout p { margin: 0; }
+  ul { padding-left: 1.25rem; }
+  li { margin: .4rem 0; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem;
+  }
+  .table-wrap { overflow-x: auto; }
+  th, td {
+    text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th { color: var(--muted); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
+  code {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 5px;
+    padding: .1rem .35rem; font-size: .88em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  footer {
+    margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: .9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>Auramy Privacy Policy</h1>
+  <p class="meta">Last updated: 17 August 2026</p>
+
+  <div class="callout">
+    <p><strong>The short version.</strong> Auramy has no servers. Your photos, videos and
+    settings stay on your iPhone or iPad. Nothing is sent to the developer — no analytics,
+    no tracking, no advertising, no accounts. The only time anything leaves your device is
+    when you choose to back up to <em>your own</em> Google Drive.</p>
+  </div>
+
+  <p>This policy explains what Auramy ("the app") does with your information. It applies to
+  the Auramy iOS app published on the App Store. Auramy is developed and operated by
+  Mustafa Yağız ("the developer", "I", "me").</p>
+
+  <h2>1. Information the developer collects</h2>
+
+  <p><strong>None.</strong> Auramy has no backend service. There is no account to create, no
+  server that receives your data, and no way for the developer to see your photos, your
+  library, your searches or how you use the app.</p>
+
+  <p>Specifically, Auramy does <em>not</em>:</p>
+  <ul>
+    <li>collect, transmit or store your photos or videos on any server operated by the developer;</li>
+    <li>include any analytics, crash-reporting, advertising or attribution SDK;</li>
+    <li>track you across apps or websites, or build a profile of you;</li>
+    <li>sell or share personal information with anyone.</li>
+  </ul>
+
+  <h2>2. Information that stays on your device</h2>
+
+  <p>Auramy stores the following locally. It is never transmitted anywhere, and it is removed
+  when you delete the app.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>What</th><th>Why</th><th>Where</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>A search index of your library (asset identifiers, media type, dates, file sizes and derived keywords)</td>
+        <td>So gallery search works instantly and offline</td>
+        <td>The app's private Application&nbsp;Support folder</td>
+      </tr>
+      <tr>
+        <td>Your settings — theme, app lock, backup preferences, recent searches</td>
+        <td>To remember how you set the app up</td>
+        <td>iOS user defaults, shared with the Auramy widget</td>
+      </tr>
+      <tr>
+        <td>Your Google account email address and access tokens, if you connect Drive</td>
+        <td>To show which account is connected and to keep you signed in</td>
+        <td>The iOS Keychain, managed by Google's Sign-In SDK</td>
+      </tr>
+      <tr>
+        <td>Temporary copies of media you edit, export or share</td>
+        <td>To hand the file to the share sheet or editor</td>
+        <td>The system temporary folder; deleted after use</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>3. Google Drive backup (optional)</h2>
+
+  <p>Auramy works fully without a Google account. Cloud backup is an opt-in feature. If you
+  turn it on and sign in:</p>
+
+  <ul>
+    <li>Auramy uploads the photos and videos you select to a folder named <strong>Auramy</strong>
+    in <strong>your own</strong> Google Drive. The developer has no access to that folder or
+    to your Drive.</li>
+    <li>Auramy requests a single, narrow permission — <code>drive.file</code>. This scope lets
+    the app see and manage <em>only the files it created itself</em>. It cannot read the rest
+    of your Drive.</li>
+    <li>Signing in is handled by Google's official Sign-In SDK. Your Google password is never
+    seen or handled by Auramy.</li>
+    <li>Signing out removes the stored tokens and clears the app's cached record of what has
+    already been backed up. Files already in your Drive are left untouched — they are yours.</li>
+  </ul>
+
+  <p>Your relationship with Google is governed by Google's own terms and privacy policy:
+  <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Auramy's use
+  of information received from Google APIs adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
+  User Data Policy</a>, including the Limited Use requirements.</p>
+
+  <p>The only network address Auramy ever contacts is <code>googleapis.com</code> (and Google's
+  sign-in pages during authentication). There are no other network destinations.</p>
+
+  <h2>4. Permissions Auramy asks for</h2>
+
+  <h3>Photo library</h3>
+  <p>Required for the app's core purpose: showing your gallery, finding duplicates and clutter
+  you can delete, editing, and backing up what you choose. Auramy works with limited access
+  too — it will then only see the photos you have shared with it. Deleting a photo always goes
+  through the system, so iOS shows its own confirmation and the photo lands in Recently Deleted.</p>
+
+  <h3>Face ID / Touch ID</h3>
+  <p>Optional, used only to unlock the app when you enable App Lock. iOS returns nothing but a
+  success or failure result — Auramy never receives or stores biometric data.</p>
+
+  <h3>Notifications</h3>
+  <p>Optional, requested only when you turn on automatic backup. Used solely to tell you a
+  background backup finished. Notifications are generated on your device; there is no push server.</p>
+
+  <h3>Background App Refresh</h3>
+  <p>Used to continue an in-progress backup when the app is not on screen.</p>
+
+  <h2>5. Location data</h2>
+
+  <p>Auramy never asks for your location. Photos, however, may carry GPS coordinates recorded by
+  the camera. When you share a photo or video out of Auramy, <strong>location metadata is removed
+  by default</strong>. You can opt back in per your preference in Settings if you want location to
+  travel with the file.</p>
+
+  <h2>6. Retention and deletion</h2>
+
+  <ul>
+    <li>Everything Auramy stores lives in the app's own container. Deleting the app removes all
+    of it, including the search index, your settings and any stored Google tokens.</li>
+    <li>To disconnect Google Drive without deleting the app, use Sign Out in Settings. You can
+    also revoke Auramy's access at any time at
+    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+    <li>Photos you backed up remain in your Google Drive until you delete them there. They are
+    your files in your account.</li>
+  </ul>
+
+  <h2>7. Children</h2>
+
+  <p>Auramy is not directed at children under 13 and does not knowingly collect information from
+  them. Since the developer collects no information from anyone, there is nothing to delete on
+  request — but if you have a concern, please get in touch.</p>
+
+  <h2>8. Your rights</h2>
+
+  <p>Depending on where you live, you may have rights under the GDPR (Europe), the KVKK
+  (Türkiye), the CCPA/CPRA (California) or similar laws — for example, to access, correct,
+  export or delete personal data held about you.</p>
+
+  <p>Because the developer holds no personal data about you, there is nothing to disclose,
+  export or erase on the developer's side. Data held on your device is under your direct control
+  and is removed by deleting the app. Data in your Google Drive is under your control through
+  your Google account. If you still want to exercise a right or ask a question, contact details
+  are below and I will respond.</p>
+
+  <h2>9. Security</h2>
+
+  <p>Auramy relies on the protections iOS provides: app sandboxing, file-level Data Protection,
+  and the Keychain for credentials. All network traffic uses HTTPS. Optional App Lock adds
+  Face ID, Touch ID or passcode in front of the app, and hides the gallery from the app switcher
+  while the app is in the background.</p>
+
+  <p>No system is perfectly secure. Keeping your device updated and passcode-protected is the
+  single biggest thing you can do to protect what is on it.</p>
+
+  <h2>10. Changes to this policy</h2>
+
+  <p>If this policy changes materially, the updated version will be posted here with a new date
+  at the top. Continued use of the app after a change means you accept the revised policy.</p>
+
+  <h2>11. Contact</h2>
+
+  <p>Questions, concerns or privacy requests:
+  <a href="mailto:yagjz@icloud.com">yagjz@icloud.com</a></p>
+
+  <footer>
+    Auramy — developed by Mustafa Yağız. This policy covers the Auramy iOS app only.
+  </footer>
+
+</main>
+</body>
+</html>
