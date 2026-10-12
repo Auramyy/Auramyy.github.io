@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shared with Auramy</title>
+<meta name="description" content="Photos and videos shared with Auramy, in original quality. Open to see and save them.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/icon.png">
+<meta property="og:title" content="Photos shared with Auramy">
+<meta property="og:description" content="Open to see and save the originals.">
+<meta property="og:image" content="https://auramyy.github.io/assets/icon.png">
+<meta property="og:type" content="website">
+<!--
+  A shared link: https://auramyy.github.io/s/#<manifest id>.
+
+  The id after the # never reaches this server — browsers keep the fragment
+  to themselves — and the page has no server anyway. Everything here runs in
+  the visitor's browser: it reads the manifest straight from the sender's
+  Google Drive, where the Auramy app put it, and shows and saves the files
+  from there. With Auramy installed, the phone opens the app instead of this
+  page (apple-app-site-association, assetlinks.json).
+
+  The manifest is the same JSON the apps read (DriveShareReceive.swift/.kt):
+  {v, sender{id,name,platform}, created, expires, noLocation?,
+   files[{drive, sha256, file{id,name,size,mime,created?,group?,role?,still?}}]}
+-->
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f6f8;
+    --border: #e3e3e8;
+    --text: #1c1c1e;
+    --muted: #6a6a72;
+    --accent: #6b4ee6;
+    --accent-text: #ffffff;
+    --accent-soft: #f2eeff;
+    --warn: #b45309;
+    --hero: linear-gradient(180deg, #f4f0ff 0%, #ffffff 100%);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131316;
+      --surface: #1c1c21;
+      --border: #2e2e36;
+      --text: #ececf0;
+      --muted: #a0a0aa;
+      --accent: #a48bff;
+      --accent-text: #131316;
+      --accent-soft: #221d38;
+      --warn: #f59e0b;
+      --hero: linear-gradient(180deg, #1d1830 0%, #131316 100%);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  [dir="rtl"] body { text-align: right; }
+  header {
+    background: var(--hero);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 1rem 2rem;
+    text-align: center;
+  }
+  header img { width: 64px; height: 64px; border-radius: 15px; box-shadow: 0 8px 24px rgba(80, 50, 180, .22); }
+  h1 { font-size: 1.6rem; line-height: 1.2; margin: .9rem 0 .4rem; letter-spacing: -.02em; overflow-wrap: anywhere; }
+  .meta { color: var(--muted); margin: 0; font-size: .95rem; }
+  main { max-width: 52rem; margin: 0 auto; padding: 1.25rem 1rem 3rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: .25rem 0 .75rem; }
+  button, .button {
+    font: inherit; font-weight: 600;
+    border: 0; border-radius: 14px;
+    padding: .8rem 1.3rem; min-height: 48px;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+  }
+  .primary { background: var(--accent); color: var(--accent-text); }
+  .secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  button:disabled { opacity: .6; cursor: default; }
+  .status { text-align: center; color: var(--muted); font-size: .9rem; min-height: 1.4em; margin: 0 0 1rem; }
+  .note { text-align: center; color: var(--muted); font-size: .85rem; margin: 0 0 1.25rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 4px; }
+  .tile {
+    position: relative; aspect-ratio: 1; overflow: hidden;
+    background: var(--surface); border-radius: 8px; display: block;
+  }
+  .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tile .tag {
+    position: absolute; left: 6px; bottom: 6px;
+    background: rgba(0, 0, 0, .55); color: #fff;
+    font-size: .7rem; font-weight: 600; padding: .1rem .4rem; border-radius: 6px;
+  }
+  .tile .get {
+    position: absolute; right: 6px; top: 6px;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(0, 0, 0, .55); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tile .name {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    padding: .4rem; font-size: .75rem; color: var(--muted); text-align: center; overflow-wrap: anywhere;
+  }
+  .problem { text-align: center; padding: 3rem 1rem; }
+  .problem p { font-size: 1.1rem; margin: 0 0 1.5rem; }
+  .app {
+    margin-top: 2.5rem; padding: 1.25rem; text-align: center;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+  }
+  .app p { margin: 0 0 1rem; color: var(--muted); }
+  .app .row { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 0 1rem 2.5rem; }
+  footer a { color: var(--muted); margin: 0 .5rem; }
+  .spinner {
+    width: 28px; height: 28px; margin: 2rem auto; border-radius: 50%;
+    border: 3px solid var(--border); border-top-color: var(--accent);
+    animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="/assets/icon.png" alt="Auramy" width="64" height="64">
+  <h1 id="title"></h1>
+  <p class="meta" id="meta"></p>
+</header>
+
+<main>
+  <div id="loading"><div class="spinner"></div></div>
+
+  <div id="problem" class="problem" hidden>
+    <p id="problemText"></p>
+  </div>
+
+  <div id="share" hidden>
+    <div class="actions">
+      <button id="save" class="primary" type="button"></button>
+      <a id="open" class="button secondary"></a>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+    <p class="note" id="liveNote" hidden></p>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <div class="app">
+    <p id="pitch"></p>
+    <div class="row">
+      <a class="button primary" id="getApp" href="/"></a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/support.html">Support</a>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+"use strict";
+
+// The same languages as the apps.
+const T = {
+  en: { unavailable: "Google Drive isn't allowing downloads of this link right now. Try again later.", loading: "Opening the link…", shared: "{name} shared these with you", until: "Available until {date}", originals: "Original quality, straight from the sender's Google Drive.", save: "Save to Photos", downloadAll: "Download All", preparing: "Getting ready… {p}%", ready: "Ready. Tap Save to Photos.", packing: "Packing… {p}%", liveNote: "Live Photos are saved as still photos here. Open the link in Auramy to keep them live.", expired: "This link has expired or its sharing was stopped.", broken: "This link doesn't open. Ask the sender to share it again.", failed: "Couldn't download. Check your internet connection and try again.", openApp: "Open in Auramy", getApp: "Get Auramy", pitch: "Send photos between iPhone and Android in original quality — nearby, or with a link like this one.", download: "Download" },
+  tr: { unavailable: "Google Drive şu an bu linkten indirmeye izin vermiyor. Daha sonra tekrar deneyin.", loading: "Link açılıyor…", shared: "{name} bunları sizinle paylaştı", until: "{date} tarihine kadar açık", originals: "Orijinal kalitede, doğrudan gönderenin Google Drive'ından.", save: "Fotoğraflar'a Kaydet", downloadAll: "Tümünü İndir", preparing: "Hazırlanıyor… %{p}", ready: "Hazır. Fotoğraflar'a Kaydet'e dokunun.", packing: "Paketleniyor… %{p}", liveNote: "Live Photo'lar burada sabit fotoğraf olarak kaydedilir. Canlı kalmaları için linki Auramy'de açın.", expired: "Bu linkin süresi doldu ya da paylaşım durduruldu.", broken: "Bu link açılmıyor. Gönderen kişiden tekrar paylaşmasını isteyin.", failed: "İndirilemedi. İnternet bağlantınızı kontrol edip tekrar deneyin.", openApp: "Auramy'de Aç", getApp: "Auramy'yi Edinin", pitch: "iPhone ve Android arasında fotoğrafları orijinal kalitede gönderin — yakındaki telefona ya da bunun gibi bir linkle.", download: "İndir" },
+  de: { unavailable: "Google Drive lässt Downloads dieses Links gerade nicht zu. Versuche es später noch einmal.", loading: "Link wird geöffnet …", shared: "{name} hat das mit dir geteilt", until: "Verfügbar bis {date}", originals: "In Originalqualität, direkt aus dem Google Drive der Person.", save: "In Fotos sichern", downloadAll: "Alle laden", preparing: "Wird vorbereitet … {p} %", ready: "Bereit. Tippe auf „In Fotos sichern“.", packing: "Wird gepackt … {p} %", liveNote: "Live Photos werden hier als Standbilder gesichert. Öffne den Link in Auramy, damit sie live bleiben.", expired: "Dieser Link ist abgelaufen oder die Freigabe wurde beendet.", broken: "Dieser Link lässt sich nicht öffnen. Bitte die Person, ihn noch einmal zu teilen.", failed: "Download fehlgeschlagen. Prüfe deine Internetverbindung und versuche es noch einmal.", openApp: "In Auramy öffnen", getApp: "Auramy laden", pitch: "Fotos zwischen iPhone und Android in Originalqualität senden – in der Nähe oder per Link wie diesem.", download: "Laden" },
+  fr: { unavailable: "Google Drive n’autorise pas les téléchargements de ce lien pour le moment. Réessayez plus tard.", loading: "Ouverture du lien…", shared: "{name} a partagé ceci avec vous", until: "Disponible jusqu’au {date}", originals: "En qualité d’origine, directement depuis le Google Drive de l’expéditeur.", save: "Enregistrer dans Photos", downloadAll: "Tout télécharger", preparing: "Préparation… {p} %", ready: "Prêt. Touchez Enregistrer dans Photos.", packing: "Compression… {p} %", liveNote: "Les Live Photos sont enregistrées ici en photos fixes. Ouvrez le lien dans Auramy pour les garder animées.", expired: "Ce lien a expiré ou son partage a été arrêté.", broken: "Ce lien ne s’ouvre pas. Demandez à l’expéditeur de le partager à nouveau.", failed: "Téléchargement impossible. Vérifiez votre connexion Internet et réessayez.", openApp: "Ouvrir dans Auramy", getApp: "Obtenir Auramy", pitch: "Envoyez des photos entre iPhone et Android en qualité d’origine — à proximité ou avec un lien comme celui-ci.", download: "Télécharger" },
+  es: { unavailable: "Google Drive no permite descargar este enlace ahora mismo. Inténtalo más tarde.", loading: "Abriendo el enlace…", shared: "{name} ha compartido esto contigo", until: "Disponible hasta el {date}", originals: "En calidad original, directamente desde el Google Drive de quien lo envía.", save: "Guardar en Fotos", downloadAll: "Descargar todo", preparing: "Preparando… {p} %", ready: "Listo. Toca Guardar en Fotos.", packing: "Empaquetando… {p} %", liveNote: "Las Live Photos se guardan aquí como fotos fijas. Abre el enlace en Auramy para que sigan en movimiento.", expired: "Este enlace ha caducado o se dejó de compartir.", broken: "Este enlace no se abre. Pide a quien lo envió que lo comparta de nuevo.", failed: "No se pudo descargar. Comprueba tu conexión a internet e inténtalo de nuevo.", openApp: "Abrir en Auramy", getApp: "Obtener Auramy", pitch: "Envía fotos entre iPhone y Android en calidad original: cerca o con un enlace como este.", download: "Descargar" },
+  it: { unavailable: "Google Drive al momento non consente di scaricare da questo link. Riprova più tardi.", loading: "Apertura del link…", shared: "{name} ha condiviso questi con te", until: "Disponibile fino al {date}", originals: "In qualità originale, direttamente dal Google Drive del mittente.", save: "Salva in Foto", downloadAll: "Scarica tutto", preparing: "Preparazione… {p}%", ready: "Pronto. Tocca Salva in Foto.", packing: "Compressione… {p}%", liveNote: "Le Live Photo vengono salvate qui come foto statiche. Apri il link in Auramy per mantenerle live.", expired: "Questo link è scaduto o la condivisione è stata interrotta.", broken: "Questo link non si apre. Chiedi al mittente di condividerlo di nuovo.", failed: "Impossibile scaricare. Controlla la connessione a internet e riprova.", openApp: "Apri in Auramy", getApp: "Scarica Auramy", pitch: "Invia foto tra iPhone e Android in qualità originale: vicino o con un link come questo.", download: "Scarica" },
+  pt: { unavailable: "O Google Drive não está a permitir transferências desta ligação neste momento. Tente mais tarde.", loading: "A abrir a ligação…", shared: "{name} partilhou isto consigo", until: "Disponível até {date}", originals: "Em qualidade original, diretamente do Google Drive de quem enviou.", save: "Guardar em Fotos", downloadAll: "Transferir tudo", preparing: "A preparar… {p}%", ready: "Pronto. Toque em Guardar em Fotos.", packing: "A comprimir… {p}%", liveNote: "As Live Photos são guardadas aqui como fotos estáticas. Abra a ligação no Auramy para as manter animadas.", expired: "Esta ligação expirou ou a partilha foi interrompida.", broken: "Esta ligação não abre. Peça a quem a enviou para a partilhar novamente.", failed: "Não foi possível transferir. Verifique a ligação à internet e tente novamente.", openApp: "Abrir no Auramy", getApp: "Obter o Auramy", pitch: "Envie fotos entre iPhone e Android em qualidade original — por perto ou com uma ligação como esta.", download: "Transferir" },
+  nl: { unavailable: "Google Drive staat downloads van deze link nu niet toe. Probeer het later opnieuw.", loading: "Link openen…", shared: "{name} heeft dit met je gedeeld", until: "Beschikbaar tot {date}", originals: "In originele kwaliteit, rechtstreeks uit de Google Drive van de afzender.", save: "Bewaar in Foto's", downloadAll: "Alles downloaden", preparing: "Voorbereiden… {p}%", ready: "Klaar. Tik op Bewaar in Foto's.", packing: "Inpakken… {p}%", liveNote: "Live Photos worden hier als stilstaande foto's bewaard. Open de link in Auramy om ze live te houden.", expired: "Deze link is verlopen of het delen is gestopt.", broken: "Deze link opent niet. Vraag de afzender om hem opnieuw te delen.", failed: "Downloaden mislukt. Controleer je internetverbinding en probeer het opnieuw.", openApp: "Open in Auramy", getApp: "Download Auramy", pitch: "Stuur foto's tussen iPhone en Android in originele kwaliteit — in de buurt of met een link zoals deze.", download: "Download" },
+  sv: { unavailable: "Google Drive tillåter inte nedladdningar från den här länken just nu. Försök igen senare.", loading: "Öppnar länken…", shared: "{name} har delat detta med dig", until: "Tillgängligt till {date}", originals: "I originalkvalitet, direkt från avsändarens Google Drive.", save: "Spara i Bilder", downloadAll: "Ladda ned alla", preparing: "Förbereder… {p} %", ready: "Klart. Tryck på Spara i Bilder.", packing: "Packar… {p} %", liveNote: "Live Photos sparas här som stillbilder. Öppna länken i Auramy för att behålla dem levande.", expired: "Den här länken har gått ut eller så har delningen stoppats.", broken: "Länken går inte att öppna. Be avsändaren att dela den igen.", failed: "Det gick inte att ladda ned. Kontrollera internetanslutningen och försök igen.", openApp: "Öppna i Auramy", getApp: "Skaffa Auramy", pitch: "Skicka bilder mellan iPhone och Android i originalkvalitet – i närheten eller med en länk som den här.", download: "Ladda ned" },
+  da: { unavailable: "Google Drive tillader ikke downloads fra dette link lige nu. Prøv igen senere.", loading: "Åbner linket…", shared: "{name} har delt dette med dig", until: "Tilgængeligt indtil {date}", originals: "I original kvalitet, direkte fra afsenderens Google Drev.", save: "Gem i Fotos", downloadAll: "Download alle", preparing: "Gør klar… {p} %", ready: "Klar. Tryk på Gem i Fotos.", packing: "Pakker… {p} %", liveNote: "Live Photos gemmes her som stillbilleder. Åbn linket i Auramy for at bevare dem levende.", expired: "Dette link er udløbet, eller delingen er stoppet.", broken: "Linket kan ikke åbnes. Bed afsenderen om at dele det igen.", failed: "Kunne ikke downloade. Tjek din internetforbindelse, og prøv igen.", openApp: "Åbn i Auramy", getApp: "Hent Auramy", pitch: "Send fotos mellem iPhone og Android i original kvalitet – i nærheden eller med et link som dette.", download: "Download" },
+  nb: { unavailable: "Google Disk tillater ikke nedlasting fra denne lenken akkurat nå. Prøv igjen senere.", loading: "Åpner lenken …", shared: "{name} har delt dette med deg", until: "Tilgjengelig til {date}", originals: "I originalkvalitet, rett fra avsenderens Google Disk.", save: "Lagre i Bilder", downloadAll: "Last ned alle", preparing: "Gjør klar … {p} %", ready: "Klar. Trykk på Lagre i Bilder.", packing: "Pakker … {p} %", liveNote: "Live Photos lagres her som stillbilder. Åpne lenken i Auramy for å beholde dem levende.", expired: "Denne lenken har utløpt, eller delingen er stoppet.", broken: "Lenken kan ikke åpnes. Be avsenderen om å dele den på nytt.", failed: "Kunne ikke laste ned. Sjekk internettforbindelsen og prøv igjen.", openApp: "Åpne i Auramy", getApp: "Skaff deg Auramy", pitch: "Send bilder mellom iPhone og Android i originalkvalitet – i nærheten eller med en lenke som denne.", download: "Last ned" },
+  fi: { unavailable: "Google Drive ei juuri nyt salli latauksia tästä linkistä. Yritä myöhemmin uudelleen.", loading: "Avataan linkkiä…", shared: "{name} jakoi nämä kanssasi", until: "Saatavilla {date} asti", originals: "Alkuperäisessä laadussa, suoraan lähettäjän Google Drivesta.", save: "Tallenna Kuviin", downloadAll: "Lataa kaikki", preparing: "Valmistellaan… {p} %", ready: "Valmis. Napauta Tallenna Kuviin.", packing: "Pakataan… {p} %", liveNote: "Live Photot tallentuvat tässä still-kuvina. Avaa linkki Auramyssa, niin ne pysyvät elävinä.", expired: "Tämä linkki on vanhentunut tai jakaminen on lopetettu.", broken: "Linkki ei aukea. Pyydä lähettäjää jakamaan se uudelleen.", failed: "Lataus epäonnistui. Tarkista internetyhteys ja yritä uudelleen.", openApp: "Avaa Auramyssa", getApp: "Hanki Auramy", pitch: "Lähetä kuvia iPhonen ja Androidin välillä alkuperäisessä laadussa – lähellä tai tällaisella linkillä.", download: "Lataa" },
+  pl: { unavailable: "Dysk Google nie pozwala teraz pobierać z tego linku. Spróbuj ponownie później.", loading: "Otwieranie linku…", shared: "{name} udostępnia Ci te pliki", until: "Dostępne do {date}", originals: "W oryginalnej jakości, prosto z Dysku Google nadawcy.", save: "Zapisz w Zdjęciach", downloadAll: "Pobierz wszystko", preparing: "Przygotowywanie… {p}%", ready: "Gotowe. Stuknij Zapisz w Zdjęciach.", packing: "Pakowanie… {p}%", liveNote: "Zdjęcia Live są tu zapisywane jako zwykłe zdjęcia. Otwórz link w Auramy, by zachować ruch.", expired: "Ten link wygasł lub udostępnianie zostało zatrzymane.", broken: "Nie można otworzyć tego linku. Poproś nadawcę o ponowne udostępnienie.", failed: "Nie udało się pobrać. Sprawdź połączenie z internetem i spróbuj ponownie.", openApp: "Otwórz w Auramy", getApp: "Pobierz Auramy", pitch: "Wysyłaj zdjęcia między iPhone’em a Androidem w oryginalnej jakości — w pobliżu lub linkiem takim jak ten.", download: "Pobierz" },
+  ru: { unavailable: "Google Диск сейчас не разрешает скачивание по этой ссылке. Повторите попытку позже.", loading: "Открываем ссылку…", shared: "{name} делится с вами", until: "Доступно до {date}", originals: "В исходном качестве, прямо с Google Диска отправителя.", save: "Сохранить в Фото", downloadAll: "Скачать всё", preparing: "Подготовка… {p}%", ready: "Готово. Нажмите «Сохранить в Фото».", packing: "Упаковка… {p}%", liveNote: "Live Photos сохраняются здесь как обычные фото. Откройте ссылку в Auramy, чтобы они остались живыми.", expired: "Срок действия ссылки истёк, или доступ по ней закрыли.", broken: "Ссылка не открывается. Попросите отправителя поделиться ещё раз.", failed: "Не удалось скачать. Проверьте подключение к интернету и повторите попытку.", openApp: "Открыть в Auramy", getApp: "Установить Auramy", pitch: "Отправляйте фото между iPhone и Android в исходном качестве — рядом или по такой же ссылке.", download: "Скачать" },
+  uk: { unavailable: "Google Диск зараз не дозволяє завантаження за цим посиланням. Спробуйте пізніше.", loading: "Відкриваємо посилання…", shared: "{name} ділиться з вами", until: "Доступно до {date}", originals: "В оригінальній якості, прямо з Google Диска відправника.", save: "Зберегти у Фото", downloadAll: "Завантажити все", preparing: "Підготовка… {p}%", ready: "Готово. Натисніть «Зберегти у Фото».", packing: "Пакування… {p}%", liveNote: "Live Photos зберігаються тут як звичайні фото. Відкрийте посилання в Auramy, щоб вони лишилися живими.", expired: "Термін дії посилання минув, або доступ за ним закрили.", broken: "Посилання не відкривається. Попросіть відправника поділитися ще раз.", failed: "Не вдалося завантажити. Перевірте підключення до інтернету й спробуйте ще раз.", openApp: "Відкрити в Auramy", getApp: "Встановити Auramy", pitch: "Надсилайте фото між iPhone і Android в оригінальній якості — поруч або за таким посиланням.", download: "Завантажити" },
+  ar: { unavailable: "لا يسمح Google Drive بالتنزيل من هذا الرابط حاليًا. حاول لاحقًا.", loading: "جارٍ فتح الرابط…", shared: "شارك {name} هذه معك", until: "متاح حتى {date}", originals: "بالجودة الأصلية، مباشرةً من Google Drive لدى المرسل.", save: "حفظ في الصور", downloadAll: "تنزيل الكل", preparing: "جارٍ التجهيز… ‎{p}%", ready: "جاهز. اضغط حفظ في الصور.", packing: "جارٍ الضغط… ‎{p}%", liveNote: "تُحفظ صور Live هنا كصور ثابتة. افتح الرابط في Auramy لتبقى متحركة.", expired: "انتهت صلاحية هذا الرابط أو أُوقفت مشاركته.", broken: "لا يمكن فتح هذا الرابط. اطلب من المرسل مشاركته مرة أخرى.", failed: "تعذّر التنزيل. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.", openApp: "فتح في Auramy", getApp: "احصل على Auramy", pitch: "أرسل الصور بين iPhone وAndroid بالجودة الأصلية — عن قرب أو برابط مثل هذا.", download: "تنزيل" },
+  hi: { unavailable: "Google Drive अभी इस लिंक से डाउनलोड की अनुमति नहीं दे रहा है। बाद में फिर कोशिश करें।", loading: "लिंक खोला जा रहा है…", shared: "{name} ने ये आपके साथ शेयर किए", until: "{date} तक उपलब्ध", originals: "ओरिजिनल क्वालिटी में, सीधे भेजने वाले के Google Drive से।", save: "Photos में सेव करें", downloadAll: "सभी डाउनलोड करें", preparing: "तैयार हो रहा है… {p}%", ready: "तैयार है। Photos में सेव करें पर टैप करें।", packing: "पैक हो रहा है… {p}%", liveNote: "Live Photos यहाँ स्थिर फ़ोटो के रूप में सेव होती हैं। उन्हें लाइव रखने के लिए लिंक Auramy में खोलें।", expired: "इस लिंक की अवधि खत्म हो गई है या शेयरिंग बंद कर दी गई है।", broken: "यह लिंक नहीं खुल रहा है। भेजने वाले से इसे फिर से शेयर करने को कहें।", failed: "डाउनलोड नहीं हो सका। अपना इंटरनेट कनेक्शन जाँचें और फिर कोशिश करें।", openApp: "Auramy में खोलें", getApp: "Auramy पाएँ", pitch: "iPhone और Android के बीच ओरिजिनल क्वालिटी में फ़ोटो भेजें — पास में या ऐसे ही लिंक से।", download: "डाउनलोड" },
+  id: { unavailable: "Google Drive sedang tidak mengizinkan unduhan dari tautan ini. Coba lagi nanti.", loading: "Membuka tautan…", shared: "{name} membagikan ini dengan Anda", until: "Tersedia hingga {date}", originals: "Dalam kualitas asli, langsung dari Google Drive pengirim.", save: "Simpan ke Foto", downloadAll: "Unduh Semua", preparing: "Menyiapkan… {p}%", ready: "Siap. Ketuk Simpan ke Foto.", packing: "Mengemas… {p}%", liveNote: "Live Photo disimpan di sini sebagai foto diam. Buka tautan di Auramy agar tetap hidup.", expired: "Tautan ini sudah kedaluwarsa atau berbaginya dihentikan.", broken: "Tautan ini tidak bisa dibuka. Minta pengirim membagikannya lagi.", failed: "Gagal mengunduh. Periksa koneksi internet Anda, lalu coba lagi.", openApp: "Buka di Auramy", getApp: "Dapatkan Auramy", pitch: "Kirim foto antara iPhone dan Android dalam kualitas asli — dari dekat atau dengan tautan seperti ini.", download: "Unduh" },
+  ja: { unavailable: "現在 Google ドライブでこのリンクからのダウンロードが許可されていません。しばらくしてからもう一度お試しください。", loading: "リンクを開いています…", shared: "{name} さんが共有しました", until: "{date} まで利用できます", originals: "送信者の Google ドライブから、オリジナル画質のまま。", save: "写真に保存", downloadAll: "すべてダウンロード", preparing: "準備中… {p}%", ready: "準備ができました。「写真に保存」をタップしてください。", packing: "まとめています… {p}%", liveNote: "Live Photos はここでは静止画として保存されます。Live のまま保存するには Auramy でリンクを開いてください。", expired: "このリンクは期限切れか、共有が停止されています。", broken: "このリンクを開けません。送信者にもう一度共有してもらってください。", failed: "ダウンロードできませんでした。インターネット接続を確認して、もう一度お試しください。", openApp: "Auramy で開く", getApp: "Auramy を入手", pitch: "iPhone と Android の間で写真をオリジナル画質のまま送れます。近くの相手にも、このようなリンクでも。", download: "ダウンロード" },
+  ko: { unavailable: "지금은 Google Drive에서 이 링크의 다운로드를 허용하지 않습니다. 나중에 다시 시도하세요.", loading: "링크를 여는 중…", shared: "{name} 님이 공유했습니다", until: "{date}까지 이용 가능", originals: "보낸 사람의 Google Drive에서 원본 화질 그대로.", save: "사진에 저장", downloadAll: "모두 다운로드", preparing: "준비 중… {p}%", ready: "준비되었습니다. 사진에 저장을 탭하세요.", packing: "묶는 중… {p}%", liveNote: "Live Photo는 여기서 정지 사진으로 저장됩니다. Live로 유지하려면 Auramy에서 링크를 여세요.", expired: "이 링크는 만료되었거나 공유가 중지되었습니다.", broken: "이 링크를 열 수 없습니다. 보낸 사람에게 다시 공유해 달라고 요청하세요.", failed: "다운로드하지 못했습니다. 인터넷 연결을 확인하고 다시 시도하세요.", openApp: "Auramy에서 열기", getApp: "Auramy 받기", pitch: "iPhone과 Android 사이에서 사진을 원본 화질로 보내세요. 가까이에서도, 이런 링크로도.", download: "다운로드" },
+  th: { unavailable: "ขณะนี้ Google ไดรฟ์ไม่อนุญาตให้ดาวน์โหลดจากลิงก์นี้ โปรดลองใหม่ภายหลัง", loading: "กำลังเปิดลิงก์…", shared: "{name} แชร์รายการเหล่านี้ให้คุณ", until: "ใช้ได้ถึง {date}", originals: "คุณภาพต้นฉบับ ส่งตรงจาก Google ไดรฟ์ของผู้ส่ง", save: "บันทึกลงรูปภาพ", downloadAll: "ดาวน์โหลดทั้งหมด", preparing: "กำลังเตรียม… {p}%", ready: "พร้อมแล้ว แตะบันทึกลงรูปภาพ", packing: "กำลังรวมไฟล์… {p}%", liveNote: "Live Photo จะถูกบันทึกเป็นภาพนิ่งที่นี่ เปิดลิงก์ใน Auramy เพื่อให้ยังเป็นภาพเคลื่อนไหว", expired: "ลิงก์นี้หมดอายุแล้วหรือถูกหยุดแชร์", broken: "เปิดลิงก์นี้ไม่ได้ ขอให้ผู้ส่งแชร์อีกครั้ง", failed: "ดาวน์โหลดไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ตแล้วลองอีกครั้ง", openApp: "เปิดใน Auramy", getApp: "รับ Auramy", pitch: "ส่งรูปภาพระหว่าง iPhone และ Android ในคุณภาพต้นฉบับ ทั้งแบบใกล้ๆ หรือด้วยลิงก์แบบนี้", download: "ดาวน์โหลด" },
+  vi: { unavailable: "Google Drive hiện không cho phép tải xuống từ liên kết này. Hãy thử lại sau.", loading: "Đang mở liên kết…", shared: "{name} đã chia sẻ với bạn", until: "Có sẵn đến {date}", originals: "Chất lượng gốc, lấy trực tiếp từ Google Drive của người gửi.", save: "Lưu vào Ảnh", downloadAll: "Tải xuống tất cả", preparing: "Đang chuẩn bị… {p}%", ready: "Đã sẵn sàng. Chạm Lưu vào Ảnh.", packing: "Đang nén… {p}%", liveNote: "Live Photo được lưu ở đây dưới dạng ảnh tĩnh. Mở liên kết trong Auramy để giữ ảnh động.", expired: "Liên kết này đã hết hạn hoặc đã ngừng chia sẻ.", broken: "Không mở được liên kết này. Hãy nhờ người gửi chia sẻ lại.", failed: "Không thể tải xuống. Hãy kiểm tra kết nối internet rồi thử lại.", openApp: "Mở trong Auramy", getApp: "Tải Auramy", pitch: "Gửi ảnh giữa iPhone và Android với chất lượng gốc — ở gần hoặc bằng liên kết như thế này.", download: "Tải xuống" },
+  "zh-Hans": { unavailable: "Google 云端硬盘暂时不允许下载此链接。请稍后再试。", loading: "正在打开链接…", shared: "{name} 与你共享了这些内容", until: "可用至 {date}", originals: "原始画质，直接来自发送者的 Google 云端硬盘。", save: "存储到照片", downloadAll: "全部下载", preparing: "正在准备… {p}%", ready: "已准备好。轻点“存储到照片”。", packing: "正在打包… {p}%", liveNote: "实况照片在这里会存为静态照片。在 Auramy 中打开链接可保留实况效果。", expired: "此链接已过期或已停止共享。", broken: "无法打开此链接。请让发送者重新共享。", failed: "无法下载。请检查网络连接后重试。", openApp: "在 Auramy 中打开", getApp: "获取 Auramy", pitch: "在 iPhone 和 Android 之间以原始画质发送照片——近距离发送，或像这样用链接发送。", download: "下载" },
+  "zh-Hant": { unavailable: "Google 雲端硬碟暫時不允許下載此連結。請稍後再試。", loading: "正在開啟連結…", shared: "{name} 與你分享了這些內容", until: "可用至 {date}", originals: "原始畫質，直接來自傳送者的 Google 雲端硬碟。", save: "儲存到照片", downloadAll: "全部下載", preparing: "正在準備… {p}%", ready: "已準備好。點一下「儲存到照片」。", packing: "正在打包… {p}%", liveNote: "原況照片在這裡會儲存為靜態照片。在 Auramy 中開啟連結可保留原況效果。", expired: "此連結已過期或已停止分享。", broken: "無法開啟此連結。請傳送者重新分享。", failed: "無法下載。請檢查網路連線後再試一次。", openApp: "在 Auramy 中開啟", getApp: "取得 Auramy", pitch: "在 iPhone 與 Android 之間以原始畫質傳送照片——近距離傳送，或像這樣用連結傳送。", download: "下載" },
+};
+
+function pickLanguage() {
+  for (const tag of navigator.languages || [navigator.language || "en"]) {
+    const lower = tag.toLowerCase();
+    if (lower.startsWith("zh")) return /hant|tw|hk|mo/.test(lower) ? "zh-Hant" : "zh-Hans";
+    if (/^(nb|no|nn)\b/.test(lower)) return "nb";
+    const base = lower.split("-")[0];
+    if (T[base]) return base;
+  }
+  return "en";
+}
+const lang = pickLanguage();
+const L = T[lang];
+document.documentElement.lang = lang;
+if (lang === "ar") document.documentElement.dir = "rtl";
+const t = (key, values = {}) => L[key].replace(/\{(\w+)\}/g, (_, name) => values[name] ?? "");
+
+const $ = (id) => document.getElementById(id);
+
+// A browser can't read the files where the apps do: Drive answers a
+// cross-site fetch to drive.usercontent.google.com with a 403 whatever its
+// CORS headers say (it refuses Sec-Fetch-Site: cross-site). The Drive API
+// does allow this site, with a key restricted to it and to Drive alone —
+// public by design, like every browser key. A plain link to a file is a
+// navigation, which Drive does serve: that's what the tiles are.
+const API_KEY = "AIzaSyAgT_w98b4x3NiYvMVzKVLbbGMx41BSV6s";
+const api = (id) => `https://www.googleapis.com/drive/v3/files/${id}?alt=media&key=${API_KEY}`;
+const download = (id) => `https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t`;
+const thumbnail = (id) => `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
+const formatBytes = (bytes) => {
+  const units = ["B", "KB", "MB", "GB"];
+  let value = bytes, unit = 0;
+  while (value >= 1000 && unit < units.length - 1) { value /= 1000; unit++; }
+  return new Intl.NumberFormat(lang, { maximumFractionDigits: unit < 2 ? 0 : 1 }).format(value) + " " + units[unit];
+};
+
+$("getApp").textContent = t("getApp");
+$("pitch").textContent = t("pitch");
+$("title").textContent = t("loading");
+
+// iPhone and iPad: the share sheet saves straight to Photos.
+const savesToPhotos = /iPhone|iPad|iPod/.test(navigator.userAgent)
+  || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+function showProblem(key) {
+  $("loading").hidden = true;
+  $("share").hidden = true;
+  $("problem").hidden = false;
+  $("title").textContent = "";
+  $("meta").textContent = "";
+  $("problemText").textContent = t(key);
+}
+
+// What a person counts: a Live Photo's two files (or a motion photo split
+// for the trip) are one picture. The still is what a browser can keep.
+function itemsOf(manifest) {
+  const items = [];
+  const groups = new Map();
+  for (const entry of manifest.files) {
+    const file = entry.file;
+    if (file.group) {
+      let item = groups.get(file.group);
+      if (!item) {
+        item = { live: true, files: [] };
+        groups.set(file.group, item);
+        items.push(item);
+      }
+      item.files.push(entry);
+      if (file.role !== "liveVideo") item.main = entry;
+    } else {
+      items.push({ live: false, files: [entry], main: entry });
+    }
+  }
+  for (const item of items) item.main = item.main || item.files[0];
+  return items;
+}
+
+async function fetchFile(entry, onBytes) {
+  const response = await fetch(api(entry.drive));
+  if (response.status === 404) throw new Error("expired");
+  if (response.status === 403 || response.status === 429) throw new Error("unavailable");
+  if (!response.ok) throw new Error("failed");
+  const reader = response.body.getReader();
+  const parts = [];
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    parts.push(value);
+    onBytes(value.length);
+  }
+  return new File(parts, entry.file.name, { type: entry.file.mime || "application/octet-stream" });
+}
+
+async function main() {
+  const id = (location.hash.match(/^#([A-Za-z0-9_-]{10,200})$/) || [])[1];
+  if (!id) return showProblem("broken");
+
+  // Opens the app when it is installed but the system showed this page
+  // anyway — a link pasted into the address bar, say.
+  $("open").textContent = t("openApp");
+  $("open").href = `auramy://share/${id}`;
+
+  let manifest;
+  try {
+    const response = await fetch(api(id));
+    if (response.status === 404) return showProblem("expired");
+    if (response.status === 403 || response.status === 429) return showProblem("unavailable");
+    if (!response.ok) return showProblem("failed");
+    manifest = await response.json();
+  } catch (error) {
+    console.error("manifest", error);
+    return showProblem("failed");
+  }
+  if (manifest.v !== 1 || !Array.isArray(manifest.files) || !manifest.files.length || !manifest.sender) return showProblem("broken");
+  if (manifest.expires <= Date.now()) return showProblem("expired");
+
+  const items = itemsOf(manifest);
+  const keep = items.map((item) => item.main);
+  const total = keep.reduce((sum, entry) => sum + entry.file.size, 0);
+  const photos = items.filter((item) => !item.main.file.mime.startsWith("video/")).length;
+  const videos = items.length - photos;
+  const until = new Intl.DateTimeFormat(lang, { dateStyle: "medium", timeStyle: "short" }).format(new Date(manifest.expires));
+
+  document.title = t("shared", { name: manifest.sender.name });
+  $("title").textContent = t("shared", { name: manifest.sender.name });
+  $("meta").textContent = [photos ? `📷 ${photos}` : "", videos ? `🎬 ${videos}` : "", formatBytes(total)].filter(Boolean).join(" · ")
+    + " — " + t("until", { date: until });
+  $("status").textContent = t("originals");
+  if (items.some((item) => item.live)) {
+    $("liveNote").textContent = t("liveNote");
+    $("liveNote").hidden = false;
+  }
+
+  const grid = $("grid");
+  for (const item of items) {
+    const entry = item.main;
+    const tile = document.createElement("a");
+    tile.className = "tile";
+    tile.href = download(entry.drive);
+    tile.setAttribute("download", entry.file.name);
+    tile.title = `${t("download")} ${entry.file.name}`;
+    const name = document.createElement("span");
+    name.className = "name";
+    name.textContent = entry.file.name;
+    tile.append(name);
+    const image = document.createElement("img");
+    image.loading = "lazy";
+    image.alt = entry.file.name;
+    image.src = thumbnail(entry.drive);
+    image.onerror = () => image.remove();
+    tile.append(image);
+    if (item.live || entry.file.mime.startsWith("video/")) {
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = item.live ? "LIVE" : "▶";
+      tile.append(tag);
+    }
+    const get = document.createElement("span");
+    get.className = "get";
+    get.setAttribute("aria-hidden", "true");
+    get.textContent = "↓";
+    tile.append(get);
+    grid.append(tile);
+  }
+
+  $("loading").hidden = true;
+  $("share").hidden = false;
+  const save = $("save");
+  const status = $("status");
+
+  if (savesToPhotos && navigator.canShare) {
+    // Safari only opens the share sheet straight from a tap, and fetching
+    // the originals outlasts one: the first tap fetches, the second shares.
+    let ready = null;
+    save.textContent = t("save");
+    save.onclick = async () => {
+      if (ready) {
+        try { await navigator.share({ files: ready }); } catch {}
+        return;
+      }
+      save.disabled = true;
+      let got = 0;
+      try {
+        const files = [];
+        for (const entry of keep) {
+          files.push(await fetchFile(entry, (bytes) => {
+            got += bytes;
+            status.textContent = t("preparing", { p: Math.floor(got * 100 / Math.max(total, 1)) });
+          }));
+        }
+        if (!navigator.canShare({ files })) throw new Error("failed");
+        ready = files;
+        status.textContent = t("ready");
+      } catch (error) {
+        status.textContent = t(["expired", "unavailable"].includes(error.message) ? error.message : "failed");
+      }
+      save.disabled = false;
+    };
+  } else {
+    save.textContent = keep.length > 1 ? t("downloadAll") : t("download");
+    save.onclick = async () => {
+      if (keep.length === 1) {
+        location.href = download(keep[0].drive);
+        return;
+      }
+      save.disabled = true;
+      let got = 0;
+      try {
+        const zip = new JSZip();
+        // Names come from two phones' libraries and may repeat; none may make a folder.
+        const used = new Set();
+        const unique = (name) => {
+          const safe = name.split(/[\\/]/).pop() || "Auramy";
+          const dot = safe.lastIndexOf(".");
+          const [stem, ext] = dot > 0 ? [safe.slice(0, dot), safe.slice(dot)] : [safe, ""];
+          let candidate = safe;
+          for (let n = 2; used.has(candidate.toLowerCase()); n++) candidate = `${stem} (${n})${ext}`;
+          used.add(candidate.toLowerCase());
+          return candidate;
+        };
+        for (const entry of keep) {
+          const file = await fetchFile(entry, (bytes) => {
+            got += bytes;
+            status.textContent = t("packing", { p: Math.floor(got * 100 / Math.max(total, 1)) });
+          });
+          // Photos are compressed already; storing them as they are is faster and no bigger.
+          zip.file(unique(entry.file.name), file, { binary: true, compression: "STORE", date: new Date(entry.file.created || Date.now()) });
+        }
+        const blob = await zip.generateAsync({ type: "blob", streamFiles: true });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = `Auramy-${manifest.sender.name}.zip`.replace(/[\\/:*?"<>|]/g, "_");
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(link.href), 60_000);
+        status.textContent = t("originals");
+      } catch (error) {
+        status.textContent = t(["expired", "unavailable"].includes(error.message) ? error.message : "failed");
+      }
+      save.disabled = false;
+    };
+  }
+}
+
+main();
+</script>
+</body>
+</html>

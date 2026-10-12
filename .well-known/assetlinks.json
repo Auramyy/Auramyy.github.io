@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.yagiz.auramy",
+      "sha256_cert_fingerprints": [
+        "7C:52:1D:C6:58:96:A8:D6:5C:05:13:85:67:C9:72:08:7A:62:EC:43:33:20:91:14:53:9B:EA:BA:B2:96:6F:A8",
+        "E1:9A:BF:F2:50:A4:6B:29:04:0D:29:5D:45:D3:05:A5:91:BD:1E:47:AE:6C:95:C9:2C:47:BE:E0:5E:5C:30:8C"
+      ]
+    }
+  }
+]

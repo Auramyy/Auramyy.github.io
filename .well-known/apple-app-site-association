@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["VKFGW2B78B.yagiz.Auramy"],
+        "components": [
+          { "/": "/s/*", "comment": "Shared links: /s/#<manifest id> opens in Auramy" },
+          { "/": "/s", "comment": "The same link without the trailing slash" }
+        ]
+      }
+    ]
+  }
+}
