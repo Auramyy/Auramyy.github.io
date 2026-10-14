@@ -3,260 +3,252 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Auramy — Photo gallery, cleanup and backup for iPhone</title>
-<meta name="description" content="Auramy is an iPhone and iPad app that shows what is filling your storage, gives you a gallery simpler than Photos, and backs your library up to your own Google Drive. No account needed.">
+<title>Auramy — Free up space, share in full quality, back up to your own Drive</title>
+<meta name="description" content="Auramy shows what is filling your phone, clears duplicates and blurry shots, shares photos with any iPhone or Android in original quality, and backs up to your own Google Drive. No account, no ads.">
 <link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="alternate" hreflang="en" href="https://auramyy.github.io/">
+<link rel="alternate" hreflang="tr" href="https://auramyy.github.io/tr/">
+<link rel="alternate" hreflang="x-default" href="https://auramyy.github.io/">
+<meta name="apple-itunes-app" content="app-id=6799639796">
 <meta property="og:title" content="Auramy">
-<meta property="og:description" content="See what is filling your iPhone, clean it up, and back it up to your own Google Drive.">
-<meta property="og:image" content="https://auramyy.github.io/assets/icon.png">
+<meta property="og:description" content="Auramy shows what is filling your phone, clears duplicates and blurry shots, shares photos with any iPhone or Android in original quality, and backs up to your own Google Drive. No account, no ads.">
+<meta property="og:image" content="https://auramyy.github.io/assets/v11/og-en.jpg">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#061820">
+<script>
+  try {
+    var pref = localStorage.getItem("auramy.lang");
+    if (!pref && /^tr\b/i.test(navigator.language || "") && !/[?&]lang=en/.test(location.search)) location.replace("tr/");
+  } catch (e) {}
+</script>
 <style>
-  :root {
-    --bg: #ffffff;
-    --surface: #f6f6f8;
-    --border: #e3e3e8;
-    --text: #1c1c1e;
-    --muted: #6a6a72;
-    --accent: #6b4ee6;
-    --accent-soft: #f2eeff;
-    --hero: linear-gradient(180deg, #f4f0ff 0%, #ffffff 100%);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #131316;
-      --surface: #1c1c21;
-      --border: #2e2e36;
-      --text: #ececf0;
-      --muted: #a0a0aa;
-      --accent: #a48bff;
-      --accent-soft: #221d38;
-      --hero: linear-gradient(180deg, #1d1830 0%, #131316 100%);
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    -webkit-text-size-adjust: 100%;
-  }
-  main { max-width: 56rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
-  a { color: var(--accent); }
+:root {
+  --bg: #ffffff; --surface: #f5f5f8; --border: #e6e6ec; --text: #15151a; --muted: #62626c;
+  --accent: #6b4ee6; --accent2: #00a98f; --chip: rgba(255,255,255,.12);
+  --aurora: radial-gradient(60% 80% at 10% 0%, #1c8a6a 0%, transparent 60%), radial-gradient(55% 80% at 95% 5%, #3a2e8c 0%, transparent 60%), radial-gradient(70% 70% at 60% 110%, #0b5a55 0%, transparent 60%), linear-gradient(180deg, #061820, #02060c);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0c0c10; --surface: #16161c; --border: #26262f; --text: #ececf2; --muted: #9d9daa; --accent: #a48bff; --accent2: #5cffc2; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
+a { color: var(--accent); }
+img { max-width: 100%; height: auto; display: block; }
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
 
-  /* Hero */
-  .hero {
-    background: var(--hero);
-    border-bottom: 1px solid var(--border);
-    padding: 4rem 1.25rem 3.5rem;
-    text-align: center;
-  }
-  .hero-inner { max-width: 40rem; margin: 0 auto; }
-  .hero img.icon {
-    width: 92px; height: 92px; border-radius: 22px;
-    box-shadow: 0 10px 30px rgba(80, 50, 180, .22);
-    margin-bottom: 1.25rem;
-  }
-  h1 { font-size: 2.6rem; line-height: 1.1; margin: 0 0 .6rem; letter-spacing: -.03em; }
-  .tagline { font-size: 1.2rem; color: var(--text); margin: 0 0 1rem; }
-  .sub { color: var(--muted); margin: 0 0 1.75rem; }
-  .badges { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
-  .badge {
-    background: var(--accent-soft); border: 1px solid var(--border);
-    border-radius: 999px; padding: .35rem .85rem; font-size: .85rem; color: var(--text);
-  }
+/* nav */
+.nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px); background: rgba(6,24,32,.62); border-bottom: 1px solid rgba(255,255,255,.08); }
+.nav .wrap { display: flex; align-items: center; gap: 1.25rem; height: 58px; }
+.brand { display: flex; align-items: center; gap: .55rem; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: -.01em; }
+.brand img { width: 30px; height: 30px; border-radius: 8px; }
+.nav nav { display: flex; gap: 1.1rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.nav nav::-webkit-scrollbar { display: none; }
+.nav nav a, .lang { color: rgba(255,255,255,.78); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+.nav nav a:hover, .lang:hover { color: #fff; }
+.lang { border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .2rem .7rem; }
+@media (max-width: 760px) { .nav nav { display: none; } .lang { margin-left: auto; } }
 
-  /* Sections */
-  h2 {
-    font-size: 1.5rem; margin: 3.5rem 0 1rem; letter-spacing: -.02em;
-    padding-top: 1.5rem; border-top: 1px solid var(--border);
-  }
-  h3 { font-size: 1.05rem; margin: 0 0 .35rem; }
-  p { margin: 0 0 1rem; }
+/* hero */
+.hero { background: var(--aurora); color: #fff; padding: 4.5rem 0 0; overflow: hidden; text-align: center; }
+.pill { display: inline-flex; align-items: center; gap: .5rem; background: var(--chip); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: .3rem .85rem .3rem .35rem; font-size: .88rem; color: rgba(255,255,255,.9); text-decoration: none; }
+.pill b { background: linear-gradient(90deg,#5cffc2,#3bd6ff); color: #04201a; border-radius: 999px; padding: .1rem .55rem; font-size: .78rem; white-space: nowrap; flex: none; }
+@media (max-width: 480px) { .pill { font-size: .8rem; text-align: left; } }
+h1 { font-size: clamp(2.5rem, 6.5vw, 4.6rem); line-height: 1.04; letter-spacing: -.035em; margin: 1.3rem auto 1.1rem; font-weight: 800; }
+h1 .glow { background: linear-gradient(90deg, #5cffc2, #3bd6ff 45%, #9b6bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lead { max-width: 40rem; margin: 0 auto 2rem; font-size: 1.15rem; color: rgba(255,255,255,.78); }
+.stores { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+.store { display: inline-flex; align-items: center; gap: .65rem; background: #000; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.28); border-radius: 14px; padding: .55rem 1.15rem .55rem .9rem; min-width: 11.5rem; transition: transform .15s ease, border-color .15s ease; }
+.store:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.55); }
+.store svg { width: 26px; height: 26px; flex: none; }
+.store span { display: flex; flex-direction: column; text-align: left; font-size: 1.12rem; font-weight: 600; line-height: 1.1; }
+.store small { font-size: .68rem; font-weight: 500; opacity: .8; letter-spacing: .02em; }
+.req { margin: 1rem 0 0; font-size: .84rem; color: rgba(255,255,255,.55); }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 1.4rem 0 0; padding: 0; list-style: none; }
+.chips li { background: var(--chip); border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: .3rem .8rem; font-size: .84rem; color: rgba(255,255,255,.85); }
+.hero-art { margin: 3rem auto 0; max-width: 72rem; padding: 0 1rem; }
+.hero-art img { width: 100%; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 72%, transparent 100%), radial-gradient(ellipse 58% 130% at 50% 50%, #000 58%, transparent 98%); -webkit-mask-composite: source-in; mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 72%, transparent 100%), radial-gradient(ellipse 58% 130% at 50% 50%, #000 58%, transparent 98%); mask-composite: intersect; }
 
-  /* Pillars with screenshots */
-  .pillars { display: grid; gap: 2.5rem; margin-top: 1.5rem; }
-  @media (min-width: 46rem) { .pillars { grid-template-columns: repeat(3, 1fr); } }
-  .pillar { text-align: center; }
-  .pillar img {
-    width: 100%; max-width: 260px; height: auto;
-    border: 1px solid var(--border); border-radius: 18px;
-    margin-bottom: 1.1rem;
-  }
-  .pillar p { color: var(--muted); font-size: .95rem; text-align: left; }
-  @media (min-width: 46rem) { .pillar p { text-align: center; } }
+/* new in 1.1 */
+.new { padding: 4rem 0 1rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 700; color: var(--accent2); margin: 0 0 .6rem; }
+.new h2, .section-h { font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: -.03em; line-height: 1.12; margin: 0 0 1.6rem; }
+.new-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.new-item { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 1.2rem 1.25rem; }
+.new-item h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+.new-item p { margin: 0; color: var(--muted); font-size: .95rem; }
 
-  /* Feature cards */
-  .cards { display: grid; gap: 1rem; margin-top: 1.25rem; }
-  @media (min-width: 40rem) { .cards { grid-template-columns: 1fr 1fr; } }
-  .card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 14px; padding: 1.1rem 1.25rem;
-  }
-  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+/* feature rows */
+.row { display: grid; gap: 2.5rem; align-items: center; padding: 3.5rem 0 .5rem; }
+@media (min-width: 52rem) { .row { grid-template-columns: 1fr 1.15fr; gap: 4rem; } .row.flip .row-media { order: 2; } }
+.row h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -.03em; line-height: 1.12; margin: 0 0 1rem; }
+.row p { color: var(--muted); font-size: 1.06rem; margin: 0 0 1.2rem; }
+.ticks { list-style: none; padding: 0; margin: 0; }
+.ticks li { position: relative; padding-left: 1.75rem; margin: .55rem 0; }
+.ticks li::before { content: ""; position: absolute; left: 0; top: .35em; width: 1.05rem; height: 1.05rem; border-radius: 50%; background: linear-gradient(135deg, #5cffc2, #3bd6ff); }
+.ticks li::after { content: ""; position: absolute; left: .34rem; top: .55em; width: .3rem; height: .55rem; border: solid #04201a; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.row-media { display: flex; justify-content: center; }
+.phone { width: min(310px, 76vw); border-radius: 46px; padding: 9px; background: linear-gradient(145deg, #3c3c44, #0e0e12 45%, #22222a); box-shadow: 0 30px 80px -20px rgba(20, 10, 60, .45), inset 0 0 0 1.5px rgba(255,255,255,.14); }
+.phone img { border-radius: 38px; width: 100%; }
+.phone.sm { width: 220px; border-radius: 32px; padding: 6px; }
+.phone.sm img { border-radius: 27px; }
 
-  .callout {
-    background: var(--accent-soft); border: 1px solid var(--border);
-    border-radius: 14px; padding: 1.2rem 1.35rem; margin: 1.5rem 0;
-  }
-  .callout p:last-child { margin-bottom: 0; }
+/* themes */
+.themes { margin-top: 5rem; padding: 4.5rem 0 4rem; background: var(--aurora); color: #fff; overflow: hidden; }
+.themes .section-h { color: #fff; }
+.themes .lead2 { color: rgba(255,255,255,.75); max-width: 38rem; margin: -.6rem 0 2.2rem; font-size: 1.06rem; }
+.strip { display: flex; gap: 1.4rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 1.25rem; padding: .5rem max(1.25rem, calc((100vw - 72rem) / 2 + 1.25rem)) 1.5rem; scrollbar-width: none; }
+.strip::-webkit-scrollbar { display: none; }
+@media (min-width: 64rem) { .strip { justify-content: center; padding-inline: 1.25rem; gap: 1.2rem; } .strip .phone.sm { width: min(210px, calc((100vw - 2.5rem - 6rem) / 6)); } }
+.strip figure { margin: 0; flex: none; scroll-snap-align: center; text-align: center; }
+.strip figcaption { margin-top: .8rem; font-size: .9rem; color: rgba(255,255,255,.8); font-weight: 600; }
 
-  ul { padding-left: 1.25rem; }
-  li { margin: .4rem 0; }
+/* cards */
+.more { padding: 4.5rem 0 1rem; }
+.cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 1.25rem 1.3rem; }
+.card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+.card p { margin: 0; color: var(--muted); font-size: .95rem; }
 
-  footer {
-    max-width: 56rem; margin: 0 auto; padding: 1.5rem 1.25rem 4rem;
-    border-top: 1px solid var(--border);
-    color: var(--muted); font-size: .9rem;
-  }
-  footer a { margin-right: 1rem; }
+/* pro */
+.pro { padding: 4.5rem 0 1rem; }
+.plans { display: grid; gap: 1.2rem; }
+@media (min-width: 46rem) { .plans { grid-template-columns: 1fr 1fr; } }
+.plan { border-radius: 22px; padding: 1.6rem 1.6rem 1.3rem; border: 1px solid var(--border); background: var(--surface); }
+.plan.pro-plan { background: var(--aurora); color: #fff; border-color: transparent; }
+.plan h3 { margin: 0 0 .25rem; font-size: 1.35rem; letter-spacing: -.02em; }
+.plan .sub { margin: 0 0 1rem; font-size: .92rem; color: var(--muted); }
+.plan.pro-plan .sub { color: rgba(255,255,255,.7); }
+.plan ul { margin: 0; padding-left: 1.15rem; }
+.plan li { margin: .4rem 0; }
+.note { color: var(--muted); font-size: .92rem; margin: 1rem 0 0; }
+
+/* privacy */
+.privacy { padding: 4.5rem 0 1rem; }
+.privacy .box { border: 1px solid var(--border); border-radius: 22px; padding: 1.6rem 1.7rem; background: linear-gradient(135deg, rgba(92,255,194,.10), rgba(155,107,255,.10)); }
+.privacy p { margin: 0 0 .9rem; }
+.privacy p:last-child { margin: 0; }
+
+/* cta + footer */
+.cta { margin-top: 5rem; background: var(--aurora); color: #fff; text-align: center; padding: 4.5rem 1.25rem; }
+.cta h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: -.035em; margin: 0 0 .4rem; }
+.cta p { color: rgba(255,255,255,.75); margin: 0 0 1.8rem; }
+footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; }
+footer .copy { flex-basis: 100%; margin: .6rem 0 0; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .store { transition: none; } }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <img class="icon" src="assets/icon.png" alt="Auramy app icon" width="92" height="92">
-    <h1>Auramy</h1>
-    <p class="tagline">See what is filling your iPhone, clear it out, and keep a copy in your own cloud.</p>
-    <p class="sub">A photo gallery, storage cleanup and backup app for iPhone and iPad.
-    <!-- After the app is live, link the App Store here:
-         <a href="https://apps.apple.com/app/idXXXXXXXXXX">Download on the App Store</a> -->
-    Coming to the App Store — requires iOS 26 or later.</p>
-    <div class="badges">
-      <span class="badge">No account required</span>
-      <span class="badge">No ads, no analytics</span>
-      <span class="badge">24 languages</span>
-      <span class="badge">Free to download</span>
-    </div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="30" height="30">Auramy</a>
+    <nav aria-label="Sections"><a href="#features">Features</a><a href="#share">Share</a><a href="#themes">Themes</a><a href="#pro">Pro</a><a href="#privacy">Privacy</a><a href="support.html">Support</a></nav>
+    <a class="lang" href="tr/" onclick="try{localStorage.setItem('auramy.lang','tr')}catch(e){}">Türkçe</a>
   </div>
 </header>
 
+<section class="hero">
+  <div class="wrap">
+    <a class="pill" href="#new"><b>New in 1.1</b>Share with any phone, and three new Pro themes →</a>
+    <h1>Your photos,<br><span class="glow">lighter and safer.</span></h1>
+    <p class="lead">See what is really filling your phone, clear the clutter in one tap, share in original quality with any iPhone or Android — and back it all up to your own Google Drive.</p>
+    <div class="stores ">
+      <a class="store" href="https://apps.apple.com/app/id6799639796" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.03-2.7 2.2-4 2.3-4.06-1.25-1.83-3.2-2.08-3.9-2.1-1.66-.17-3.24.98-4.08.98-.85 0-2.15-.96-3.53-.93-1.81.03-3.49 1.06-4.42 2.68-1.89 3.27-.48 8.1 1.35 10.76.9 1.3 1.96 2.75 3.36 2.7 1.35-.05 1.86-.87 3.49-.87 1.62 0 2.08.87 3.5.84 1.45-.03 2.37-1.32 3.25-2.62 1.03-1.5 1.45-2.96 1.47-3.04-.03-.01-2.82-1.08-2.85-4.3zM13.7 4.67c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.36.71-3.12 1.6-.68.79-1.28 2.06-1.12 3.27 1.19.09 2.4-.6 3.14-1.49z"/></svg><span><small>Download on the</small>App Store</span></a>
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.yagiz.auramy" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m17.2 15.4-3.4-3.4 3.4-3.4 3.9 2.2c1.1.6 1.1 1.8 0 2.4z"/><path fill="#EA4335" d="M13.8 12 3.6 22.2c.4.2.8.2 1.3-.1l12.3-6.7z"/><path fill="#4285F4" d="M3.6 1.8 13.8 12l3.4-3.4L4.9 1.9c-.5-.3-.9-.3-1.3-.1z"/></svg><span><small>Get it on</small>Google Play</span></a>
+    </div>
+    <p class="req">iPhone & iPad · iOS 26 or later &nbsp;·&nbsp; Android 8 or later</p>
+    <ul class="chips"><li>No account</li><li>No ads, no tracking</li><li>24 languages</li><li>Free to download</li></ul>
+  </div>
+  <div class="hero-art">
+    <picture>
+      <source media="(max-width: 700px)" srcset="assets/v11/hero-en-1200.webp">
+      <img src="assets/v11/hero-en.webp" alt="Auramy on five phones: gallery, Deep Clean, home, share and receive screens" width="2400" height="1029" fetchpriority="high">
+    </picture>
+  </div>
+</section>
+
 <main>
+  <section class="new" id="new">
+    <div class="wrap">
+      <p class="eyebrow">New in 1.1</p>
+      <h2>Share with any phone, and three new Pro themes</h2>
+      <div class="new-grid"><div class="new-item"><h3>Share with any phone</h3><p>Send photos and videos to an iPhone or Android next to you, in original quality — no internet, no account, no compression.</p></div><div class="new-item"><h3>Share by link</h3><p>Create a 7-day link through your own Google Drive. Anyone can download the originals in Auramy or a browser.</p></div><div class="new-item"><h3>Shared with You</h3><p>Everything you receive lands in its own gallery category, and backs up to Drive like the rest.</p></div><div class="new-item"><h3>Three Pro themes</h3><p>Titanium, Emerald and Aurora restyle every screen, down to the icons.</p></div></div>
+    </div>
+  </section>
 
-  <h2>Three things, one app</h2>
-
-  <div class="pillars">
-    <div class="pillar">
-      <img src="assets/home.png" alt="Auramy home screen showing a storage ring at 28.8% used, device totals, and Deep Clean and Quick Clean buttons" loading="lazy">
-      <h3>Know your storage</h3>
-      <p>A single figure for what is used and what is left, then a breakdown by photos,
-      videos, screenshots and recordings — with the size of every file, which Photos
-      never shows you anywhere.</p>
-    </div>
-    <div class="pillar">
-      <img src="assets/gallery.png" alt="Auramy gallery screen with search and category rows for camera photos, videos, screenshots and recordings" loading="lazy">
-      <h3>A gallery that stays out of the way</h3>
-      <p>Camera photos, videos, screenshots and downloads as plain rows you can scroll.
-      Search by name, date or keyword — the index is built for you in the background,
-      so it works the first time you look.</p>
-    </div>
-    <div class="pillar">
-      <img src="assets/drive.png" alt="Auramy Drive screen showing Google Drive usage, free space and a connected account" loading="lazy">
-      <h3>Back up in one place</h3>
-      <p>Send your library to a folder in <em>your own</em> Google Drive, filed by category
-      and date. There is no Auramy server and no account to create.</p>
-    </div>
+  <div class="wrap">
+    <section class="row" id="features">
+      <div class="row-media"><div class="phone"><img src="assets/v11/1-home-en.webp" alt="Auramy home screen with a storage ring, totals and Deep Clean" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>Know your storage</h2><p>One ring for what is used and what is left, then a breakdown by camera photos, videos, screenshots and downloads — with the real size of every file, which Photos never shows you.</p><ul class="ticks"><li>Sort by size, date or type</li><li>Search with words like “selfie 2024”, “>100mb” or “last week”</li><li>On This Day memories on Home</li></ul></div>
+    </section><section class="row flip" id="share">
+      <div class="row-media"><div class="phone"><img src="assets/v11/2-share-en.webp" alt="Auramy share hub with nearby send and receive, open a link, Shared with You and My Links" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>Share with any phone, in full quality</h2><p>Nearby sharing sends originals straight from one phone to another, iPhone or Android. On the same Wi-Fi it finds the other phone by itself; without one, scan a code and the two connect directly.</p><ul class="ticks"><li>Original files — Live Photos and Motion Photos included</li><li>No internet and no account needed</li><li>Remove location before sending, if you like</li><li>Free, with no limit</li></ul></div>
+    </section><section class="row">
+      <div class="row-media"><div class="phone"><img src="assets/v11/4-receive-en.webp" alt="Auramy receive screen with a QR code" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>No Wi-Fi? Scan and send</h2><p>The receiving phone shows a code; the sending phone scans it and the transfer starts — at Wi-Fi speeds, with no network around. For someone far away, share a 7-day link from your own Google Drive instead.</p><ul class="ticks"><li>Works between iPhone and Android</li><li>A link opens in Auramy, or in any browser</li><li>Stop sharing a link at any time</li></ul></div>
+    </section><section class="row flip">
+      <div class="row-media"><div class="phone"><img src="assets/v11/3-deep-en.webp" alt="Auramy Deep Clean results with duplicates and blurry photos" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>Clear the clutter in one tap</h2><p>Deep Clean finds exact duplicates, near-identical bursts, blurry and accidental shots, and screenshots you are done with — one-time codes, used tickets — and keeps the best shot of each burst.</p><ul class="ticks"><li>See everything before anything is deleted</li><li>Favourites are never touched</li><li>Deletions stay recoverable for 30 days</li><li>Exact duplicates are free to clear</li></ul></div>
+    </section><section class="row">
+      <div class="row-media"><div class="phone"><img src="assets/v11/5-gallery-en.webp" alt="Auramy gallery with category rows" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>A gallery that stays out of the way</h2><p>Camera photos, videos, screenshots, downloads and Shared with You, each as a plain row you can scroll. Pinch any grid to zoom, just like Photos.</p><ul class="ticks"><li>Photo and video editor built in</li><li>Back up a whole category in one tap</li><li>Private vault behind its own PIN</li></ul></div>
+    </section>
   </div>
 
-  <h2>What it does</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Find the clutter</h3>
-      <p>Screen recordings, videos over 100&nbsp;MB, screenshots older than six months
-      and oversized photos, each in its own group with a running total. Nothing is
-      ever pre-ticked, and favourites are never suggested.</p>
+  <section class="themes" id="themes">
+    <div class="wrap">
+      <h2 class="section-h">Six looks, one app</h2>
+      <p class="lead2">Light and Dark are free. Neon, Titanium, Emerald and Aurora come with Pro and restyle every screen, down to the icons.</p>
     </div>
-    <div class="card">
-      <h3>Duplicates, side by side</h3>
-      <p>Every group is laid out so you can see which copy is being kept before
-      anything happens — overrule it, or wave the whole group off with Keep All.</p>
+    <div class="strip"><figure><div class="phone sm"><img src="assets/v11/1-home-en.webp" alt="Aurora" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>Aurora</figcaption></figure><figure><div class="phone sm"><img src="assets/v11/2-share-en.webp" alt="Light" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>Light</figcaption></figure><figure><div class="phone sm"><img src="assets/v11/3-deep-en.webp" alt="Neon" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>Neon</figcaption></figure><figure><div class="phone sm"><img src="assets/v11/4-receive-en.webp" alt="Dark" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>Dark</figcaption></figure><figure><div class="phone sm"><img src="assets/v11/5-gallery-en.webp" alt="Titanium" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>Titanium</figcaption></figure><figure><div class="phone sm"><img src="assets/v11/6-themes-en.webp" alt="Emerald" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>Emerald</figcaption></figure></div>
+  </section>
+
+  <section class="more">
+    <div class="wrap">
+      <h2 class="section-h">And everything else</h2>
+      <div class="cards"><div class="card"><h3>Back up to your own Google Drive</h3><p>Back up and restore whenever you want, free. Auramy asks only for the “drive.file” permission, so it sees nothing in your Drive but the files it created.</p></div><div class="card"><h3>Free up space safely</h3><p>Remove from your phone what is already safe in Drive — only what has a verified copy.</p></div><div class="card"><h3>Shrink videos, keep the memory</h3><p>Re-encode 4K clips to 1080p with their date and location intact. A result that isn't meaningfully smaller is thrown away.</p></div><div class="card"><h3>Restore to a new phone</h3><p>Connect the same account and Auramy brings back what your backup has and the phone doesn't.</p></div><div class="card"><h3>Widgets and shortcuts</h3><p>Storage and photo widgets, Shortcuts and Control Centre on iPhone, Quick Settings tiles on Android.</p></div><div class="card"><h3>Locked when you want it</h3><p>An optional Face ID or fingerprint lock on the whole app.</p></div></div>
     </div>
-    <div class="card">
-      <h3>Deleting is always reversible</h3>
-      <p>Removals go through the system's own confirmation into
-      Photos&nbsp;&rsaquo;&nbsp;Recently Deleted, where they stay recoverable for
-      30 days.</p>
+  </section>
+
+  <section class="pro" id="pro">
+    <div class="wrap">
+      <h2 class="section-h">Free, and Auramy Pro</h2>
+      <div class="plans">
+        <div class="plan"><h3>Free, for good</h3><p class="sub">&nbsp;</p><ul><li>Gallery, search and storage breakdown</li><li>Nearby sharing and share links</li><li>Duplicate and cleanup scans</li><li>Backup on demand and restore from Drive</li><li>Photo and video editors</li><li>Widgets, shortcuts and app lock</li><li>Light and Dark themes</li></ul></div>
+        <div class="plan pro-plan"><h3>Auramy Pro</h3><p class="sub">Pay once for life, or subscribe yearly</p><ul><li>Deep Clean in one tap</li><li>Unlimited bulk delete (free: 10 at a time)</li><li>Video compression</li><li>Original-quality backup — ProRAW, 48 MP, 4K</li><li>Automatic background backup</li><li>Drive folders by category, year and month</li><li>Neon, Titanium, Emerald and Aurora themes</li><li>Alternate app icons</li></ul></div>
+      </div>
+      <p class="note">Turning a Pro feature off is never locked, so a lapsed subscription can never strand a backup.</p>
     </div>
-    <div class="card">
-      <h3>Shrink videos, keep the memory</h3>
-      <p>Re-encode 4K clips to 1080p, carrying the original date and location so they
-      stay put in your library. A re-encode that isn't meaningfully smaller is thrown
-      away and your original kept.</p>
+  </section>
+
+  <section class="privacy" id="privacy">
+    <div class="wrap">
+      <h2 class="section-h">Your photos stay yours</h2>
+      <div class="box"><p>No analytics, no crash reporting, no ads and no Auramy account. Nothing about you or your library is sent to the developer.</p><p>Scanning, duplicate detection and focus checks run on your phone. Nearby sharing goes phone to phone; share links and backups live in <em>your</em> Google Drive.</p><p>Read the full <a href="privacy.html">privacy policy</a>.</p></div>
     </div>
-    <div class="card">
-      <h3>Restore to a new phone</h3>
-      <p>Connect the same Google account and Auramy downloads what your backup has and
-      the device doesn't. Restoring is never behind a paywall — your files are your files.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Make room for what matters.</h2>
+    <p>Free on iPhone, iPad and Android.</p>
+    <div class="stores ">
+      <a class="store" href="https://apps.apple.com/app/id6799639796" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.03-2.7 2.2-4 2.3-4.06-1.25-1.83-3.2-2.08-3.9-2.1-1.66-.17-3.24.98-4.08.98-.85 0-2.15-.96-3.53-.93-1.81.03-3.49 1.06-4.42 2.68-1.89 3.27-.48 8.1 1.35 10.76.9 1.3 1.96 2.75 3.36 2.7 1.35-.05 1.86-.87 3.49-.87 1.62 0 2.08.87 3.5.84 1.45-.03 2.37-1.32 3.25-2.62 1.03-1.5 1.45-2.96 1.47-3.04-.03-.01-2.82-1.08-2.85-4.3zM13.7 4.67c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.36.71-3.12 1.6-.68.79-1.28 2.06-1.12 3.27 1.19.09 2.4-.6 3.14-1.49z"/></svg><span><small>Download on the</small>App Store</span></a>
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.yagiz.auramy" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m17.2 15.4-3.4-3.4 3.4-3.4 3.9 2.2c1.1.6 1.1 1.8 0 2.4z"/><path fill="#EA4335" d="M13.8 12 3.6 22.2c.4.2.8.2 1.3-.1l12.3-6.7z"/><path fill="#4285F4" d="M3.6 1.8 13.8 12l3.4-3.4L4.9 1.9c-.5-.3-.9-.3-1.3-.1z"/></svg><span><small>Get it on</small>Google Play</span></a>
     </div>
-    <div class="card">
-      <h3>Widgets, Shortcuts, Control Centre</h3>
-      <p>Storage and a photo on your Home Screen, three Control Centre buttons, and
-      fourteen Shortcuts actions — back up now, scan for duplicates, search your
-      library — for Siri and automations.</p>
-    </div>
-    <div class="card">
-      <h3>Editors built in</h3>
-      <p>Crop, rotate, adjust and filter photos; trim, speed up and export videos.
-      No round trip through another app.</p>
-    </div>
-    <div class="card">
-      <h3>Locked, and quiet about your location</h3>
-      <p>An optional Face&nbsp;ID lock on the whole app, and GPS coordinates stripped
-      from anything you share out — both free, both switchable.</p>
-    </div>
-  </div>
-
-  <h2>Free, and Auramy Pro</h2>
-
-  <p>Auramy is free to download and stays genuinely useful without paying: the gallery,
-  search, the storage breakdown, both editors, the duplicate and cleanup scans, widgets,
-  Shortcuts, the Face&nbsp;ID lock, backing up on demand and restoring from Drive all
-  work as they are. Seeing exactly how much space you could recover is free and unlimited.</p>
-
-  <p><strong>Auramy Pro</strong> — a one-time lifetime purchase, or a yearly
-  subscription with a 3-day trial — adds:</p>
-
-  <ul>
-    <li><strong>Deep Clean</strong>: one pass over duplicates, near-identical bursts,
-    out-of-focus photos and stale screenshots, cleared in a single confirmation</li>
-    <li>Unlimited bulk delete, including Select All (free removes up to 10 items at a time)</li>
-    <li>Video compression to 1080p</li>
-    <li>Original-quality backup — ProRAW, 48&nbsp;MP and 4K reach Drive untouched</li>
-    <li>Automatic background backup, and Drive folders by category, year and month</li>
-    <li>Alternate app icons</li>
-  </ul>
-
-  <p>Turning a Pro feature <em>off</em> is never gated, so a lapsed subscription can
-  never strand a backup or lock you out of your own app.</p>
-
-  <h2>Your photos stay yours</h2>
-
-  <div class="callout">
-    <p>There are no analytics, no crash reporting, no advertising and no Auramy account.
-    Nothing about you or your library is sent to the developer.</p>
-    <p>Scanning, duplicate detection and focus assessment all run on your device.
-    Backups go to <em>your</em> Google Drive, and Auramy asks Google for only the
-    <code>drive.file</code> permission — it can see nothing in that Drive except the
-    files it created itself.</p>
-    <p>Read the full <a href="privacy.html">privacy policy</a>.</p>
-  </div>
-
-  <h2>Questions?</h2>
-
-  <p>The <a href="support.html">support page</a>
-  answers the common ones. Anything else — bugs, feature requests, or just a question —
-  goes to <a href="mailto:yagjz@icloud.com">yagjz@icloud.com</a>. Auramy is made by one
-  person, so please allow a couple of days for a reply.</p>
-
+  </section>
 </main>
 
 <footer>
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="support.html">Support</a>
-  <a href="mailto:yagjz@icloud.com">Contact</a>
-  <p>© 2026 Mustafa Yağız. Auramy is not affiliated with Apple or Google.</p>
+  <div class="wrap">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="support.html">Support</a>
+    <a href="mailto:yagjz@icloud.com">Contact</a>
+    <p class="copy">© 2026 Mustafa Yağız. Auramy is not affiliated with Apple or Google.</p>
+  </div>
 </footer>
 
 </body>
