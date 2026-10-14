@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auramy — 空き容量を増やし、オリジナル画質で共有し、自分のドライブにバックアップ</title>
+<meta name="description" content="Auramyは、スマホの容量を何が使っているかを見せ、重複やブレた写真を整理し、どのiPhoneやAndroidともオリジナル画質で写真を共有し、自分のGoogleドライブにバックアップします。アカウント不要、広告なし。">
+<link rel="icon" href="../assets/icon.png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<link rel="canonical" href="https://auramyy.github.io/ja/">
+<link rel="alternate" hreflang="en" href="https://auramyy.github.io/">
+<link rel="alternate" hreflang="tr" href="https://auramyy.github.io/tr/">
+<link rel="alternate" hreflang="de" href="https://auramyy.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://auramyy.github.io/fr/">
+<link rel="alternate" hreflang="es" href="https://auramyy.github.io/es/">
+<link rel="alternate" hreflang="it" href="https://auramyy.github.io/it/">
+<link rel="alternate" hreflang="pt-PT" href="https://auramyy.github.io/pt/">
+<link rel="alternate" hreflang="nl" href="https://auramyy.github.io/nl/">
+<link rel="alternate" hreflang="ru" href="https://auramyy.github.io/ru/">
+<link rel="alternate" hreflang="uk" href="https://auramyy.github.io/uk/">
+<link rel="alternate" hreflang="pl" href="https://auramyy.github.io/pl/">
+<link rel="alternate" hreflang="da" href="https://auramyy.github.io/da/">
+<link rel="alternate" hreflang="sv" href="https://auramyy.github.io/sv/">
+<link rel="alternate" hreflang="nb" href="https://auramyy.github.io/nb/">
+<link rel="alternate" hreflang="fi" href="https://auramyy.github.io/fi/">
+<link rel="alternate" hreflang="ja" href="https://auramyy.github.io/ja/">
+<link rel="alternate" hreflang="ko" href="https://auramyy.github.io/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://auramyy.github.io/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://auramyy.github.io/zh-hant/">
+<link rel="alternate" hreflang="ar" href="https://auramyy.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://auramyy.github.io/hi/">
+<link rel="alternate" hreflang="th" href="https://auramyy.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://auramyy.github.io/vi/">
+<link rel="alternate" hreflang="id" href="https://auramyy.github.io/id/">
+<link rel="alternate" hreflang="x-default" href="https://auramyy.github.io/">
+<meta name="apple-itunes-app" content="app-id=6799639796">
+<meta property="og:title" content="Auramy">
+<meta property="og:description" content="Auramyは、スマホの容量を何が使っているかを見せ、重複やブレた写真を整理し、どのiPhoneやAndroidともオリジナル画質で写真を共有し、自分のGoogleドライブにバックアップします。アカウント不要、広告なし。">
+<meta property="og:image" content="https://auramyy.github.io/assets/v11/og-ja.jpg">
+<meta property="og:url" content="https://auramyy.github.io/ja/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#061820">
+
+<style>
+:root {
+  --bg: #ffffff; --surface: #f5f5f8; --border: #e6e6ec; --text: #15151a; --muted: #62626c;
+  --accent: #6b4ee6; --accent2: #00a98f; --chip: rgba(255,255,255,.12);
+  --aurora: radial-gradient(60% 80% at 10% 0%, #1c8a6a 0%, transparent 60%), radial-gradient(55% 80% at 95% 5%, #3a2e8c 0%, transparent 60%), radial-gradient(70% 70% at 60% 110%, #0b5a55 0%, transparent 60%), linear-gradient(180deg, #061820, #02060c);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0c0c10; --surface: #16161c; --border: #26262f; --text: #ececf2; --muted: #9d9daa; --accent: #a48bff; --accent2: #5cffc2; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
+a { color: var(--accent); }
+img { max-width: 100%; height: auto; display: block; }
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+
+/* nav */
+.nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px); background: rgba(6,24,32,.62); border-bottom: 1px solid rgba(255,255,255,.08); }
+.nav .wrap { display: flex; align-items: center; gap: 1.25rem; height: 58px; }
+.brand { display: flex; align-items: center; gap: .55rem; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: -.01em; }
+.brand img { width: 30px; height: 30px; border-radius: 8px; }
+.nav nav { display: flex; gap: 1.1rem; margin-inline-start: auto; overflow-x: auto; scrollbar-width: none; }
+.nav nav::-webkit-scrollbar { display: none; }
+.nav nav a { color: rgba(255,255,255,.78); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+.nav nav a:hover { color: #fff; }
+@media (max-width: 760px) { .nav nav { display: none; } .langs { margin-inline-start: auto; } }
+
+/* language menu */
+.langs { position: relative; flex: none; }
+.langs summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.85); font-size: .9rem; white-space: nowrap; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .2rem .75rem; }
+.langs summary::-webkit-details-marker { display: none; }
+.langs summary:hover, .langs[open] summary { color: #fff; border-color: rgba(255,255,255,.45); }
+.langs .menu { position: absolute; inset-inline-end: 0; top: calc(100% + .5rem); display: grid; grid-template-columns: repeat(2, minmax(8.5rem, 1fr)); gap: .1rem; padding: .45rem; max-height: min(70vh, 30rem); overflow-y: auto; background: rgba(10,22,30,.96); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; box-shadow: 0 20px 50px -10px rgba(0,0,0,.6); }
+.langs .menu a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .9rem; padding: .4rem .65rem; border-radius: 9px; white-space: nowrap; }
+.langs .menu a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.langs .menu a[aria-current] { background: rgba(92,255,194,.14); color: #5cffc2; }
+@media (max-width: 380px) { .langs .menu { grid-template-columns: 1fr; } }
+
+/* hero */
+.hero { background: var(--aurora); color: #fff; padding: 4.5rem 0 0; overflow: hidden; text-align: center; }
+.pill { display: inline-flex; align-items: center; gap: .5rem; background: var(--chip); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding-block: .3rem; padding-inline: .35rem .85rem; font-size: .88rem; color: rgba(255,255,255,.9); text-decoration: none; }
+.pill b { background: linear-gradient(90deg,#5cffc2,#3bd6ff); color: #04201a; border-radius: 999px; padding: .1rem .55rem; font-size: .78rem; white-space: nowrap; flex: none; }
+@media (max-width: 480px) { .pill { font-size: .8rem; text-align: start; } }
+h1 { font-size: clamp(2.5rem, 6.5vw, 4.6rem); line-height: 1.04; letter-spacing: -.035em; margin: 1.3rem auto 1.1rem; font-weight: 800; }
+h1 .glow { background: linear-gradient(90deg, #5cffc2, #3bd6ff 45%, #9b6bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lead { max-width: 40rem; margin: 0 auto 2rem; font-size: 1.15rem; color: rgba(255,255,255,.78); }
+.stores { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+.store { display: inline-flex; align-items: center; gap: .65rem; background: #000; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.28); border-radius: 14px; padding-block: .55rem; padding-inline: .9rem 1.15rem; min-width: 11.5rem; transition: transform .15s ease, border-color .15s ease; }
+.store:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.55); }
+.store svg { width: 26px; height: 26px; flex: none; }
+.store span { display: flex; flex-direction: column; text-align: start; font-size: 1.12rem; font-weight: 600; line-height: 1.1; }
+.store small { font-size: .68rem; font-weight: 500; opacity: .8; letter-spacing: .02em; }
+.req { margin: 1rem 0 0; font-size: .84rem; color: rgba(255,255,255,.55); }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 1.4rem 0 0; padding: 0; list-style: none; }
+.chips li { background: var(--chip); border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: .3rem .8rem; font-size: .84rem; color: rgba(255,255,255,.85); }
+.hero-art { margin: 3rem auto 0; max-width: 72rem; padding: 0 1rem; }
+.hero-art img { width: 100%; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 72%, transparent 100%), radial-gradient(ellipse 58% 130% at 50% 50%, #000 58%, transparent 98%); -webkit-mask-composite: source-in; mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 72%, transparent 100%), radial-gradient(ellipse 58% 130% at 50% 50%, #000 58%, transparent 98%); mask-composite: intersect; }
+
+/* new in 1.1 */
+.new { padding: 4rem 0 1rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 700; color: var(--accent2); margin: 0 0 .6rem; }
+.new h2, .section-h { font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: -.03em; line-height: 1.12; margin: 0 0 1.6rem; }
+.new-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.new-item { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 1.2rem 1.25rem; }
+.new-item h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+.new-item p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+/* feature rows */
+.row { display: grid; gap: 2.5rem; align-items: center; padding: 3.5rem 0 .5rem; }
+@media (min-width: 52rem) { .row { grid-template-columns: 1fr 1.15fr; gap: 4rem; } .row.flip .row-media { order: 2; } }
+.row h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -.03em; line-height: 1.12; margin: 0 0 1rem; }
+.row p { color: var(--muted); font-size: 1.06rem; margin: 0 0 1.2rem; }
+.ticks { list-style: none; padding: 0; margin: 0; }
+.ticks li { position: relative; padding-inline-start: 1.75rem; margin: .55rem 0; }
+.ticks li::before { content: ""; position: absolute; inset-inline-start: 0; top: .35em; width: 1.05rem; height: 1.05rem; border-radius: 50%; background: linear-gradient(135deg, #5cffc2, #3bd6ff); }
+.ticks li::after { content: ""; position: absolute; inset-inline-start: .34rem; top: .55em; width: .3rem; height: .55rem; border: solid #04201a; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.row-media { display: flex; justify-content: center; }
+.phone { width: min(310px, 76vw); border-radius: 46px; padding: 9px; background: linear-gradient(145deg, #3c3c44, #0e0e12 45%, #22222a); box-shadow: 0 30px 80px -20px rgba(20, 10, 60, .45), inset 0 0 0 1.5px rgba(255,255,255,.14); }
+.phone img { border-radius: 38px; width: 100%; }
+.phone.sm { width: 220px; border-radius: 32px; padding: 6px; }
+.phone.sm img { border-radius: 27px; }
+
+/* themes */
+.themes { margin-top: 5rem; padding: 4.5rem 0 4rem; background: var(--aurora); color: #fff; overflow: hidden; }
+.themes .section-h { color: #fff; }
+.themes .lead2 { color: rgba(255,255,255,.75); max-width: 38rem; margin: -.6rem 0 2.2rem; font-size: 1.06rem; }
+.strip { display: flex; gap: 1.4rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 1.25rem; padding: .5rem max(1.25rem, calc((100vw - 72rem) / 2 + 1.25rem)) 1.5rem; scrollbar-width: none; }
+.strip::-webkit-scrollbar { display: none; }
+@media (min-width: 64rem) { .strip { justify-content: center; padding-inline: 1.25rem; gap: 1.2rem; } .strip .phone.sm { width: min(210px, calc((100vw - 2.5rem - 6rem) / 6)); } }
+.strip figure { margin: 0; flex: none; scroll-snap-align: center; text-align: center; }
+.strip figcaption { margin-top: .8rem; font-size: .9rem; color: rgba(255,255,255,.8); font-weight: 600; }
+
+/* cards */
+.more { padding: 4.5rem 0 1rem; }
+.cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 1.25rem 1.3rem; }
+.card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+.card p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+/* pro */
+.pro { padding: 4.5rem 0 1rem; }
+.plans { display: grid; gap: 1.2rem; }
+@media (min-width: 46rem) { .plans { grid-template-columns: 1fr 1fr; } }
+.plan { border-radius: 22px; padding: 1.6rem 1.6rem 1.3rem; border: 1px solid var(--border); background: var(--surface); }
+.plan.pro-plan { background: var(--aurora); color: #fff; border-color: transparent; }
+.plan h3 { margin: 0 0 .25rem; font-size: 1.35rem; letter-spacing: -.02em; }
+.plan .sub { margin: 0 0 1rem; font-size: .92rem; color: var(--muted); }
+.plan.pro-plan .sub { color: rgba(255,255,255,.7); }
+.plan ul { margin: 0; padding-inline-start: 1.15rem; }
+.plan li { margin: .4rem 0; }
+.note { color: var(--muted); font-size: .92rem; margin: 1rem 0 0; }
+
+/* privacy */
+.privacy { padding: 4.5rem 0 1rem; }
+.privacy .box { border: 1px solid var(--border); border-radius: 22px; padding: 1.6rem 1.7rem; background: linear-gradient(135deg, rgba(92,255,194,.10), rgba(155,107,255,.10)); }
+.privacy p { margin: 0 0 .9rem; }
+.privacy p:last-child { margin: 0; }
+
+/* cta + footer */
+.cta { margin-top: 5rem; background: var(--aurora); color: #fff; text-align: center; padding: 4.5rem 1.25rem; }
+.cta h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: -.035em; margin: 0 0 .4rem; }
+.cta p { color: rgba(255,255,255,.75); margin: 0 0 1.8rem; }
+footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; }
+footer .copy { flex-basis: 100%; margin: .6rem 0 0; }
+
+/* scripts: no negative tracking or forced capitals where they break joining or read badly */
+:is(:lang(ar), :lang(hi), :lang(th), :lang(ja), :lang(ko), :lang(zh)) :is(h1, h2, h3, .brand, .eyebrow) { letter-spacing: 0; }
+:is(:lang(ar), :lang(hi), :lang(th)) h1 { line-height: 1.25; }
+:is(:lang(ar), :lang(hi), :lang(th)) :is(.row h2, .section-h, .new h2) { line-height: 1.35; }
+:lang(ko) { word-break: keep-all; }
+:is(:lang(ja), :lang(zh)) { line-break: strict; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .store { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/icon.png" alt="" width="30" height="30">Auramy</a>
+    <nav aria-label="セクション"><a href="#features">機能</a><a href="#share">共有</a><a href="#themes">テーマ</a><a href="#pro">Pro</a><a href="#privacy">プライバシー</a><a href="support.html">サポート</a></nav>
+    <details class="langs"><summary aria-label="Language"><svg viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg><span>日本語</span></summary><div class="menu"><a href="../" lang="en" hreflang="en" onclick="try{localStorage.setItem('auramy.lang','en')}catch(e){}">English</a><a href="../tr/" lang="tr" hreflang="tr" onclick="try{localStorage.setItem('auramy.lang','tr')}catch(e){}">Türkçe</a><a href="../de/" lang="de" hreflang="de" onclick="try{localStorage.setItem('auramy.lang','de')}catch(e){}">Deutsch</a><a href="../fr/" lang="fr" hreflang="fr" onclick="try{localStorage.setItem('auramy.lang','fr')}catch(e){}">Français</a><a href="../es/" lang="es" hreflang="es" onclick="try{localStorage.setItem('auramy.lang','es')}catch(e){}">Español</a><a href="../it/" lang="it" hreflang="it" onclick="try{localStorage.setItem('auramy.lang','it')}catch(e){}">Italiano</a><a href="../pt/" lang="pt-PT" hreflang="pt-PT" onclick="try{localStorage.setItem('auramy.lang','pt')}catch(e){}">Português</a><a href="../nl/" lang="nl" hreflang="nl" onclick="try{localStorage.setItem('auramy.lang','nl')}catch(e){}">Nederlands</a><a href="../ru/" lang="ru" hreflang="ru" onclick="try{localStorage.setItem('auramy.lang','ru')}catch(e){}">Русский</a><a href="../uk/" lang="uk" hreflang="uk" onclick="try{localStorage.setItem('auramy.lang','uk')}catch(e){}">Українська</a><a href="../pl/" lang="pl" hreflang="pl" onclick="try{localStorage.setItem('auramy.lang','pl')}catch(e){}">Polski</a><a href="../da/" lang="da" hreflang="da" onclick="try{localStorage.setItem('auramy.lang','da')}catch(e){}">Dansk</a><a href="../sv/" lang="sv" hreflang="sv" onclick="try{localStorage.setItem('auramy.lang','sv')}catch(e){}">Svenska</a><a href="../nb/" lang="nb" hreflang="nb" onclick="try{localStorage.setItem('auramy.lang','nb')}catch(e){}">Norsk</a><a href="../fi/" lang="fi" hreflang="fi" onclick="try{localStorage.setItem('auramy.lang','fi')}catch(e){}">Suomi</a><a href="../ja/" lang="ja" hreflang="ja" aria-current="page" onclick="try{localStorage.setItem('auramy.lang','ja')}catch(e){}">日本語</a><a href="../ko/" lang="ko" hreflang="ko" onclick="try{localStorage.setItem('auramy.lang','ko')}catch(e){}">한국어</a><a href="../zh-hans/" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('auramy.lang','zh-Hans')}catch(e){}">简体中文</a><a href="../zh-hant/" lang="zh-Hant" hreflang="zh-Hant" onclick="try{localStorage.setItem('auramy.lang','zh-Hant')}catch(e){}">繁體中文</a><a href="../ar/" lang="ar" hreflang="ar" onclick="try{localStorage.setItem('auramy.lang','ar')}catch(e){}">العربية</a><a href="../hi/" lang="hi" hreflang="hi" onclick="try{localStorage.setItem('auramy.lang','hi')}catch(e){}">हिन्दी</a><a href="../th/" lang="th" hreflang="th" onclick="try{localStorage.setItem('auramy.lang','th')}catch(e){}">ไทย</a><a href="../vi/" lang="vi" hreflang="vi" onclick="try{localStorage.setItem('auramy.lang','vi')}catch(e){}">Tiếng Việt</a><a href="../id/" lang="id" hreflang="id" onclick="try{localStorage.setItem('auramy.lang','id')}catch(e){}">Bahasa Indonesia</a></div></details>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <a class="pill" href="#new"><b>1.1の新機能</b>どのスマホとも共有、そして3つの新しいProテーマ →</a>
+    <h1>あなたの写真を、<br><span class="glow">もっと軽く、安全に。</span></h1>
+    <p class="lead">スマホの容量を本当に使っているものを見つけ、ワンタップで整理。どのiPhoneやAndroidともオリジナル画質で共有し、すべてを自分のGoogleドライブにバックアップできます。</p>
+    <div class="stores">
+      <a class="store" href="https://apps.apple.com/app/id6799639796" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.03-2.7 2.2-4 2.3-4.06-1.25-1.83-3.2-2.08-3.9-2.1-1.66-.17-3.24.98-4.08.98-.85 0-2.15-.96-3.53-.93-1.81.03-3.49 1.06-4.42 2.68-1.89 3.27-.48 8.1 1.35 10.76.9 1.3 1.96 2.75 3.36 2.7 1.35-.05 1.86-.87 3.49-.87 1.62 0 2.08.87 3.5.84 1.45-.03 2.37-1.32 3.25-2.62 1.03-1.5 1.45-2.96 1.47-3.04-.03-.01-2.82-1.08-2.85-4.3zM13.7 4.67c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.36.71-3.12 1.6-.68.79-1.28 2.06-1.12 3.27 1.19.09 2.4-.6 3.14-1.49z"/></svg><span><small>App Storeから</small>ダウンロード</span></a>
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.yagiz.auramy" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m17.2 15.4-3.4-3.4 3.4-3.4 3.9 2.2c1.1.6 1.1 1.8 0 2.4z"/><path fill="#EA4335" d="M13.8 12 3.6 22.2c.4.2.8.2 1.3-.1l12.3-6.7z"/><path fill="#4285F4" d="M3.6 1.8 13.8 12l3.4-3.4L4.9 1.9c-.5-.3-.9-.3-1.3-.1z"/></svg><span><small>Google Playで</small>手に入れよう</span></a>
+    </div>
+    <p class="req">iPhone・iPad：iOS 26以降 &nbsp;·&nbsp; Android 8以降</p>
+    <ul class="chips"><li>アカウント不要</li><li>広告・トラッキングなし</li><li>24言語</li><li>無料でダウンロード</li></ul>
+  </div>
+  <div class="hero-art">
+    <picture>
+      <source media="(max-width: 700px)" srcset="../assets/v11/hero-ja-1200.webp">
+      <img src="../assets/v11/hero-ja.webp" alt="5台のスマホに表示されたAuramy：ギャラリー、ディープクリーン、ホーム、共有、受信の画面" width="2400" height="1029" fetchpriority="high">
+    </picture>
+  </div>
+</section>
+
+<main>
+  <section class="new" id="new">
+    <div class="wrap">
+      <p class="eyebrow">1.1の新機能</p>
+      <h2>どのスマホとも共有、そして3つの新しいProテーマ</h2>
+      <div class="new-grid"><div class="new-item"><h3>どのスマホとも共有</h3><p>写真やビデオを隣のiPhoneやAndroidにオリジナル画質で送信。インターネットもアカウントも不要で、圧縮もしません。</p></div><div class="new-item"><h3>リンクで共有</h3><p>自分のGoogleドライブで7日間有効なリンクを作成。受け取った人はAuramyまたはブラウザでオリジナルをダウンロードできます。</p></div><div class="new-item"><h3>あなたと共有</h3><p>受け取ったものはすべてギャラリーの専用カテゴリに入り、ほかと同じようにドライブにバックアップされます。</p></div><div class="new-item"><h3>3つのProテーマ</h3><p>チタニウム、エメラルド、オーロラが、アイコンまですべての画面を一新します。</p></div></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="row" id="features">
+      <div class="row-media"><div class="phone"><img src="../assets/v11/1-home-ja.webp" alt="容量リング、合計、ディープクリーンが並ぶAuramyのホーム画面" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>容量をひと目で</h2><p>使用中と空きをひとつのリングで表示し、カメラ写真、ビデオ、スクリーンショット、ダウンロードごとに内訳を表示。「写真」アプリでは見られない、ファイルごとの実際のサイズもわかります。</p><ul class="ticks"><li>サイズ・日付・種類で並べ替え</li><li>「セルフィー 2024」「>100mb」「先週」のように検索</li><li>ホームに「過去のこの日」の思い出</li></ul></div>
+    </section><section class="row flip" id="share">
+      <div class="row-media"><div class="phone"><img src="../assets/v11/2-share-ja.webp" alt="近くの端末との送受信、リンクを開く、あなたと共有、自分のリンクが並ぶAuramyの共有画面" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>どのスマホとも、フル画質で共有</h2><p>「近くの端末と共有」は、iPhoneでもAndroidでも、スマホからスマホへオリジナルを直接送ります。同じWi-Fiなら相手のスマホを自動で見つけ、Wi-Fiがなくてもコードを読み取るだけで直接つながります。</p><ul class="ticks"><li>オリジナルのファイル。Live Photosやモーションフォトも</li><li>インターネットもアカウントも不要</li><li>必要なら送信前に位置情報を削除</li><li>無料、回数制限なし</li></ul></div>
+    </section><section class="row">
+      <div class="row-media"><div class="phone"><img src="../assets/v11/4-receive-ja.webp" alt="QRコードを表示したAuramyの受信画面" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>Wi-Fiがなくても、読み取って送信</h2><p>受け取る側のスマホがコードを表示し、送る側が読み取ると転送が始まります。周りにネットワークがなくてもWi-Fi並みの速さです。遠くにいる相手には、自分のGoogleドライブから7日間有効なリンクを共有できます。</p><ul class="ticks"><li>iPhoneとAndroidの間で使える</li><li>リンクはAuramyでも、どのブラウザでも開ける</li><li>リンクの共有はいつでも停止できる</li></ul></div>
+    </section><section class="row flip">
+      <div class="row-media"><div class="phone"><img src="../assets/v11/3-deep-ja.webp" alt="重複やブレた写真が表示されたAuramyのディープクリーン結果" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>ワンタップで整理</h2><p>ディープクリーンは、完全な重複、ほぼ同じ連写、ブレた写真や誤って撮った写真、ワンタイムコードや使用済みチケットなど用済みのスクリーンショットを見つけ、連写ごとにベストショットを残します。</p><ul class="ticks"><li>削除する前にすべて確認できる</li><li>お気に入りには一切触れない</li><li>削除した項目は30日間復元できる</li><li>完全な重複の整理は無料</li></ul></div>
+    </section><section class="row">
+      <div class="row-media"><div class="phone"><img src="../assets/v11/5-gallery-ja.webp" alt="カテゴリの行が並ぶAuramyのギャラリー" width="330" height="717" loading="lazy" decoding="async"></div></div>
+      <div class="row-text"><h2>邪魔をしないギャラリー</h2><p>カメラ写真、ビデオ、スクリーンショット、ダウンロード、あなたと共有を、それぞれスクロールできるシンプルな行で表示。「写真」アプリと同じように、どのグリッドもピンチで拡大縮小できます。</p><ul class="ticks"><li>写真・ビデオエディタを内蔵</li><li>カテゴリ全体をワンタップでバックアップ</li><li>専用PINで守るプライベート保管庫</li></ul></div>
+    </section>
+  </div>
+
+  <section class="themes" id="themes">
+    <div class="wrap">
+      <h2 class="section-h">6つの見た目、ひとつのアプリ</h2>
+      <p class="lead2">ライトとダークは無料。ネオン、チタニウム、エメラルド、オーロラはProで使え、アイコンまですべての画面を一新します。</p>
+    </div>
+    <div class="strip"><figure><div class="phone sm"><img src="../assets/v11/1-home-ja.webp" alt="オーロラ" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>オーロラ</figcaption></figure><figure><div class="phone sm"><img src="../assets/v11/2-share-ja.webp" alt="ライト" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>ライト</figcaption></figure><figure><div class="phone sm"><img src="../assets/v11/3-deep-ja.webp" alt="ネオン" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>ネオン</figcaption></figure><figure><div class="phone sm"><img src="../assets/v11/4-receive-ja.webp" alt="ダーク" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>ダーク</figcaption></figure><figure><div class="phone sm"><img src="../assets/v11/5-gallery-ja.webp" alt="チタニウム" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>チタニウム</figcaption></figure><figure><div class="phone sm"><img src="../assets/v11/6-themes-ja.webp" alt="エメラルド" width="220" height="478" loading="lazy" decoding="async"></div><figcaption>エメラルド</figcaption></figure></div>
+  </section>
+
+  <section class="more">
+    <div class="wrap">
+      <h2 class="section-h">ほかにも</h2>
+      <div class="cards"><div class="card"><h3>自分のGoogleドライブにバックアップ</h3><p>いつでも無料でバックアップと復元ができます。Auramyが求めるのは「drive.file」権限だけなので、ドライブ内で見えるのは自分で作成したファイルだけです。</p></div><div class="card"><h3>安全に空き容量を増やす</h3><p>ドライブに安全に保存済みのものをスマホから削除します。対象は確認済みのコピーがあるものだけです。</p></div><div class="card"><h3>ビデオを小さく、思い出はそのまま</h3><p>4Kクリップを日付と位置情報を保ったまま1080pに再エンコード。十分に小さくならなかった場合は破棄します。</p></div><div class="card"><h3>新しいスマホに復元</h3><p>同じアカウントを接続すると、バックアップにあってスマホにないものをAuramyが戻します。</p></div><div class="card"><h3>ウィジェットとショートカット</h3><p>容量と写真のウィジェット。iPhoneではショートカットとコントロールセンター、Androidではクイック設定タイルに対応。</p></div><div class="card"><h3>必要なときはロック</h3><p>アプリ全体をFace IDまたは指紋でロックできます（任意）。</p></div></div>
+    </div>
+  </section>
+
+  <section class="pro" id="pro">
+    <div class="wrap">
+      <h2 class="section-h">無料版とAuramy Pro</h2>
+      <div class="plans">
+        <div class="plan"><h3>ずっと無料</h3><p class="sub">&nbsp;</p><ul><li>ギャラリー、検索、容量の内訳</li><li>近くの端末との共有とリンク共有</li><li>重複と不要ファイルのスキャン</li><li>好きなときのバックアップとドライブからの復元</li><li>写真・ビデオエディタ</li><li>ウィジェット、ショートカット、アプリロック</li><li>ライト・ダークテーマ</li></ul></div>
+        <div class="plan pro-plan"><h3>Auramy Pro</h3><p class="sub">一度の購入でずっと使える買い切り、または年間サブスクリプション</p><ul><li>ワンタップのディープクリーン</li><li>無制限の一括削除（無料版は一度に10件まで）</li><li>ビデオ圧縮</li><li>オリジナル画質でのバックアップ（ProRAW、48MP、4K）</li><li>バックグラウンドでの自動バックアップ</li><li>カテゴリ・年・月ごとのドライブフォルダ</li><li>ネオン、チタニウム、エメラルド、オーロラのテーマ</li><li>別のアプリアイコン</li></ul></div>
+      </div>
+      <p class="note">Pro機能をオフにする操作は決してロックされません。サブスクリプションが切れても、バックアップが途中で止まったままになることはありません。</p>
+    </div>
+  </section>
+
+  <section class="privacy" id="privacy">
+    <div class="wrap">
+      <h2 class="section-h">あなたの写真は、あなたのもの</h2>
+      <div class="box"><p>分析もクラッシュレポートも広告もなく、Auramyアカウントもありません。あなたやライブラリについての情報が開発者に送られることはありません。</p><p>スキャン、重複の検出、ピントのチェックはすべてスマホ上で行われます。近くの端末との共有はスマホからスマホへ直接届き、共有リンクとバックアップは<em>あなたの</em>Googleドライブに置かれます。</p><p><a href="privacy.html">プライバシーポリシー</a>の全文をご覧ください。</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>大切なもののために、空きを。</h2>
+    <p>iPhone、iPad、Androidで無料。</p>
+    <div class="stores">
+      <a class="store" href="https://apps.apple.com/app/id6799639796" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.03-2.7 2.2-4 2.3-4.06-1.25-1.83-3.2-2.08-3.9-2.1-1.66-.17-3.24.98-4.08.98-.85 0-2.15-.96-3.53-.93-1.81.03-3.49 1.06-4.42 2.68-1.89 3.27-.48 8.1 1.35 10.76.9 1.3 1.96 2.75 3.36 2.7 1.35-.05 1.86-.87 3.49-.87 1.62 0 2.08.87 3.5.84 1.45-.03 2.37-1.32 3.25-2.62 1.03-1.5 1.45-2.96 1.47-3.04-.03-.01-2.82-1.08-2.85-4.3zM13.7 4.67c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.36.71-3.12 1.6-.68.79-1.28 2.06-1.12 3.27 1.19.09 2.4-.6 3.14-1.49z"/></svg><span><small>App Storeから</small>ダウンロード</span></a>
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.yagiz.auramy" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m17.2 15.4-3.4-3.4 3.4-3.4 3.9 2.2c1.1.6 1.1 1.8 0 2.4z"/><path fill="#EA4335" d="M13.8 12 3.6 22.2c.4.2.8.2 1.3-.1l12.3-6.7z"/><path fill="#4285F4" d="M3.6 1.8 13.8 12l3.4-3.4L4.9 1.9c-.5-.3-.9-.3-1.3-.1z"/></svg><span><small>Google Playで</small>手に入れよう</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="support.html">サポート</a>
+    <a href="https://instagram.com/dev.yagiz" rel="noopener">お問い合わせ</a>
+    <p class="copy">© 2026 Mustafa Yağız. AuramyはAppleおよびGoogleとは提携していません。</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("click", function (e) {
+    var d = document.querySelector(".langs");
+    if (d && d.open && !d.contains(e.target)) d.open = false;
+  });
+  document.addEventListener("keydown", function (e) {
+    var d = document.querySelector(".langs");
+    if (e.key === "Escape" && d && d.open) { d.open = false; d.querySelector("summary").focus(); }
+  });
+</script>
+</body>
+</html>

@@ -4,256 +4,317 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Auramy — Support</title>
-<meta name="description" content="Support and answers to common questions for Auramy, an iOS photo gallery, cleanup and backup app.">
+<meta name="description" content="Answers to common questions about Auramy, a photo gallery, cleanup, sharing and backup app for iPhone, iPad and Android.">
+<link rel="icon" href="assets/icon.png">
+<link rel="canonical" href="https://auramyy.github.io/support.html">
+<link rel="alternate" hreflang="en" href="https://auramyy.github.io/support.html">
+<link rel="alternate" hreflang="tr" href="https://auramyy.github.io/tr/support.html">
+<link rel="alternate" hreflang="de" href="https://auramyy.github.io/de/support.html">
+<link rel="alternate" hreflang="fr" href="https://auramyy.github.io/fr/support.html">
+<link rel="alternate" hreflang="es" href="https://auramyy.github.io/es/support.html">
+<link rel="alternate" hreflang="it" href="https://auramyy.github.io/it/support.html">
+<link rel="alternate" hreflang="pt-PT" href="https://auramyy.github.io/pt/support.html">
+<link rel="alternate" hreflang="nl" href="https://auramyy.github.io/nl/support.html">
+<link rel="alternate" hreflang="ru" href="https://auramyy.github.io/ru/support.html">
+<link rel="alternate" hreflang="uk" href="https://auramyy.github.io/uk/support.html">
+<link rel="alternate" hreflang="pl" href="https://auramyy.github.io/pl/support.html">
+<link rel="alternate" hreflang="da" href="https://auramyy.github.io/da/support.html">
+<link rel="alternate" hreflang="sv" href="https://auramyy.github.io/sv/support.html">
+<link rel="alternate" hreflang="nb" href="https://auramyy.github.io/nb/support.html">
+<link rel="alternate" hreflang="fi" href="https://auramyy.github.io/fi/support.html">
+<link rel="alternate" hreflang="ja" href="https://auramyy.github.io/ja/support.html">
+<link rel="alternate" hreflang="ko" href="https://auramyy.github.io/ko/support.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://auramyy.github.io/zh-hans/support.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://auramyy.github.io/zh-hant/support.html">
+<link rel="alternate" hreflang="ar" href="https://auramyy.github.io/ar/support.html">
+<link rel="alternate" hreflang="hi" href="https://auramyy.github.io/hi/support.html">
+<link rel="alternate" hreflang="th" href="https://auramyy.github.io/th/support.html">
+<link rel="alternate" hreflang="vi" href="https://auramyy.github.io/vi/support.html">
+<link rel="alternate" hreflang="id" href="https://auramyy.github.io/id/support.html">
+<link rel="alternate" hreflang="x-default" href="https://auramyy.github.io/support.html">
+<meta property="og:title" content="Auramy — Support">
+<meta property="og:description" content="Answers to common questions about Auramy, a photo gallery, cleanup, sharing and backup app for iPhone, iPad and Android.">
+<meta property="og:image" content="https://auramyy.github.io/assets/icon.png">
+<meta property="og:url" content="https://auramyy.github.io/support.html">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#061820">
+<script>
+  try {
+    (function () {
+      if (/[?&]lang=en/.test(location.search)) return;
+      var P = {"tr": "tr", "de": "de", "fr": "fr", "es": "es", "it": "it", "pt": "pt", "nl": "nl", "ru": "ru", "uk": "uk", "pl": "pl", "da": "da", "sv": "sv", "nb": "nb", "fi": "fi", "ja": "ja", "ko": "ko", "zh-Hans": "zh-hans", "zh-Hant": "zh-hant", "ar": "ar", "hi": "hi", "th": "th", "vi": "vi", "id": "id"}, F = "support.html";
+      var pref = localStorage.getItem("auramy.lang");
+      if (pref) { if (P[pref]) location.replace(P[pref] + "/" + F); return; }
+      var tags = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      for (var i = 0; i < tags.length; i++) {
+        var t = String(tags[i]).toLowerCase(), p = t.split("-")[0];
+        if (p === "en") return;
+        if (p === "zh") { location.replace((/hant|tw|hk|mo/.test(t) ? "zh-hant" : "zh-hans") + "/" + F); return; }
+        if (p === "no" || p === "nn") p = "nb";
+        if (P[p]) { location.replace(P[p] + "/" + F); return; }
+      }
+    })();
+  } catch (e) {}
+</script>
 <style>
-  :root {
-    --bg: #ffffff;
-    --surface: #f6f6f8;
-    --border: #e3e3e8;
-    --text: #1c1c1e;
-    --muted: #6a6a72;
-    --accent: #6b4ee6;
-    --accent-soft: #f2eeff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #131316;
-      --surface: #1c1c21;
-      --border: #2e2e36;
-      --text: #ececf0;
-      --muted: #a0a0aa;
-      --accent: #a48bff;
-      --accent-soft: #221d38;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding: 3rem 1.25rem 5rem;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    -webkit-text-size-adjust: 100%;
-  }
-  main { max-width: 46rem; margin: 0 auto; }
-  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.02em; }
-  h2 {
-    font-size: 1.2rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em;
-    padding-top: 1.25rem; border-top: 1px solid var(--border);
-  }
-  h3 { font-size: 1rem; margin: 1.75rem 0 .4rem; }
-  p, li { color: var(--text); }
-  a { color: var(--accent); }
-  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
-  .callout {
-    background: var(--accent-soft);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.1rem 1.25rem;
-    margin: 1.5rem 0;
-  }
-  .callout p { margin: 0; }
-  ul { padding-left: 1.25rem; }
-  li { margin: .4rem 0; }
-  code {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 5px;
-    padding: .1rem .35rem; font-size: .88em;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-  footer {
-    margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
-    color: var(--muted); font-size: .9rem;
-  }
+:root { --bg: #ffffff; --surface: #f6f6f8; --border: #e3e3e8; --text: #1c1c1e; --muted: #6a6a72; --accent: #6b4ee6; --accent-soft: #f2eeff; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #131316; --surface: #1c1c21; --border: #2e2e36; --text: #ececf0; --muted: #a0a0aa; --accent: #a48bff; --accent-soft: #221d38; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; -webkit-text-size-adjust: 100%; }
+.nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px); background: rgba(6,24,32,.9); border-bottom: 1px solid rgba(255,255,255,.08); }
+.nav .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; display: flex; align-items: center; gap: 1.1rem; height: 56px; }
+.brand { display: flex; align-items: center; gap: .55rem; color: #fff; text-decoration: none; font-weight: 700; }
+.brand img { width: 28px; height: 28px; border-radius: 8px; }
+.nav nav { display: flex; gap: 1rem; margin-inline-start: auto; }
+.nav nav a { color: rgba(255,255,255,.78); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+.nav nav a:hover, .nav nav a[aria-current] { color: #fff; }
+@media (max-width: 560px) { .nav nav { display: none; } .langs { margin-inline-start: auto; } }
+.langs { position: relative; flex: none; }
+.langs summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.85); font-size: .9rem; white-space: nowrap; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .2rem .75rem; }
+.langs summary::-webkit-details-marker { display: none; }
+.langs summary:hover, .langs[open] summary { color: #fff; border-color: rgba(255,255,255,.45); }
+.langs .menu { position: absolute; inset-inline-end: 0; top: calc(100% + .5rem); display: grid; grid-template-columns: repeat(2, minmax(8.5rem, 1fr)); gap: .1rem; padding: .45rem; max-height: min(70vh, 30rem); overflow-y: auto; background: rgba(10,22,30,.97); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; box-shadow: 0 20px 50px -10px rgba(0,0,0,.6); }
+.langs .menu a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .9rem; padding: .4rem .65rem; border-radius: 9px; white-space: nowrap; }
+.langs .menu a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.langs .menu a[aria-current] { background: rgba(92,255,194,.14); color: #5cffc2; }
+@media (max-width: 380px) { .langs .menu { grid-template-columns: 1fr; } }
+main { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.02em; }
+h2 { font-size: 1.2rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+h3 { font-size: 1rem; margin: 1.6rem 0 .4rem; }
+a { color: var(--accent); }
+.meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
+.callout { background: var(--accent-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; margin: 1.5rem 0; }
+.callout p { margin: 0; }
+.tnote { color: var(--muted); font-size: .88rem; border-inline-start: 3px solid var(--border); padding-inline-start: .8rem; margin: 0 0 1.5rem; }
+ul { padding-inline-start: 1.25rem; }
+li { margin: .4rem 0; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+th, td { text-align: start; padding: .6rem .7rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: .85rem; }
+code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .1rem .35rem; font-size: .88em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; direction: ltr; unicode-bidi: isolate; }
+footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+footer a { margin-inline-end: 1rem; }
+:lang(ko) { word-break: keep-all; }
+:is(:lang(ja), :lang(zh)) { line-break: strict; }
 </style>
 </head>
 <body>
-<main>
-
-  <h1>Auramy Support</h1>
-  <p class="meta">Last updated: 17 August 2026</p>
-
-  <div class="callout">
-    <p><strong>Need a hand?</strong> Email
-    <a href="mailto:yagjz@icloud.com">yagjz@icloud.com</a> and I'll get back to you.
-    Auramy is made by one person, so please allow a couple of days — and if you're
-    reporting a problem, telling me your iPhone model and iOS version saves a round trip.</p>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="28" height="28">Auramy</a>
+    <nav aria-label="Sections"><a href="privacy.html">Privacy Policy</a><a href="support.html" aria-current="page">Support</a></nav>
+    <details class="langs"><summary aria-label="Language"><svg viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg><span>English</span></summary><div class="menu"><a href="support.html" lang="en" hreflang="en" aria-current="page" onclick="try{localStorage.setItem('auramy.lang','en')}catch(e){}">English</a><a href="tr/support.html" lang="tr" hreflang="tr" onclick="try{localStorage.setItem('auramy.lang','tr')}catch(e){}">Türkçe</a><a href="de/support.html" lang="de" hreflang="de" onclick="try{localStorage.setItem('auramy.lang','de')}catch(e){}">Deutsch</a><a href="fr/support.html" lang="fr" hreflang="fr" onclick="try{localStorage.setItem('auramy.lang','fr')}catch(e){}">Français</a><a href="es/support.html" lang="es" hreflang="es" onclick="try{localStorage.setItem('auramy.lang','es')}catch(e){}">Español</a><a href="it/support.html" lang="it" hreflang="it" onclick="try{localStorage.setItem('auramy.lang','it')}catch(e){}">Italiano</a><a href="pt/support.html" lang="pt-PT" hreflang="pt-PT" onclick="try{localStorage.setItem('auramy.lang','pt')}catch(e){}">Português</a><a href="nl/support.html" lang="nl" hreflang="nl" onclick="try{localStorage.setItem('auramy.lang','nl')}catch(e){}">Nederlands</a><a href="ru/support.html" lang="ru" hreflang="ru" onclick="try{localStorage.setItem('auramy.lang','ru')}catch(e){}">Русский</a><a href="uk/support.html" lang="uk" hreflang="uk" onclick="try{localStorage.setItem('auramy.lang','uk')}catch(e){}">Українська</a><a href="pl/support.html" lang="pl" hreflang="pl" onclick="try{localStorage.setItem('auramy.lang','pl')}catch(e){}">Polski</a><a href="da/support.html" lang="da" hreflang="da" onclick="try{localStorage.setItem('auramy.lang','da')}catch(e){}">Dansk</a><a href="sv/support.html" lang="sv" hreflang="sv" onclick="try{localStorage.setItem('auramy.lang','sv')}catch(e){}">Svenska</a><a href="nb/support.html" lang="nb" hreflang="nb" onclick="try{localStorage.setItem('auramy.lang','nb')}catch(e){}">Norsk</a><a href="fi/support.html" lang="fi" hreflang="fi" onclick="try{localStorage.setItem('auramy.lang','fi')}catch(e){}">Suomi</a><a href="ja/support.html" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('auramy.lang','ja')}catch(e){}">日本語</a><a href="ko/support.html" lang="ko" hreflang="ko" onclick="try{localStorage.setItem('auramy.lang','ko')}catch(e){}">한국어</a><a href="zh-hans/support.html" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('auramy.lang','zh-Hans')}catch(e){}">简体中文</a><a href="zh-hant/support.html" lang="zh-Hant" hreflang="zh-Hant" onclick="try{localStorage.setItem('auramy.lang','zh-Hant')}catch(e){}">繁體中文</a><a href="ar/support.html" lang="ar" hreflang="ar" onclick="try{localStorage.setItem('auramy.lang','ar')}catch(e){}">العربية</a><a href="hi/support.html" lang="hi" hreflang="hi" onclick="try{localStorage.setItem('auramy.lang','hi')}catch(e){}">हिन्दी</a><a href="th/support.html" lang="th" hreflang="th" onclick="try{localStorage.setItem('auramy.lang','th')}catch(e){}">ไทย</a><a href="vi/support.html" lang="vi" hreflang="vi" onclick="try{localStorage.setItem('auramy.lang','vi')}catch(e){}">Tiếng Việt</a><a href="id/support.html" lang="id" hreflang="id" onclick="try{localStorage.setItem('auramy.lang','id')}catch(e){}">Bahasa Indonesia</a></div></details>
   </div>
+</header>
+<main>
+<h1>Auramy Support</h1>
+<p class="meta">Last updated: 14 October 2026</p>
 
-  <p>Auramy is a photo gallery, storage cleanup and backup app for iPhone and iPad.
-  It requires iOS 26 or later.</p>
+<div class="callout">
+  <p><strong>Need a hand?</strong> Send a message to <a href="https://instagram.com/dev.yagiz" rel="noopener">@dev.yagiz</a> on Instagram and I'll get back to you. Auramy is made by one person, so please allow a couple of days —
+  and if you're reporting a problem, telling me your phone model and its iOS or Android version
+  saves a round trip.</p>
+</div>
 
-  <h2>Getting started</h2>
+<p>Auramy is a photo gallery, storage cleanup, sharing and backup app for iPhone and iPad
+(iOS 26 or later) and Android phones (Android 8 or later).</p>
 
-  <h3>Do I need a Google account?</h3>
-  <p>No. The gallery, search, storage breakdown, cleanup, duplicate finder, widgets and
-  Shortcuts all work with no account at all, entirely on your device. Connecting Google Drive
-  is optional and only adds backup, restore and Free Up Space.</p>
+<h2>Getting started</h2>
 
-  <h3>Why does Auramy ask for full photo access?</h3>
-  <p>To show your whole library and to find duplicates and clutter across all of it — a scan
-  can only see what you've granted. <em>Limited</em> access is fully supported: Auramy shows a
-  banner offering both "Select More Photos" and "Allow Full Access", and every screen explains
-  itself rather than sitting empty. You can change this any time in
-  Settings&nbsp;&rsaquo;&nbsp;Apps&nbsp;&rsaquo;&nbsp;Auramy&nbsp;&rsaquo;&nbsp;Photos.</p>
+<h3>Do I need a Google account?</h3>
+<p>No. The gallery, search, storage breakdown, cleanup, duplicate finder, nearby sharing,
+widgets and shortcuts all work with no account at all, entirely on your phone. Connecting
+Google Drive is optional and adds backup, restore, Free Up Space and sharing by link.</p>
 
-  <h3>Where is my Hidden album?</h3>
-  <p>iOS does not let any third-party app see the Photos "Hidden" album, so Auramy can't show
-  it. The Hidden screen explains this and offers to open Photos instead.</p>
+<h3>Why does Auramy ask for access to all my photos?</h3>
+<p>To show your whole library and to find duplicates and clutter across all of it — a scan can
+only see what you've allowed. Limited access works too: Auramy then shows only the photos you
+selected. You can change this at any time in your phone's settings, under Apps › Auramy.</p>
 
-  <h2>Cleaning up</h2>
+<h3>Where is my Hidden album? (iPhone)</h3>
+<p>iOS does not let any other app see the Photos "Hidden" album, so Auramy can't show it. The
+Hidden screen explains this and offers to open Photos instead.</p>
 
-  <h3>Where do deleted photos go?</h3>
-  <p>Deleting always goes through iOS, so you get the system's own confirmation and everything
-  lands in <strong>Photos&nbsp;&rsaquo;&nbsp;Recently Deleted</strong>. Items stay there for 30
-  days, which is also when the space is actually freed. Nothing Auramy removes is gone
-  immediately, and you can recover it from Photos in the meantime.</p>
+<h2>Sharing</h2>
 
-  <h3>Auramy says I can only delete 10 items at a time</h3>
-  <p>That's the free tier. Without Auramy Pro, each delete removes up to 10 items, in Cleanup,
-  Duplicates and Free Up Space alike. Pro lifts the limit and enables "Select All". Scanning,
-  and seeing exactly how much space you could recover, is free and unlimited.</p>
+<h3>How do I send photos to someone next to me?</h3>
+<p>Both of you open <strong>Share</strong> in Auramy. The receiver taps <strong>Receive</strong>
+and the sender taps <strong>Send</strong> and picks the photos. On the same Wi-Fi the phones
+find each other by themselves; otherwise one phone shows a code and the other scans it. The
+receiving phone always has to accept — and when you pair without scanning, both phones show the
+same code, so only accept if they match.</p>
 
-  <h3>Does Free Up Space delete anything from my Google Drive?</h3>
-  <p>No. It removes the copy on your device of files your Drive already holds. The Drive copies
-  are left exactly as they are. Matching is done by filename within your Auramy folder, which is
-  why the screen asks you to look before deleting.</p>
+<h3>Does the other person need Auramy?</h3>
+<p>For nearby sharing, yes — both phones need Auramy, iPhone or Android. For a link, no: it opens
+in any browser, where the originals can be saved.</p>
 
-  <h3>The duplicate finder pre-selected things — will it delete them on its own?</h3>
-  <p>Never. Nothing is deleted until you tap Delete and confirm. The preselection keeps the
-  largest copy in each group and marks the rest, as a starting point you can change. "Keep All"
-  takes a whole group out of the selection in one tap. Favourites are never suggested for
-  deletion anywhere in the app.</p>
+<h3>There's no Wi-Fi around. Will it still work?</h3>
+<p>Yes. Scanning the code connects the two phones directly, with no internet needed. When an
+Android phone is involved, it may open a short-lived Wi-Fi network of its own; an iPhone then
+asks to join it — tap <strong>Join</strong>. That network is used only for this transfer, and your
+phone goes back to its own network afterwards. On Android 12 and earlier, the system also
+requires Location to be turned on for this; Auramy never reads your location.</p>
 
-  <h2>Backup and restore</h2>
+<h3>Are photos compressed when I share them?</h3>
+<p>No. The original files travel as they are, with their date and camera details. Live Photos and
+Motion Photos are converted so they stay "live" on the other kind of phone. Location is removed
+before sending while <strong>Remove Location When Sharing</strong> is on in Settings, which it is
+by default.</p>
 
-  <h3>Where do my photos go when I back up?</h3>
-  <p>Into a folder named <strong>Auramy</strong> in <em>your own</em> Google Drive. There is no
-  Auramy server and I have no access to your files. Auramy requests only the
-  <code>drive.file</code> permission, which lets it see and manage nothing in your Drive except
-  the files it created itself.</p>
+<h3>How do links work?</h3>
+<p>Sharing by link uses your own Google Drive, so the sender needs Drive connected. Auramy uploads
+the photos to an <strong>Auramy Shares</strong> folder, kept apart from your backup, and anyone
+with the link can download the originals for 7 days. You can stop a link earlier under
+<strong>My Links</strong>; the files are then deleted from your Drive. The person receiving it needs
+no account: they paste it into <strong>Open a Link</strong> in Auramy, or open it in a browser.</p>
 
-  <h3>My backup seems stuck</h3>
-  <p>Check these in order:</p>
-  <ul>
-    <li><strong>Wi-Fi Only</strong> is on by default. On cellular, Auramy waits and shows
-    "Waiting for Wi-Fi to back up" rather than spending your data.</li>
-    <li>Large uploads continue in the background and resume where they left off — but iOS
-    decides when to run background work, so a big first backup can take a while. Leaving the app
-    open on Wi-Fi and power is the fastest way through it.</li>
-    <li>Open <strong>Upload Queue</strong> in Settings to see what's still pending.</li>
-    <li>Force-quitting the app cancels scheduled background work until you next open it.</li>
-  </ul>
+<h3>Where do received photos go?</h3>
+<p>Into your photo library, like any other photo, and into the <strong>Shared with You</strong>
+category of Auramy's gallery. If you back up, they get their own folder in Drive.</p>
 
-  <h3>I got a new phone — how do I get my photos back?</h3>
-  <p>Install Auramy, connect the same Google account, then use
-  <strong>Settings&nbsp;&rsaquo;&nbsp;Restore from Drive</strong>. It downloads what's in your
-  backup but missing from the device. Restoring is never limited by Auramy Pro — your files are
-  your files.</p>
+<h2>Cleaning up</h2>
 
-  <h2>Auramy Pro</h2>
+<h3>Where do deleted photos go?</h3>
+<p>Deleting always goes through the system, which asks you to confirm. On iPhone, items land in
+<strong>Photos › Recently Deleted</strong>; on Android 11 and later, in the trash. Either way they
+stay recoverable for 30 days, which is also when the space is actually freed. Android 8, 9 and
+10 have no trash, so deleting there is permanent — check your selection first.</p>
 
-  <h3>What does Pro add?</h3>
-  <ul>
-    <li><strong>Deep Clean</strong> — one tap finds duplicates, near-identical bursts, blurry
-    photos and old screenshots, and clears them all together</li>
-    <li>Unlimited bulk delete, including "Select All", in Cleanup, Duplicates and Free Up Space</li>
-    <li>Compressing videos down to 1080p</li>
-    <li>Original-quality backup — ProRAW, 48 MP and 4K reach Drive untouched, filed by year
-    and month</li>
-    <li>Automatic background backup to your Drive</li>
-    <li>Alternate app icons</li>
-  </ul>
-  <p>Everything else is free and stays free — including the Face ID app lock, backing up on
-  demand with <strong>Backup Now</strong>, and restoring from Drive. Only the unattended,
-  automatic run is Pro.</p>
+<h3>Auramy says I can only delete 10 items at a time</h3>
+<p>That's the free version. Without Auramy Pro, each delete removes up to 10 items. Pro lifts the
+limit and enables Select All. Scanning, and seeing exactly how much space you could recover, is
+free and unlimited.</p>
 
-  <h3>What does Deep Clean actually delete?</h3>
-  <p>Four things, and only these four: exact duplicates (the best copy is kept), near-identical
-  burst shots (one is kept), out-of-focus photos, and screenshots older than six months. Large
-  photos and large videos are deliberately <em>not</em> included — a big file is not the same
-  as a worthless one. Favourites are never touched, and deleted items go to
-  <strong>Photos&nbsp;&rsaquo;&nbsp;Recently Deleted</strong> for 30 days.</p>
-  <p>Each of the four is its own row, with its own count and size. Everything arrives ticked, so
-  you can press <em>Free</em> straight away — or tap a row to see exactly which photos are in it
-  and untick the ones you want to keep. The tick on a row turns that whole category off at once.</p>
+<h3>What does Deep Clean remove?</h3>
+<p>Deep Clean finds exact duplicates (the best copy is kept), similar and burst shots (one is
+kept), blurry photos, accidental shots such as pocket photos, black frames and clips under two
+seconds, screenshots you're done with — old one-time codes and past tickets — and heavy RAW
+files. Each group is its own row with its count and size, and you can open a row to untick
+anything you want to keep. RAW files are never ticked for you. Favourites are never touched.
+Exact duplicates are free to clear; the rest is part of Pro.</p>
 
-  <h3>How is Deep Clean different from Find Duplicates?</h3>
-  <p><strong>Find Duplicates</strong> (Settings) is for deciding: it lays each group out side by
-  side so you can see which copy is being kept, overrule it, or wave the whole group off with
-  <em>Keep All</em>. It covers duplicates only, and it's free.</p>
-  <p><strong>Deep Clean</strong> is for finishing: it covers the same duplicates <em>plus</em>
-  blurry photos and stale screenshots, totals everything, and clears it in one confirmation.
-  Both screens use the same detection and keep the same copy, so they can never disagree — and
-  each links to the other.</p>
+<h3>Does Free Up Space delete anything from my Google Drive?</h3>
+<p>No. It removes the copy on your phone of files your Drive already holds, and leaves the Drive
+copies exactly as they are. Only files with a verified original-quality copy in Drive are
+offered.</p>
 
-  <h3>Is my free backup lower quality?</h3>
-  <p>Yes, and deliberately so. Without Pro, photos are uploaded at 2048px and videos at 1080p —
-  full-screen quality on any phone, at roughly a fifth of the size. The capture date, camera and
-  GPS tag are all preserved. With Pro the file your camera actually wrote goes up untouched. If
-  you buy Pro later, Settings offers to re-upload what was saved at standard quality; nothing
-  re-uploads on its own.</p>
+<h3>What does Compress Videos do to my video?</h3>
+<p>It re-encodes the video at 1080p, saves that as your video — keeping the original's date and
+location — and deletes the original the usual way, so it stays recoverable for 30 days where
+your phone has a trash. If a re-encode doesn't come out meaningfully smaller, Auramy throws it
+away and keeps your original untouched. Favourites, slow-motion clips and anything already at
+1080p or below are never offered.</p>
 
-  <h3>What exactly does Compress Videos do to my video?</h3>
-  <p>It re-encodes the video at 1080p, saves that as your video — keeping the original's
-  date and location so it stays where it belongs in your library — and moves the original to
-  <strong>Photos&nbsp;&rsaquo;&nbsp;Recently Deleted</strong>, where you can get it back for
-  30 days. The picture quality of the original is not recoverable after that, which is why
-  Auramy never offers favourites, slow-motion clips, or anything already at 1080p or below.
-  If a re-encode doesn't come out meaningfully smaller, Auramy throws it away and keeps your
-  original untouched.</p>
+<h2>Backup and restore</h2>
 
-  <h3>I paid, but Pro isn't showing</h3>
-  <p>Tap <strong>Restore Purchases</strong> — it's on the Pro card in Settings and on the
-  purchase screen. Make sure you're signed in to the same Apple Account you bought with. If a
-  family member approved the purchase, it unlocks by itself once the approval goes through.</p>
+<h3>Where do my photos go when I back up?</h3>
+<p>Into a folder named <strong>Auramy</strong> in <em>your own</em> Google Drive. There is no
+Auramy server and I have no access to your files. Auramy asks only for the <code>drive.file</code>
+permission, which lets it see nothing in your Drive except the files it created itself.</p>
 
-  <h3>I reinstalled the app and Pro came back on its own. Is that right?</h3>
-  <p>Yes. The purchase belongs to your Apple Account, not to the installation, so deleting and
-  reinstalling Auramy doesn't cost you anything.</p>
+<h3>My backup seems stuck</h3>
+<p>Check these in order:</p>
+<ul>
+  <li><strong>Wi-Fi Only</strong> is on by default. A personal hotspot or a metered Wi-Fi counts as
+  mobile data, so backup waits; Settings says why and offers <strong>Back Up Anyway</strong>.</li>
+  <li>Large uploads continue in the background and resume where they left off, but the system
+  decides when background work runs. Keeping the app open on Wi-Fi and power is the fastest way
+  through a big first backup.</li>
+  <li>Open <strong>Upload Queue</strong> in Settings to see what's still pending.</li>
+  <li>On iPhone, force-quitting the app stops scheduled background work until you open it again.</li>
+</ul>
 
-  <h3>How do I cancel the yearly subscription?</h3>
-  <p>Open the iOS Settings app, tap your name at the top, then
-  <strong>Subscriptions</strong>, then Auramy Pro. Cancelling there stops the renewal; you keep
-  Pro until the period you've paid for ends. The lifetime purchase has nothing to cancel.</p>
+<h3>Is the free backup lower quality?</h3>
+<p>Yes, deliberately. Without Pro, photos are uploaded at 2048 px and videos at 1080p — full-screen
+quality on any phone, at a fraction of the size — with the capture date, camera and location kept.
+With Pro, the file your camera wrote goes up untouched. If you buy Pro later, Settings offers to
+re-upload what was saved at standard quality; nothing re-uploads on its own.</p>
 
-  <h3>My subscription lapsed. Am I locked out of anything?</h3>
-  <p>No. Turning a Pro feature <em>off</em> is never gated — you can always switch off the app
-  lock or automatic backup, whatever your subscription status. Nothing you've already backed up
-  or unlocked is taken away from you.</p>
+<h3>I got a new phone — how do I get my photos back?</h3>
+<p>Install Auramy, connect the same Google account, then use <strong>Settings › Restore from
+Drive</strong>. It downloads what's in your backup but missing from the phone. Restoring is never
+limited by Auramy Pro — your files are your files.</p>
 
-  <h3>Refunds</h3>
-  <p>Purchases go through Apple, so refunds do too. Request one at
-  <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Email me as well if
-  something in the app didn't work as promised — I'd rather fix it.</p>
+<h2>Auramy Pro</h2>
 
-  <h2>Privacy and security</h2>
+<h3>What does Pro add?</h3>
+<ul>
+  <li>Deep Clean in one tap, beyond exact duplicates</li>
+  <li>Unlimited bulk delete, including Select All</li>
+  <li>Video compression, and slimming Live Photos and Motion Photos</li>
+  <li>Original-quality backup — ProRAW, 48 MP and 4K reach Drive untouched</li>
+  <li>Automatic background backup, and Drive folders by category, year and month</li>
+  <li>The Private Vault, storage alerts, the Neon, Titanium, Emerald and Aurora themes, and alternate app icons</li>
+</ul>
+<p>Everything else is free and stays free — including nearby sharing, links, the app lock,
+backing up with <strong>Backup Now</strong>, and restoring from Drive.</p>
 
-  <h3>What does Auramy send to you, the developer?</h3>
-  <p>Nothing. There are no analytics, no crash reporting, no advertising and no accounts. Full
-  details are in the <a href="privacy.html">privacy policy</a>.</p>
+<h3>I paid, but Pro isn't showing</h3>
+<p>Tap <strong>Restore Purchases</strong> — it's on the Pro card in Settings and on the purchase
+screen. Make sure you're signed in to the same Apple Account or Google account you bought with.
+Purchases belong to that store: Pro bought on the App Store doesn't carry over to Android, or the
+other way round.</p>
 
-  <h3>I turned on the app lock and now I can't get in</h3>
-  <p>The lock uses Face ID, Touch ID or your device passcode — the same credentials that unlock
-  your iPhone. It can't be switched on without passing authentication first, and on a device
-  with no passcode set, Auramy stays unlocked rather than locking you out. If Face ID fails,
-  tap the unlock button again and use your passcode.</p>
+<h3>How do I cancel the yearly subscription?</h3>
+<p>On iPhone: open Settings, tap your name, then <strong>Subscriptions</strong> › Auramy Pro. On
+Android: open Google Play, tap your profile picture, then <strong>Payments &amp; subscriptions ›
+Subscriptions</strong>. Cancelling stops the renewal; you keep Pro until the period you've paid
+for ends. The lifetime purchase has nothing to cancel.</p>
 
-  <h3>Does sharing a photo reveal where it was taken?</h3>
-  <p>Not by default. Auramy strips GPS location from photos and videos you share out of the app.
-  You can turn that off in Settings&nbsp;&rsaquo;&nbsp;Privacy if you want location to travel
-  with the file. Uploads to your own Drive keep the original metadata.</p>
+<h3>My subscription lapsed. Am I locked out of anything?</h3>
+<p>No. Turning a Pro feature <em>off</em> is never locked, and nothing you've already backed up is
+taken away. Photos in the Private Vault stay there, and you can always move them back out.</p>
 
-  <h2>Something else</h2>
+<h3>Refunds</h3>
+<p>Purchases go through Apple or Google, so refunds do too: on iPhone at
+<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>, on Android through
+Google Play's order history. Message me as well if something didn't work as promised — I'd rather
+fix it.</p>
 
-  <p>Found a bug, want a feature, or stuck on something not covered here? Write to
-  <a href="mailto:yagjz@icloud.com">yagjz@icloud.com</a>. Feature requests genuinely do shape
-  what gets built next.</p>
+<h2>Privacy and security</h2>
 
-  <footer>
-    Auramy — developed by Mustafa Yağız.
-    <a href="privacy.html">Privacy Policy</a>
-  </footer>
+<h3>What does Auramy send to you, the developer?</h3>
+<p>Nothing. There are no analytics, no crash reporting, no advertising and no accounts. Full
+details are in the <a href="privacy.html">privacy policy</a>.</p>
 
+<h3>I forgot my Private Vault PIN</h3>
+<p>The vault's photos are encrypted with a key that only your PIN can produce, so a forgotten PIN
+can't be recovered — not by the app, and not by me. <strong>Forgot PIN?</strong> on the PIN screen
+resets the vault, which erases everything in it. Deleting the app erases the vault too, so move
+photos out before you uninstall.</p>
+
+<h3>I turned on the app lock and now I can't get in</h3>
+<p>The lock uses Face ID, Touch ID, your fingerprint or your device passcode — the same things that
+unlock your phone. If biometrics fail, tap unlock again and use your passcode.</p>
+
+<h3>Does sharing a photo reveal where it was taken?</h3>
+<p>Not by default. Auramy removes GPS location from photos and videos you share out of the app. You
+can turn that off in Settings if you want location to travel with the file. Backups to your own
+Drive keep the original file.</p>
+
+<h2>Something else</h2>
+
+<p>Found a bug, want a feature, or stuck on something not covered here? Message <a href="https://instagram.com/dev.yagiz" rel="noopener">@dev.yagiz</a> on Instagram. Feature requests genuinely do shape what
+gets built next.</p>
+
+<footer>
+  Auramy — developed by Mustafa Yağız.
+  <a href="privacy.html">Privacy Policy</a>
+</footer>
 </main>
+<script>
+  document.addEventListener("click", function (e) {
+    var d = document.querySelector(".langs");
+    if (d && d.open && !d.contains(e.target)) d.open = false;
+  });
+  document.addEventListener("keydown", function (e) {
+    var d = document.querySelector(".langs");
+    if (e.key === "Escape" && d && d.open) { d.open = false; d.querySelector("summary").focus(); }
+  });
+</script>
 </body>
 </html>

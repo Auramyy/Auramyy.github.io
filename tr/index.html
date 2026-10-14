@@ -7,13 +7,38 @@
 <meta name="description" content="Auramy telefonunu neyin doldurduğunu gösterir, kopyaları ve bulanık çekimleri temizler, fotoğrafları her iPhone ve Android&#x27;e orijinal kalitede gönderir ve kendi Google Drive&#x27;ına yedekler. Hesap yok, reklam yok.">
 <link rel="icon" href="../assets/icon.png">
 <link rel="apple-touch-icon" href="../assets/icon.png">
+<link rel="canonical" href="https://auramyy.github.io/tr/">
 <link rel="alternate" hreflang="en" href="https://auramyy.github.io/">
 <link rel="alternate" hreflang="tr" href="https://auramyy.github.io/tr/">
+<link rel="alternate" hreflang="de" href="https://auramyy.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://auramyy.github.io/fr/">
+<link rel="alternate" hreflang="es" href="https://auramyy.github.io/es/">
+<link rel="alternate" hreflang="it" href="https://auramyy.github.io/it/">
+<link rel="alternate" hreflang="pt-PT" href="https://auramyy.github.io/pt/">
+<link rel="alternate" hreflang="nl" href="https://auramyy.github.io/nl/">
+<link rel="alternate" hreflang="ru" href="https://auramyy.github.io/ru/">
+<link rel="alternate" hreflang="uk" href="https://auramyy.github.io/uk/">
+<link rel="alternate" hreflang="pl" href="https://auramyy.github.io/pl/">
+<link rel="alternate" hreflang="da" href="https://auramyy.github.io/da/">
+<link rel="alternate" hreflang="sv" href="https://auramyy.github.io/sv/">
+<link rel="alternate" hreflang="nb" href="https://auramyy.github.io/nb/">
+<link rel="alternate" hreflang="fi" href="https://auramyy.github.io/fi/">
+<link rel="alternate" hreflang="ja" href="https://auramyy.github.io/ja/">
+<link rel="alternate" hreflang="ko" href="https://auramyy.github.io/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://auramyy.github.io/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://auramyy.github.io/zh-hant/">
+<link rel="alternate" hreflang="ar" href="https://auramyy.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://auramyy.github.io/hi/">
+<link rel="alternate" hreflang="th" href="https://auramyy.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://auramyy.github.io/vi/">
+<link rel="alternate" hreflang="id" href="https://auramyy.github.io/id/">
 <link rel="alternate" hreflang="x-default" href="https://auramyy.github.io/">
 <meta name="apple-itunes-app" content="app-id=6799639796">
 <meta property="og:title" content="Auramy">
 <meta property="og:description" content="Auramy telefonunu neyin doldurduğunu gösterir, kopyaları ve bulanık çekimleri temizler, fotoğrafları her iPhone ve Android&#x27;e orijinal kalitede gönderir ve kendi Google Drive&#x27;ına yedekler. Hesap yok, reklam yok.">
 <meta property="og:image" content="https://auramyy.github.io/assets/v11/og-tr.jpg">
+<meta property="og:url" content="https://auramyy.github.io/tr/">
+<meta property="og:locale" content="tr_TR">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#061820">
@@ -39,26 +64,36 @@ img { max-width: 100%; height: auto; display: block; }
 .nav .wrap { display: flex; align-items: center; gap: 1.25rem; height: 58px; }
 .brand { display: flex; align-items: center; gap: .55rem; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: -.01em; }
 .brand img { width: 30px; height: 30px; border-radius: 8px; }
-.nav nav { display: flex; gap: 1.1rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.nav nav { display: flex; gap: 1.1rem; margin-inline-start: auto; overflow-x: auto; scrollbar-width: none; }
 .nav nav::-webkit-scrollbar { display: none; }
-.nav nav a, .lang { color: rgba(255,255,255,.78); text-decoration: none; font-size: .9rem; white-space: nowrap; }
-.nav nav a:hover, .lang:hover { color: #fff; }
-.lang { border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .2rem .7rem; }
-@media (max-width: 760px) { .nav nav { display: none; } .lang { margin-left: auto; } }
+.nav nav a { color: rgba(255,255,255,.78); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+.nav nav a:hover { color: #fff; }
+@media (max-width: 760px) { .nav nav { display: none; } .langs { margin-inline-start: auto; } }
+
+/* language menu */
+.langs { position: relative; flex: none; }
+.langs summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.85); font-size: .9rem; white-space: nowrap; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .2rem .75rem; }
+.langs summary::-webkit-details-marker { display: none; }
+.langs summary:hover, .langs[open] summary { color: #fff; border-color: rgba(255,255,255,.45); }
+.langs .menu { position: absolute; inset-inline-end: 0; top: calc(100% + .5rem); display: grid; grid-template-columns: repeat(2, minmax(8.5rem, 1fr)); gap: .1rem; padding: .45rem; max-height: min(70vh, 30rem); overflow-y: auto; background: rgba(10,22,30,.96); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; box-shadow: 0 20px 50px -10px rgba(0,0,0,.6); }
+.langs .menu a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .9rem; padding: .4rem .65rem; border-radius: 9px; white-space: nowrap; }
+.langs .menu a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.langs .menu a[aria-current] { background: rgba(92,255,194,.14); color: #5cffc2; }
+@media (max-width: 380px) { .langs .menu { grid-template-columns: 1fr; } }
 
 /* hero */
 .hero { background: var(--aurora); color: #fff; padding: 4.5rem 0 0; overflow: hidden; text-align: center; }
-.pill { display: inline-flex; align-items: center; gap: .5rem; background: var(--chip); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: .3rem .85rem .3rem .35rem; font-size: .88rem; color: rgba(255,255,255,.9); text-decoration: none; }
+.pill { display: inline-flex; align-items: center; gap: .5rem; background: var(--chip); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding-block: .3rem; padding-inline: .35rem .85rem; font-size: .88rem; color: rgba(255,255,255,.9); text-decoration: none; }
 .pill b { background: linear-gradient(90deg,#5cffc2,#3bd6ff); color: #04201a; border-radius: 999px; padding: .1rem .55rem; font-size: .78rem; white-space: nowrap; flex: none; }
-@media (max-width: 480px) { .pill { font-size: .8rem; text-align: left; } }
+@media (max-width: 480px) { .pill { font-size: .8rem; text-align: start; } }
 h1 { font-size: clamp(2.5rem, 6.5vw, 4.6rem); line-height: 1.04; letter-spacing: -.035em; margin: 1.3rem auto 1.1rem; font-weight: 800; }
 h1 .glow { background: linear-gradient(90deg, #5cffc2, #3bd6ff 45%, #9b6bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead { max-width: 40rem; margin: 0 auto 2rem; font-size: 1.15rem; color: rgba(255,255,255,.78); }
 .stores { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
-.store { display: inline-flex; align-items: center; gap: .65rem; background: #000; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.28); border-radius: 14px; padding: .55rem 1.15rem .55rem .9rem; min-width: 11.5rem; transition: transform .15s ease, border-color .15s ease; }
+.store { display: inline-flex; align-items: center; gap: .65rem; background: #000; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.28); border-radius: 14px; padding-block: .55rem; padding-inline: .9rem 1.15rem; min-width: 11.5rem; transition: transform .15s ease, border-color .15s ease; }
 .store:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.55); }
 .store svg { width: 26px; height: 26px; flex: none; }
-.store span { display: flex; flex-direction: column; text-align: left; font-size: 1.12rem; font-weight: 600; line-height: 1.1; }
+.store span { display: flex; flex-direction: column; text-align: start; font-size: 1.12rem; font-weight: 600; line-height: 1.1; }
 .store small { font-size: .68rem; font-weight: 500; opacity: .8; letter-spacing: .02em; }
 .req { margin: 1rem 0 0; font-size: .84rem; color: rgba(255,255,255,.55); }
 .chips { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 1.4rem 0 0; padding: 0; list-style: none; }
@@ -81,9 +116,9 @@ h1 .glow { background: linear-gradient(90deg, #5cffc2, #3bd6ff 45%, #9b6bff); -w
 .row h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -.03em; line-height: 1.12; margin: 0 0 1rem; }
 .row p { color: var(--muted); font-size: 1.06rem; margin: 0 0 1.2rem; }
 .ticks { list-style: none; padding: 0; margin: 0; }
-.ticks li { position: relative; padding-left: 1.75rem; margin: .55rem 0; }
-.ticks li::before { content: ""; position: absolute; left: 0; top: .35em; width: 1.05rem; height: 1.05rem; border-radius: 50%; background: linear-gradient(135deg, #5cffc2, #3bd6ff); }
-.ticks li::after { content: ""; position: absolute; left: .34rem; top: .55em; width: .3rem; height: .55rem; border: solid #04201a; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.ticks li { position: relative; padding-inline-start: 1.75rem; margin: .55rem 0; }
+.ticks li::before { content: ""; position: absolute; inset-inline-start: 0; top: .35em; width: 1.05rem; height: 1.05rem; border-radius: 50%; background: linear-gradient(135deg, #5cffc2, #3bd6ff); }
+.ticks li::after { content: ""; position: absolute; inset-inline-start: .34rem; top: .55em; width: .3rem; height: .55rem; border: solid #04201a; border-width: 0 2px 2px 0; transform: rotate(45deg); }
 .row-media { display: flex; justify-content: center; }
 .phone { width: min(310px, 76vw); border-radius: 46px; padding: 9px; background: linear-gradient(145deg, #3c3c44, #0e0e12 45%, #22222a); box-shadow: 0 30px 80px -20px rgba(20, 10, 60, .45), inset 0 0 0 1.5px rgba(255,255,255,.14); }
 .phone img { border-radius: 38px; width: 100%; }
@@ -116,7 +151,7 @@ h1 .glow { background: linear-gradient(90deg, #5cffc2, #3bd6ff 45%, #9b6bff); -w
 .plan h3 { margin: 0 0 .25rem; font-size: 1.35rem; letter-spacing: -.02em; }
 .plan .sub { margin: 0 0 1rem; font-size: .92rem; color: var(--muted); }
 .plan.pro-plan .sub { color: rgba(255,255,255,.7); }
-.plan ul { margin: 0; padding-left: 1.15rem; }
+.plan ul { margin: 0; padding-inline-start: 1.15rem; }
 .plan li { margin: .4rem 0; }
 .note { color: var(--muted); font-size: .92rem; margin: 1rem 0 0; }
 
@@ -133,6 +168,13 @@ h1 .glow { background: linear-gradient(90deg, #5cffc2, #3bd6ff 45%, #9b6bff); -w
 footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .9rem; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; }
 footer .copy { flex-basis: 100%; margin: .6rem 0 0; }
+
+/* scripts: no negative tracking or forced capitals where they break joining or read badly */
+:is(:lang(ar), :lang(hi), :lang(th), :lang(ja), :lang(ko), :lang(zh)) :is(h1, h2, h3, .brand, .eyebrow) { letter-spacing: 0; }
+:is(:lang(ar), :lang(hi), :lang(th)) h1 { line-height: 1.25; }
+:is(:lang(ar), :lang(hi), :lang(th)) :is(.row h2, .section-h, .new h2) { line-height: 1.35; }
+:lang(ko) { word-break: keep-all; }
+:is(:lang(ja), :lang(zh)) { line-break: strict; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .store { transition: none; } }
 </style>
 </head>
@@ -141,8 +183,8 @@ footer .copy { flex-basis: 100%; margin: .6rem 0 0; }
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="../"><img src="../assets/icon.png" alt="" width="30" height="30">Auramy</a>
-    <nav aria-label="Sections"><a href="#features">Özellikler</a><a href="#share">Paylaş</a><a href="#themes">Temalar</a><a href="#pro">Pro</a><a href="#privacy">Gizlilik</a><a href="../support.html">Destek</a></nav>
-    <a class="lang" href="../" onclick="try{localStorage.setItem('auramy.lang','en')}catch(e){}">English</a>
+    <nav aria-label="Bölümler"><a href="#features">Özellikler</a><a href="#share">Paylaş</a><a href="#themes">Temalar</a><a href="#pro">Pro</a><a href="#privacy">Gizlilik</a><a href="support.html">Destek</a></nav>
+    <details class="langs"><summary aria-label="Language"><svg viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg><span>Türkçe</span></summary><div class="menu"><a href="../" lang="en" hreflang="en" onclick="try{localStorage.setItem('auramy.lang','en')}catch(e){}">English</a><a href="../tr/" lang="tr" hreflang="tr" aria-current="page" onclick="try{localStorage.setItem('auramy.lang','tr')}catch(e){}">Türkçe</a><a href="../de/" lang="de" hreflang="de" onclick="try{localStorage.setItem('auramy.lang','de')}catch(e){}">Deutsch</a><a href="../fr/" lang="fr" hreflang="fr" onclick="try{localStorage.setItem('auramy.lang','fr')}catch(e){}">Français</a><a href="../es/" lang="es" hreflang="es" onclick="try{localStorage.setItem('auramy.lang','es')}catch(e){}">Español</a><a href="../it/" lang="it" hreflang="it" onclick="try{localStorage.setItem('auramy.lang','it')}catch(e){}">Italiano</a><a href="../pt/" lang="pt-PT" hreflang="pt-PT" onclick="try{localStorage.setItem('auramy.lang','pt')}catch(e){}">Português</a><a href="../nl/" lang="nl" hreflang="nl" onclick="try{localStorage.setItem('auramy.lang','nl')}catch(e){}">Nederlands</a><a href="../ru/" lang="ru" hreflang="ru" onclick="try{localStorage.setItem('auramy.lang','ru')}catch(e){}">Русский</a><a href="../uk/" lang="uk" hreflang="uk" onclick="try{localStorage.setItem('auramy.lang','uk')}catch(e){}">Українська</a><a href="../pl/" lang="pl" hreflang="pl" onclick="try{localStorage.setItem('auramy.lang','pl')}catch(e){}">Polski</a><a href="../da/" lang="da" hreflang="da" onclick="try{localStorage.setItem('auramy.lang','da')}catch(e){}">Dansk</a><a href="../sv/" lang="sv" hreflang="sv" onclick="try{localStorage.setItem('auramy.lang','sv')}catch(e){}">Svenska</a><a href="../nb/" lang="nb" hreflang="nb" onclick="try{localStorage.setItem('auramy.lang','nb')}catch(e){}">Norsk</a><a href="../fi/" lang="fi" hreflang="fi" onclick="try{localStorage.setItem('auramy.lang','fi')}catch(e){}">Suomi</a><a href="../ja/" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('auramy.lang','ja')}catch(e){}">日本語</a><a href="../ko/" lang="ko" hreflang="ko" onclick="try{localStorage.setItem('auramy.lang','ko')}catch(e){}">한국어</a><a href="../zh-hans/" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('auramy.lang','zh-Hans')}catch(e){}">简体中文</a><a href="../zh-hant/" lang="zh-Hant" hreflang="zh-Hant" onclick="try{localStorage.setItem('auramy.lang','zh-Hant')}catch(e){}">繁體中文</a><a href="../ar/" lang="ar" hreflang="ar" onclick="try{localStorage.setItem('auramy.lang','ar')}catch(e){}">العربية</a><a href="../hi/" lang="hi" hreflang="hi" onclick="try{localStorage.setItem('auramy.lang','hi')}catch(e){}">हिन्दी</a><a href="../th/" lang="th" hreflang="th" onclick="try{localStorage.setItem('auramy.lang','th')}catch(e){}">ไทย</a><a href="../vi/" lang="vi" hreflang="vi" onclick="try{localStorage.setItem('auramy.lang','vi')}catch(e){}">Tiếng Việt</a><a href="../id/" lang="id" hreflang="id" onclick="try{localStorage.setItem('auramy.lang','id')}catch(e){}">Bahasa Indonesia</a></div></details>
   </div>
 </header>
 
@@ -151,7 +193,7 @@ footer .copy { flex-basis: 100%; margin: .6rem 0 0; }
     <a class="pill" href="#new"><b>1.1'de yeni</b>Her telefonla paylaş ve üç yeni Pro tema →</a>
     <h1>Fotoğrafların,<br><span class="glow">daha hafif ve güvende.</span></h1>
     <p class="lead">Telefonunu gerçekte neyin doldurduğunu gör, gereksizleri tek dokunuşla temizle, her iPhone ve Android'le orijinal kalitede paylaş — ve hepsini kendi Google Drive'ına yedekle.</p>
-    <div class="stores ">
+    <div class="stores">
       <a class="store" href="https://apps.apple.com/app/id6799639796" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.03-2.7 2.2-4 2.3-4.06-1.25-1.83-3.2-2.08-3.9-2.1-1.66-.17-3.24.98-4.08.98-.85 0-2.15-.96-3.53-.93-1.81.03-3.49 1.06-4.42 2.68-1.89 3.27-.48 8.1 1.35 10.76.9 1.3 1.96 2.75 3.36 2.7 1.35-.05 1.86-.87 3.49-.87 1.62 0 2.08.87 3.5.84 1.45-.03 2.37-1.32 3.25-2.62 1.03-1.5 1.45-2.96 1.47-3.04-.03-.01-2.82-1.08-2.85-4.3zM13.7 4.67c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.36.71-3.12 1.6-.68.79-1.28 2.06-1.12 3.27 1.19.09 2.4-.6 3.14-1.49z"/></svg><span><small>İndirin</small>App Store</span></a>
       <a class="store" href="https://play.google.com/store/apps/details?id=com.yagiz.auramy" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m17.2 15.4-3.4-3.4 3.4-3.4 3.9 2.2c1.1.6 1.1 1.8 0 2.4z"/><path fill="#EA4335" d="M13.8 12 3.6 22.2c.4.2.8.2 1.3-.1l12.3-6.7z"/><path fill="#4285F4" d="M3.6 1.8 13.8 12l3.4-3.4L4.9 1.9c-.5-.3-.9-.3-1.3-.1z"/></svg><span><small>Edinin</small>Google Play</span></a>
     </div>
@@ -223,14 +265,14 @@ footer .copy { flex-basis: 100%; margin: .6rem 0 0; }
   <section class="privacy" id="privacy">
     <div class="wrap">
       <h2 class="section-h">Fotoğrafların senin kalır</h2>
-      <div class="box"><p>Analiz yok, hata raporu yok, reklam yok, Auramy hesabı yok. Sen ya da galerin hakkında geliştiriciye hiçbir şey gönderilmez.</p><p>Tarama, kopya bulma ve netlik kontrolü telefonunda çalışır. Yakın Paylaşım telefondan telefona gider; paylaşım linkleri ve yedekler <em>senin</em> Google Drive'ında durur.</p><p>Gizlilik politikasının tamamını <a href="../privacy.html">buradan</a> oku.</p></div>
+      <div class="box"><p>Analiz yok, hata raporu yok, reklam yok, Auramy hesabı yok. Sen ya da galerin hakkında geliştiriciye hiçbir şey gönderilmez.</p><p>Tarama, kopya bulma ve netlik kontrolü telefonunda çalışır. Yakın Paylaşım telefondan telefona gider; paylaşım linkleri ve yedekler <em>senin</em> Google Drive'ında durur.</p><p>Gizlilik politikasının tamamını <a href="privacy.html">buradan</a> oku.</p></div>
     </div>
   </section>
 
   <section class="cta">
     <h2>Önemli olanlara yer aç.</h2>
     <p>iPhone, iPad ve Android'de ücretsiz.</p>
-    <div class="stores ">
+    <div class="stores">
       <a class="store" href="https://apps.apple.com/app/id6799639796" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.03-2.7 2.2-4 2.3-4.06-1.25-1.83-3.2-2.08-3.9-2.1-1.66-.17-3.24.98-4.08.98-.85 0-2.15-.96-3.53-.93-1.81.03-3.49 1.06-4.42 2.68-1.89 3.27-.48 8.1 1.35 10.76.9 1.3 1.96 2.75 3.36 2.7 1.35-.05 1.86-.87 3.49-.87 1.62 0 2.08.87 3.5.84 1.45-.03 2.37-1.32 3.25-2.62 1.03-1.5 1.45-2.96 1.47-3.04-.03-.01-2.82-1.08-2.85-4.3zM13.7 4.67c.74-.9 1.24-2.14 1.1-3.38-1.07.04-2.36.71-3.12 1.6-.68.79-1.28 2.06-1.12 3.27 1.19.09 2.4-.6 3.14-1.49z"/></svg><span><small>İndirin</small>App Store</span></a>
       <a class="store" href="https://play.google.com/store/apps/details?id=com.yagiz.auramy" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m17.2 15.4-3.4-3.4 3.4-3.4 3.9 2.2c1.1.6 1.1 1.8 0 2.4z"/><path fill="#EA4335" d="M13.8 12 3.6 22.2c.4.2.8.2 1.3-.1l12.3-6.7z"/><path fill="#4285F4" d="M3.6 1.8 13.8 12l3.4-3.4L4.9 1.9c-.5-.3-.9-.3-1.3-.1z"/></svg><span><small>Edinin</small>Google Play</span></a>
     </div>
@@ -239,12 +281,22 @@ footer .copy { flex-basis: 100%; margin: .6rem 0 0; }
 
 <footer>
   <div class="wrap">
-    <a href="../privacy.html">Gizlilik Politikası</a>
-    <a href="../support.html">Destek</a>
-    <a href="mailto:yagjz@icloud.com">İletişim</a>
+    <a href="privacy.html">Gizlilik Politikası</a>
+    <a href="support.html">Destek</a>
+    <a href="https://instagram.com/dev.yagiz" rel="noopener">İletişim</a>
     <p class="copy">© 2026 Mustafa Yağız. Auramy, Apple ya da Google ile bağlantılı değildir.</p>
   </div>
 </footer>
 
+<script>
+  document.addEventListener("click", function (e) {
+    var d = document.querySelector(".langs");
+    if (d && d.open && !d.contains(e.target)) d.open = false;
+  });
+  document.addEventListener("keydown", function (e) {
+    var d = document.querySelector(".langs");
+    if (e.key === "Escape" && d && d.open) { d.open = false; d.querySelector("summary").focus(); }
+  });
+</script>
 </body>
 </html>

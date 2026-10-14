@@ -4,346 +4,409 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Auramy — Privacy Policy</title>
-<meta name="description" content="Privacy policy for Auramy, an iOS photo gallery and backup app.">
+<meta name="description" content="Privacy policy for Auramy, a photo gallery, cleanup, sharing and backup app for iPhone, iPad and Android.">
+<link rel="icon" href="assets/icon.png">
+<link rel="canonical" href="https://auramyy.github.io/privacy.html">
+<link rel="alternate" hreflang="en" href="https://auramyy.github.io/privacy.html">
+<link rel="alternate" hreflang="tr" href="https://auramyy.github.io/tr/privacy.html">
+<link rel="alternate" hreflang="de" href="https://auramyy.github.io/de/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://auramyy.github.io/fr/privacy.html">
+<link rel="alternate" hreflang="es" href="https://auramyy.github.io/es/privacy.html">
+<link rel="alternate" hreflang="it" href="https://auramyy.github.io/it/privacy.html">
+<link rel="alternate" hreflang="pt-PT" href="https://auramyy.github.io/pt/privacy.html">
+<link rel="alternate" hreflang="nl" href="https://auramyy.github.io/nl/privacy.html">
+<link rel="alternate" hreflang="ru" href="https://auramyy.github.io/ru/privacy.html">
+<link rel="alternate" hreflang="uk" href="https://auramyy.github.io/uk/privacy.html">
+<link rel="alternate" hreflang="pl" href="https://auramyy.github.io/pl/privacy.html">
+<link rel="alternate" hreflang="da" href="https://auramyy.github.io/da/privacy.html">
+<link rel="alternate" hreflang="sv" href="https://auramyy.github.io/sv/privacy.html">
+<link rel="alternate" hreflang="nb" href="https://auramyy.github.io/nb/privacy.html">
+<link rel="alternate" hreflang="fi" href="https://auramyy.github.io/fi/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://auramyy.github.io/ja/privacy.html">
+<link rel="alternate" hreflang="ko" href="https://auramyy.github.io/ko/privacy.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://auramyy.github.io/zh-hans/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://auramyy.github.io/zh-hant/privacy.html">
+<link rel="alternate" hreflang="ar" href="https://auramyy.github.io/ar/privacy.html">
+<link rel="alternate" hreflang="hi" href="https://auramyy.github.io/hi/privacy.html">
+<link rel="alternate" hreflang="th" href="https://auramyy.github.io/th/privacy.html">
+<link rel="alternate" hreflang="vi" href="https://auramyy.github.io/vi/privacy.html">
+<link rel="alternate" hreflang="id" href="https://auramyy.github.io/id/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://auramyy.github.io/privacy.html">
+<meta property="og:title" content="Auramy — Privacy Policy">
+<meta property="og:description" content="Privacy policy for Auramy, a photo gallery, cleanup, sharing and backup app for iPhone, iPad and Android.">
+<meta property="og:image" content="https://auramyy.github.io/assets/icon.png">
+<meta property="og:url" content="https://auramyy.github.io/privacy.html">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#061820">
+<script>
+  try {
+    (function () {
+      if (/[?&]lang=en/.test(location.search)) return;
+      var P = {"tr": "tr", "de": "de", "fr": "fr", "es": "es", "it": "it", "pt": "pt", "nl": "nl", "ru": "ru", "uk": "uk", "pl": "pl", "da": "da", "sv": "sv", "nb": "nb", "fi": "fi", "ja": "ja", "ko": "ko", "zh-Hans": "zh-hans", "zh-Hant": "zh-hant", "ar": "ar", "hi": "hi", "th": "th", "vi": "vi", "id": "id"}, F = "privacy.html";
+      var pref = localStorage.getItem("auramy.lang");
+      if (pref) { if (P[pref]) location.replace(P[pref] + "/" + F); return; }
+      var tags = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      for (var i = 0; i < tags.length; i++) {
+        var t = String(tags[i]).toLowerCase(), p = t.split("-")[0];
+        if (p === "en") return;
+        if (p === "zh") { location.replace((/hant|tw|hk|mo/.test(t) ? "zh-hant" : "zh-hans") + "/" + F); return; }
+        if (p === "no" || p === "nn") p = "nb";
+        if (P[p]) { location.replace(P[p] + "/" + F); return; }
+      }
+    })();
+  } catch (e) {}
+</script>
 <style>
-  :root {
-    --bg: #ffffff;
-    --surface: #f6f6f8;
-    --border: #e3e3e8;
-    --text: #1c1c1e;
-    --muted: #6a6a72;
-    --accent: #6b4ee6;
-    --accent-soft: #f2eeff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #131316;
-      --surface: #1c1c21;
-      --border: #2e2e36;
-      --text: #ececf0;
-      --muted: #a0a0aa;
-      --accent: #a48bff;
-      --accent-soft: #221d38;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding: 3rem 1.25rem 5rem;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    -webkit-text-size-adjust: 100%;
-  }
-  main { max-width: 46rem; margin: 0 auto; }
-  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.02em; }
-  h2 {
-    font-size: 1.2rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em;
-    padding-top: 1.25rem; border-top: 1px solid var(--border);
-  }
-  h3 { font-size: 1rem; margin: 1.5rem 0 .4rem; }
-  p, li { color: var(--text); }
-  a { color: var(--accent); }
-  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
-  .callout {
-    background: var(--accent-soft);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.1rem 1.25rem;
-    margin: 1.5rem 0;
-  }
-  .callout p { margin: 0; }
-  ul { padding-left: 1.25rem; }
-  li { margin: .4rem 0; }
-  table {
-    width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem;
-  }
-  .table-wrap { overflow-x: auto; }
-  th, td {
-    text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  th { color: var(--muted); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
-  code {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 5px;
-    padding: .1rem .35rem; font-size: .88em;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-  footer {
-    margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
-    color: var(--muted); font-size: .9rem;
-  }
+:root { --bg: #ffffff; --surface: #f6f6f8; --border: #e3e3e8; --text: #1c1c1e; --muted: #6a6a72; --accent: #6b4ee6; --accent-soft: #f2eeff; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #131316; --surface: #1c1c21; --border: #2e2e36; --text: #ececf0; --muted: #a0a0aa; --accent: #a48bff; --accent-soft: #221d38; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; -webkit-text-size-adjust: 100%; }
+.nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px); background: rgba(6,24,32,.9); border-bottom: 1px solid rgba(255,255,255,.08); }
+.nav .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; display: flex; align-items: center; gap: 1.1rem; height: 56px; }
+.brand { display: flex; align-items: center; gap: .55rem; color: #fff; text-decoration: none; font-weight: 700; }
+.brand img { width: 28px; height: 28px; border-radius: 8px; }
+.nav nav { display: flex; gap: 1rem; margin-inline-start: auto; }
+.nav nav a { color: rgba(255,255,255,.78); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+.nav nav a:hover, .nav nav a[aria-current] { color: #fff; }
+@media (max-width: 560px) { .nav nav { display: none; } .langs { margin-inline-start: auto; } }
+.langs { position: relative; flex: none; }
+.langs summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.85); font-size: .9rem; white-space: nowrap; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .2rem .75rem; }
+.langs summary::-webkit-details-marker { display: none; }
+.langs summary:hover, .langs[open] summary { color: #fff; border-color: rgba(255,255,255,.45); }
+.langs .menu { position: absolute; inset-inline-end: 0; top: calc(100% + .5rem); display: grid; grid-template-columns: repeat(2, minmax(8.5rem, 1fr)); gap: .1rem; padding: .45rem; max-height: min(70vh, 30rem); overflow-y: auto; background: rgba(10,22,30,.97); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; box-shadow: 0 20px 50px -10px rgba(0,0,0,.6); }
+.langs .menu a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .9rem; padding: .4rem .65rem; border-radius: 9px; white-space: nowrap; }
+.langs .menu a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.langs .menu a[aria-current] { background: rgba(92,255,194,.14); color: #5cffc2; }
+@media (max-width: 380px) { .langs .menu { grid-template-columns: 1fr; } }
+main { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.02em; }
+h2 { font-size: 1.2rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+h3 { font-size: 1rem; margin: 1.6rem 0 .4rem; }
+a { color: var(--accent); }
+.meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
+.callout { background: var(--accent-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; margin: 1.5rem 0; }
+.callout p { margin: 0; }
+.tnote { color: var(--muted); font-size: .88rem; border-inline-start: 3px solid var(--border); padding-inline-start: .8rem; margin: 0 0 1.5rem; }
+ul { padding-inline-start: 1.25rem; }
+li { margin: .4rem 0; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+th, td { text-align: start; padding: .6rem .7rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: .85rem; }
+code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .1rem .35rem; font-size: .88em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; direction: ltr; unicode-bidi: isolate; }
+footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+footer a { margin-inline-end: 1rem; }
+:lang(ko) { word-break: keep-all; }
+:is(:lang(ja), :lang(zh)) { line-break: strict; }
 </style>
 </head>
 <body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="28" height="28">Auramy</a>
+    <nav aria-label="Sections"><a href="privacy.html" aria-current="page">Privacy Policy</a><a href="support.html">Support</a></nav>
+    <details class="langs"><summary aria-label="Language"><svg viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg><span>English</span></summary><div class="menu"><a href="privacy.html" lang="en" hreflang="en" aria-current="page" onclick="try{localStorage.setItem('auramy.lang','en')}catch(e){}">English</a><a href="tr/privacy.html" lang="tr" hreflang="tr" onclick="try{localStorage.setItem('auramy.lang','tr')}catch(e){}">Türkçe</a><a href="de/privacy.html" lang="de" hreflang="de" onclick="try{localStorage.setItem('auramy.lang','de')}catch(e){}">Deutsch</a><a href="fr/privacy.html" lang="fr" hreflang="fr" onclick="try{localStorage.setItem('auramy.lang','fr')}catch(e){}">Français</a><a href="es/privacy.html" lang="es" hreflang="es" onclick="try{localStorage.setItem('auramy.lang','es')}catch(e){}">Español</a><a href="it/privacy.html" lang="it" hreflang="it" onclick="try{localStorage.setItem('auramy.lang','it')}catch(e){}">Italiano</a><a href="pt/privacy.html" lang="pt-PT" hreflang="pt-PT" onclick="try{localStorage.setItem('auramy.lang','pt')}catch(e){}">Português</a><a href="nl/privacy.html" lang="nl" hreflang="nl" onclick="try{localStorage.setItem('auramy.lang','nl')}catch(e){}">Nederlands</a><a href="ru/privacy.html" lang="ru" hreflang="ru" onclick="try{localStorage.setItem('auramy.lang','ru')}catch(e){}">Русский</a><a href="uk/privacy.html" lang="uk" hreflang="uk" onclick="try{localStorage.setItem('auramy.lang','uk')}catch(e){}">Українська</a><a href="pl/privacy.html" lang="pl" hreflang="pl" onclick="try{localStorage.setItem('auramy.lang','pl')}catch(e){}">Polski</a><a href="da/privacy.html" lang="da" hreflang="da" onclick="try{localStorage.setItem('auramy.lang','da')}catch(e){}">Dansk</a><a href="sv/privacy.html" lang="sv" hreflang="sv" onclick="try{localStorage.setItem('auramy.lang','sv')}catch(e){}">Svenska</a><a href="nb/privacy.html" lang="nb" hreflang="nb" onclick="try{localStorage.setItem('auramy.lang','nb')}catch(e){}">Norsk</a><a href="fi/privacy.html" lang="fi" hreflang="fi" onclick="try{localStorage.setItem('auramy.lang','fi')}catch(e){}">Suomi</a><a href="ja/privacy.html" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('auramy.lang','ja')}catch(e){}">日本語</a><a href="ko/privacy.html" lang="ko" hreflang="ko" onclick="try{localStorage.setItem('auramy.lang','ko')}catch(e){}">한국어</a><a href="zh-hans/privacy.html" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('auramy.lang','zh-Hans')}catch(e){}">简体中文</a><a href="zh-hant/privacy.html" lang="zh-Hant" hreflang="zh-Hant" onclick="try{localStorage.setItem('auramy.lang','zh-Hant')}catch(e){}">繁體中文</a><a href="ar/privacy.html" lang="ar" hreflang="ar" onclick="try{localStorage.setItem('auramy.lang','ar')}catch(e){}">العربية</a><a href="hi/privacy.html" lang="hi" hreflang="hi" onclick="try{localStorage.setItem('auramy.lang','hi')}catch(e){}">हिन्दी</a><a href="th/privacy.html" lang="th" hreflang="th" onclick="try{localStorage.setItem('auramy.lang','th')}catch(e){}">ไทย</a><a href="vi/privacy.html" lang="vi" hreflang="vi" onclick="try{localStorage.setItem('auramy.lang','vi')}catch(e){}">Tiếng Việt</a><a href="id/privacy.html" lang="id" hreflang="id" onclick="try{localStorage.setItem('auramy.lang','id')}catch(e){}">Bahasa Indonesia</a></div></details>
+  </div>
+</header>
 <main>
+<h1>Auramy Privacy Policy</h1>
+<p class="meta">Last updated: 14 October 2026</p>
 
-  <h1>Auramy Privacy Policy</h1>
-  <p class="meta">Last updated: 13 October 2026</p>
+<div class="callout">
+  <p><strong>The short version.</strong> Auramy has no servers. Your photos, videos and
+  settings stay on your phone. Nothing is sent to the developer — no analytics, no tracking,
+  no advertising, no accounts. Something leaves your device only when you ask for it: a
+  backup to <em>your own</em> Google Drive, photos you send straight to a phone nearby, or
+  photos you share by link from your own Google Drive.</p>
+</div>
 
-  <div class="callout">
-    <p><strong>The short version.</strong> Auramy has no servers. Your photos, videos and
-    settings stay on your phone. Nothing is sent to the developer — no analytics, no tracking,
-    no advertising, no accounts. Something leaves your device only when you ask for it: a
-    backup to <em>your own</em> Google Drive, photos you send straight to a phone nearby, or
-    photos you share by link from your own Google Drive.</p>
-  </div>
+<p>This policy explains what Auramy ("the app") does with your information. It applies to
+the Auramy apps for iPhone and iPad (App Store) and for Android (Google Play), and to the
+shared-link page at <code>auramyy.github.io/s/</code>. Auramy is developed and operated by
+Mustafa Yağız ("the developer", "I", "me").</p>
 
-  <p>This policy explains what Auramy ("the app") does with your information. It applies to
-  the Auramy apps for iPhone and iPad (App Store) and for Android (Google Play), and to the
-  shared-link page at <code>auramyy.github.io/s/</code>. Auramy is developed and operated by
-  Mustafa Yağız ("the developer", "I", "me").</p>
+<h2>1. Information the developer collects</h2>
 
-  <h2>1. Information the developer collects</h2>
+<p><strong>None.</strong> Auramy has no backend service. There is no account to create, no
+server that receives your data, and no way for the developer to see your photos, your
+library, your searches, what you share or how you use the app.</p>
 
-  <p><strong>None.</strong> Auramy has no backend service. There is no account to create, no
-  server that receives your data, and no way for the developer to see your photos, your
-  library, your searches, what you share or how you use the app.</p>
+<p>Specifically, Auramy does <em>not</em>:</p>
+<ul>
+  <li>collect, transmit or store your photos or videos on any server operated by the developer;</li>
+  <li>include any analytics, crash-reporting, advertising or attribution SDK;</li>
+  <li>track you across apps or websites, or build a profile of you;</li>
+  <li>sell or share personal information with anyone.</li>
+</ul>
 
-  <p>Specifically, Auramy does <em>not</em>:</p>
-  <ul>
-    <li>collect, transmit or store your photos or videos on any server operated by the developer;</li>
-    <li>include any analytics, crash-reporting, advertising or attribution SDK;</li>
-    <li>track you across apps or websites, or build a profile of you;</li>
-    <li>sell or share personal information with anyone.</li>
-  </ul>
+<h2>2. Information that stays on your device</h2>
 
-  <h2>2. Information that stays on your device</h2>
+<p>Auramy stores the following locally. The developer never receives any of it, and it is
+removed when you delete the app.</p>
 
-  <p>Auramy stores the following locally. It is never transmitted anywhere, and it is removed
-  when you delete the app.</p>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>What</th><th>Why</th><th>Where</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A search index of your library (asset identifiers, media type, dates, file sizes and derived keywords)</td>
+      <td>So gallery search works instantly and offline</td>
+      <td>The app's private storage</td>
+    </tr>
+    <tr>
+      <td>Your settings — theme, app lock, backup preferences, recent searches</td>
+      <td>To remember how you set the app up</td>
+      <td>The app's settings, shared with the Auramy widget</td>
+    </tr>
+    <tr>
+      <td>Your Google account email address, if you connect Drive, and on iPhone the access tokens</td>
+      <td>To show which account is connected and to keep you signed in</td>
+      <td>iPhone: the Keychain, managed by Google's Sign-In SDK. Android: the app's settings; tokens are held by Google Play services</td>
+    </tr>
+    <tr>
+      <td>Photos and videos you move into the Private Vault (Pro)</td>
+      <td>So only your vault PIN can open them</td>
+      <td>The app's private storage, encrypted with a key derived from your PIN</td>
+    </tr>
+    <tr>
+      <td>The name this phone shows when you share nearby, and a random identifier created when the app is installed</td>
+      <td>So the other phone can show who is sending, and recognise your phone next time</td>
+      <td>The app's settings</td>
+    </tr>
+    <tr>
+      <td>A list of what you received: the sending phone's name and which photos came from it</td>
+      <td>For the Shared with You category</td>
+      <td>The app's private storage</td>
+    </tr>
+    <tr>
+      <td>A list of the links you shared, with their expiry dates</td>
+      <td>So you can copy or stop a link, and so it is deleted when it expires</td>
+      <td>The app's private storage</td>
+    </tr>
+    <tr>
+      <td>Temporary copies of media you edit, export, send or receive</td>
+      <td>To hand the file to the share sheet, the editor, or the other phone</td>
+      <td>The system temporary folder; deleted after use</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
-  <div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>What</th><th>Why</th><th>Where</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>A search index of your library (asset identifiers, media type, dates, file sizes and derived keywords)</td>
-        <td>So gallery search works instantly and offline</td>
-        <td>The app's private storage</td>
-      </tr>
-      <tr>
-        <td>Your settings — theme, app lock, backup preferences, recent searches</td>
-        <td>To remember how you set the app up</td>
-        <td>The app's settings, shared with the Auramy widget</td>
-      </tr>
-      <tr>
-        <td>Your Google account email address and access tokens, if you connect Drive</td>
-        <td>To show which account is connected and to keep you signed in</td>
-        <td>The system's secure credential store, managed by Google's Sign-In SDK</td>
-      </tr>
-      <tr>
-        <td>The name this phone shows when you share nearby, and a random identifier created when the app is installed</td>
-        <td>So the other phone can show who is sending, and recognise your phone next time</td>
-        <td>The app's settings</td>
-      </tr>
-      <tr>
-        <td>A list of what you received: the sending phone's name and which photos came from it</td>
-        <td>For the Received view</td>
-        <td>The app's private storage</td>
-      </tr>
-      <tr>
-        <td>A list of the links you shared, with their expiry dates</td>
-        <td>So you can copy or stop a link, and so it is deleted when it expires</td>
-        <td>The app's private storage</td>
-      </tr>
-      <tr>
-        <td>Temporary copies of media you edit, export, send or receive</td>
-        <td>To hand the file to the share sheet, the editor, or the other phone</td>
-        <td>The system temporary folder; deleted after use</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+<p>Your phone's own backup (iCloud or Google) may include Auramy's settings and the encrypted
+vault, like any app's data. That copy belongs to your Apple or Google account; the developer
+cannot access it.</p>
 
-  <h2>3. Google Drive backup (optional)</h2>
+<h2>3. Google Drive backup (optional)</h2>
 
-  <p>Auramy works fully without a Google account. Cloud backup is an opt-in feature. If you
-  turn it on and sign in:</p>
+<p>Auramy works fully without a Google account. Cloud backup is an opt-in feature. If you
+turn it on and connect Google Drive:</p>
 
-  <ul>
-    <li>Auramy uploads the photos and videos you select to a folder named <strong>Auramy</strong>
-    in <strong>your own</strong> Google Drive. The developer has no access to that folder or
-    to your Drive.</li>
-    <li>Auramy requests a single, narrow permission — <code>drive.file</code>. This scope lets
-    the app see and manage <em>only the files it created itself</em>. It cannot read the rest
-    of your Drive.</li>
-    <li>Signing in is handled by Google's official Sign-In SDK. Your Google password is never
-    seen or handled by Auramy.</li>
-    <li>Signing out removes the stored tokens and clears the app's cached record of what has
-    already been backed up. Files already in your Drive are left untouched — they are yours.</li>
-  </ul>
+<ul>
+  <li>Auramy uploads the photos and videos you select to a folder named <strong>Auramy</strong>
+  in <strong>your own</strong> Google Drive. The developer has no access to that folder or
+  to your Drive.</li>
+  <li>Auramy requests a single, narrow permission — <code>drive.file</code> — plus your email
+  address to show which account is connected. The <code>drive.file</code> scope lets the app
+  see and manage <em>only the files it created itself</em>. It cannot read the rest of your Drive.</li>
+  <li>Connecting is handled by Google: by Google's official Sign-In SDK on iPhone and iPad, and
+  by Google Play services on Android. Your Google password is never seen or handled by Auramy.</li>
+  <li>Signing out revokes Auramy's access, removes the stored sign-in and clears the app's
+  cached record of what has already been backed up. Files already in your Drive are left
+  untouched — they are yours.</li>
+</ul>
 
-  <p>Your relationship with Google is governed by Google's own terms and privacy policy:
-  <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Auramy's use
-  of information received from Google APIs adheres to the
-  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
-  User Data Policy</a>, including the Limited Use requirements.</p>
+<p>Your relationship with Google is governed by Google's own terms and privacy policy:
+<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Auramy's use
+of information received from Google APIs adheres to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
+User Data Policy</a>, including the Limited Use requirements.</p>
 
-  <h2>4. Sharing photos and videos</h2>
+<h2>4. Sharing photos and videos</h2>
 
-  <p>Sharing only happens when you start it, and only with the photos and videos you pick.
-  Nothing passes through a server of the developer's.</p>
+<p>Sharing only happens when you start it, and only with the photos and videos you pick.
+Nothing passes through a server of the developer's.</p>
 
-  <h3>Nearby, phone to phone</h3>
-  <ul>
-    <li>The two phones connect to each other directly — over the Wi-Fi network they share, a
-    temporary network one of them opens, or Bluetooth to find each other. No internet
-    connection is used, and nothing goes through any server.</li>
-    <li>The connection is end-to-end encrypted. The phones prove they are talking to each other
-    with the code on screen or the scanned code before anything is sent, and the receiving
-    phone must accept each transfer.</li>
-    <li>The other phone sees this phone's name (which you choose and can change) and a list of
-    what is offered: file names, sizes, types and capture dates.</li>
-    <li>Received photos are saved to your photo library like any other photo.</li>
-  </ul>
+<h3>Nearby, phone to phone</h3>
+<ul>
+  <li>The two phones connect to each other directly — over the Wi-Fi network they share, a
+  temporary network one of them opens, or a direct peer-to-peer link, using Bluetooth to find
+  each other. No internet connection is used, and nothing goes through any server.</li>
+  <li>The connection is end-to-end encrypted. The phones prove they are talking to each other
+  with the code on screen or the scanned code before anything is sent, and the receiving
+  phone must accept each transfer.</li>
+  <li>The other phone sees this phone's name (which you choose and can change) and a list of
+  what is offered: file names, sizes, types and capture dates.</li>
+  <li>Received photos are saved to your photo library like any other photo.</li>
+</ul>
 
-  <h3>By link, through your own Google Drive</h3>
-  <ul>
-    <li>When you share by link, Auramy uploads the photos and videos you picked to a folder
-    named <strong>Auramy Shares</strong> in <strong>your own</strong> Google Drive — kept apart
-    from your backup — along with a small list file describing them: your phone's name, file
-    names, sizes, types, capture dates and checksums.</li>
-    <li>These files are made readable by <strong>anyone who has the link</strong>. Share the link
-    only with people you want to see the photos.</li>
-    <li>The link stops working after 7 days, when Auramy deletes the files from your Drive, or
-    earlier if you choose Stop Sharing. If Auramy cannot reach your Drive at that moment, it
-    tries again the next time it opens; you can also delete the <strong>Auramy Shares</strong>
-    folder in Google Drive yourself.</li>
-    <li>Location is removed from shared files when "Remove Location When Sharing" is on in Settings.</li>
-  </ul>
+<h3>By link, through your own Google Drive</h3>
+<ul>
+  <li>When you share by link, Auramy uploads the photos and videos you picked to a folder
+  named <strong>Auramy Shares</strong> in <strong>your own</strong> Google Drive — kept apart
+  from your backup — along with a small list file describing them: your phone's name, file
+  names, sizes, types, capture dates and checksums.</li>
+  <li>These files are made readable by <strong>anyone who has the link</strong>. Share the link
+  only with people you want to see the photos.</li>
+  <li>The link stops working after 7 days, when Auramy deletes the files from your Drive, or
+  earlier if you choose Stop Sharing. If Auramy cannot reach your Drive at that moment, it
+  tries again the next time it opens; you can also delete the <strong>Auramy Shares</strong>
+  folder in Google Drive yourself.</li>
+  <li>Location is removed from shared files when "Remove Location When Sharing" is on in Settings.</li>
+</ul>
 
-  <h3>Opening a link</h3>
-  <ul>
-    <li>Opening a link needs no Google account. The Auramy app downloads the files directly from
-    Google Drive, checks each one against the list, and saves them to your photo library.</li>
-    <li>Without the app, the link opens a web page at <code>auramyy.github.io/s/</code>. The page
-    runs entirely in your browser: it reads the files directly from Google Drive through Google's
-    Drive API and lets you save them. The part of the link that identifies the share comes after
-    the <code>#</code>, which browsers never send to the website. The page sets no cookies,
-    contains no analytics and loads nothing from anyone but this site and Google Drive. It is hosted by GitHub Pages, which, like any web host, may keep
-    technical logs of visits under
-    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</li>
-  </ul>
+<h3>Opening a link</h3>
+<ul>
+  <li>Opening a link needs no Google account. The Auramy app downloads the files directly from
+  Google Drive, checks each one against the list, and saves them to your photo library.</li>
+  <li>Without the app, the link opens a web page at <code>auramyy.github.io/s/</code>. The page
+  runs entirely in your browser: it reads the files directly from Google Drive through Google's
+  Drive API and lets you save them. The part of the link that identifies the share comes after
+  the <code>#</code>, which browsers never send to the website. The page sets no cookies,
+  contains no analytics and loads nothing from anyone but this site and Google Drive.</li>
+</ul>
 
-  <h3>Network destinations</h3>
-  <p>Besides the App Store or Google Play for purchases, Auramy contacts only Google's servers —
-  <code>googleapis.com</code> and Google's sign-in pages for backup and for sharing by link, and
-  <code>drive.usercontent.google.com</code> and <code>drive.google.com</code> to download shared
-  links and their previews — and, while sharing nearby, the other phone directly. There are no
-  other network destinations.</p>
+<h3>Network destinations</h3>
+<p>Besides the App Store or Google Play for purchases, Auramy contacts only Google's servers —
+<code>googleapis.com</code> and Google's sign-in pages for backup and for sharing by link, and
+<code>drive.usercontent.google.com</code> and <code>drive.google.com</code> to download shared
+links and their previews — and, while sharing nearby, the other phone directly. There are no
+other network destinations.</p>
 
-  <h2>5. Permissions Auramy asks for</h2>
+<h2>5. This website</h2>
 
-  <h3>Photo library</h3>
-  <p>Required for the app's core purpose: showing your gallery, finding duplicates and clutter
-  you can delete, editing, backing up what you choose, and saving what you receive. Auramy works
-  with limited access too — it will then only see the photos you have shared with it. Deleting a
-  photo always goes through the system, so the system shows its own confirmation.</p>
+<p>This website, <code>auramyy.github.io</code>, sets no cookies and contains no analytics,
+advertising or third-party scripts. It remembers the language you pick in your own browser's
+storage, which never leaves your device. It is hosted by GitHub Pages, which, like any web host,
+may keep technical logs of visits under
+<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
 
-  <h3>Bluetooth and nearby devices</h3>
-  <p>Used only while you are sending or receiving nearby, so the two phones can find each other
-  and agree on how to connect, even without Wi-Fi. Auramy does not use Bluetooth to determine
-  your location.</p>
+<h2>6. Permissions Auramy asks for</h2>
 
-  <h3>Local network (iPhone)</h3>
-  <p>Used only while sharing nearby, to find other phones running Auramy on the same network and
-  connect to them directly.</p>
+<h3>Photo library</h3>
+<p>Required for the app's core purpose: showing your gallery, finding duplicates and clutter
+you can delete, editing, backing up what you choose, and saving what you receive. Auramy works
+with limited access too — it will then only see the photos you have shared with it. Deleting a
+photo always goes through the system, so the system shows its own confirmation.</p>
 
-  <h3>Camera (iPhone)</h3>
-  <p>Used only to scan the code on another phone when you share nearby. Nothing is recorded or
-  saved. On Android, codes are scanned by Google Play services' scanner and Auramy never gets
-  access to the camera.</p>
+<h3>Bluetooth and nearby devices</h3>
+<p>Used only while you are sending or receiving nearby, so the two phones can find each other
+and agree on how to connect, even without Wi-Fi. Auramy does not use Bluetooth to determine
+your location.</p>
 
-  <h3>Location (Android 12 and earlier)</h3>
-  <p>On these Android versions, the system requires location permission before an app may open
-  its own Wi-Fi network or look for nearby Wi-Fi devices. Auramy asks for it only for nearby
-  sharing without a common network, and never reads your location.</p>
+<h3>Local network (iPhone)</h3>
+<p>Used only while sharing nearby, to find other phones running Auramy on the same network and
+connect to them directly.</p>
 
-  <h3>Face ID / Touch ID / fingerprint</h3>
-  <p>Optional, used only to unlock the app when you enable App Lock. The system returns nothing
-  but a success or failure result — Auramy never receives or stores biometric data.</p>
+<h3>Camera (iPhone)</h3>
+<p>Used only to scan the code on another phone when you share nearby. Nothing is recorded or
+saved. On Android, codes are scanned by Google Play services' scanner and Auramy never gets
+access to the camera.</p>
 
-  <h3>Notifications</h3>
-  <p>Optional. Used to tell you a background backup finished. Notifications are generated on your
-  device; there is no push server.</p>
+<h3>Location (Android 12 and earlier)</h3>
+<p>On these Android versions, the system requires location permission before an app may open
+its own Wi-Fi network or look for nearby Wi-Fi devices. Auramy asks for it only for nearby
+sharing without a common network, and never reads your location.</p>
 
-  <h3>Background activity</h3>
-  <p>Used to continue an in-progress backup when the app is not on screen.</p>
+<h3>Face ID / Touch ID / fingerprint</h3>
+<p>Optional, used only to unlock the app when you enable App Lock. The system returns nothing
+but a success or failure result — Auramy never receives or stores biometric data.</p>
 
-  <h2>6. Location data</h2>
+<h3>Notifications</h3>
+<p>Optional. Used to tell you a background backup finished and, if you turn on storage alerts,
+that there is a lot of space you could free. Notifications are generated on your device; there
+is no push server.</p>
 
-  <p>Auramy never reads your location. Photos, however, may carry GPS coordinates recorded by
-  the camera. When you share a photo or video out of Auramy, <strong>location metadata is removed
-  by default</strong>. You can turn this off in Settings if you want location to travel with the
-  file. Backups to your own Google Drive always keep the original file.</p>
+<h3>Background activity</h3>
+<p>Used to continue an in-progress backup, and to run the occasional storage check, when the
+app is not on screen. Both run entirely on your phone.</p>
 
-  <h2>7. Purchases</h2>
+<h2>7. Location data</h2>
 
-  <p>Auramy Pro is bought through the App Store or Google Play. Apple or Google handles the payment;
-  Auramy only learns from them whether Pro is active on your account. The developer never sees
-  your payment details.</p>
+<p>Auramy never reads your location. Photos, however, may carry GPS coordinates recorded by
+the camera. When you share a photo or video out of Auramy, <strong>location metadata is removed
+by default</strong>. You can turn this off in Settings if you want location to travel with the
+file. Backups to your own Google Drive always keep the original file.</p>
 
-  <h2>8. Retention and deletion</h2>
+<h2>8. Purchases</h2>
 
-  <ul>
-    <li>Everything Auramy stores lives in the app's own storage. Deleting the app removes all
-    of it, including the search index, your settings and any stored Google tokens.</li>
-    <li>To disconnect Google Drive without deleting the app, use Sign Out in Settings. You can
-    also revoke Auramy's access at any time at
-    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
-    <li>Photos you backed up remain in your Google Drive until you delete them there. They are
-    your files in your account.</li>
-    <li>Shared links are deleted from your Drive after 7 days or when you stop sharing them. Photos
-    someone has already saved from a link stay with them.</li>
-  </ul>
+<p>Auramy Pro is bought through the App Store or Google Play. Apple or Google handles the payment;
+Auramy only learns from them whether Pro is active on your account. The developer never sees
+your payment details.</p>
 
-  <h2>9. Children</h2>
+<h2>9. Retention and deletion</h2>
 
-  <p>Auramy is not directed at children under 13 and does not knowingly collect information from
-  them. Since the developer collects no information from anyone, there is nothing to delete on
-  request — but if you have a concern, please get in touch.</p>
+<ul>
+  <li>Everything Auramy stores lives in the app's own storage. Deleting the app removes all
+  of it, including the search index, your settings and any stored sign-in.</li>
+  <li><strong>Deleting the app also deletes the Private Vault.</strong> Move photos out of the
+  vault first if you want to keep them.</li>
+  <li>To disconnect Google Drive without deleting the app, use Sign Out in Settings. You can
+  also revoke Auramy's access at any time at
+  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+  <li>Photos you backed up remain in your Google Drive until you delete them there. They are
+  your files in your account.</li>
+  <li>Shared links are deleted from your Drive after 7 days or when you stop sharing them. Photos
+  someone has already saved from a link stay with them.</li>
+</ul>
 
-  <h2>10. Your rights</h2>
+<h2>10. Children</h2>
 
-  <p>Depending on where you live, you may have rights under the GDPR (Europe), the KVKK
-  (Türkiye), the CCPA/CPRA (California) or similar laws — for example, to access, correct,
-  export or delete personal data held about you.</p>
+<p>Auramy is not directed at children under 13 and does not knowingly collect information from
+them. Since the developer collects no information from anyone, there is nothing to delete on
+request — but if you have a concern, please get in touch.</p>
 
-  <p>Because the developer holds no personal data about you, there is nothing to disclose,
-  export or erase on the developer's side. Data held on your device is under your direct control
-  and is removed by deleting the app. Data in your Google Drive is under your control through
-  your Google account. If you still want to exercise a right or ask a question, contact details
-  are below and I will respond.</p>
+<h2>11. Your rights</h2>
 
-  <h2>11. Security</h2>
+<p>Depending on where you live, you may have rights under the GDPR (Europe), the KVKK
+(Türkiye), the CCPA/CPRA (California) or similar laws — for example, to access, correct,
+export or delete personal data held about you.</p>
 
-  <p>Auramy relies on the protections the operating system provides: app sandboxing, encrypted
-  storage, and the system's secure store for credentials. All internet traffic uses HTTPS, and
-  nearby transfers are end-to-end encrypted. Optional App Lock adds Face ID, Touch ID, a
-  fingerprint or your passcode in front of the app, and hides the gallery from the app switcher
-  while the app is in the background.</p>
+<p>Because the developer holds no personal data about you, there is nothing to disclose,
+export or erase on the developer's side. Data held on your device is under your direct control
+and is removed by deleting the app. Data in your Google Drive is under your control through
+your Google account. If you still want to exercise a right or ask a question, contact details
+are below and I will respond.</p>
 
-  <p>No system is perfectly secure. Keeping your device updated and passcode-protected is the
-  single biggest thing you can do to protect what is on it.</p>
+<h2>12. Security</h2>
 
-  <h2>12. Changes to this policy</h2>
+<p>Auramy relies on the protections the operating system provides: app sandboxing, encrypted
+storage, and the system's secure store for credentials. All internet traffic uses HTTPS,
+nearby transfers are end-to-end encrypted, and the Private Vault is encrypted with a key that
+only your PIN can produce. Optional App Lock adds Face ID, Touch ID, a fingerprint or your
+passcode in front of the app, and hides the gallery from the app switcher while the app is in
+the background.</p>
 
-  <p>If this policy changes materially, the updated version will be posted here with a new date
-  at the top. Continued use of the app after a change means you accept the revised policy.</p>
+<p>No system is perfectly secure. Keeping your device updated and passcode-protected is the
+single biggest thing you can do to protect what is on it.</p>
 
-  <h2>13. Contact</h2>
+<h2>13. Changes to this policy</h2>
 
-  <p>Questions, concerns or privacy requests:
-  <a href="mailto:yagjz@icloud.com">yagjz@icloud.com</a></p>
+<p>If this policy changes materially, the updated version will be posted here with a new date
+at the top. Continued use of the app after a change means you accept the revised policy.</p>
 
-  <footer>
-    Auramy — developed by Mustafa Yağız. This policy covers the Auramy apps for iPhone, iPad and
-    Android, and the shared-link page.
-  </footer>
+<h2>14. Contact</h2>
 
+<p>Questions, concerns or privacy requests:
+<a href="https://instagram.com/dev.yagiz" rel="noopener">@dev.yagiz</a> (Instagram)</p>
+
+<footer>
+  Auramy — developed by Mustafa Yağız. This policy covers the Auramy apps for iPhone, iPad and
+  Android, the shared-link page and this website.
+</footer>
 </main>
+<script>
+  document.addEventListener("click", function (e) {
+    var d = document.querySelector(".langs");
+    if (d && d.open && !d.contains(e.target)) d.open = false;
+  });
+  document.addEventListener("keydown", function (e) {
+    var d = document.querySelector(".langs");
+    if (e.key === "Escape" && d && d.open) { d.open = false; d.querySelector("summary").focus(); }
+  });
+</script>
 </body>
 </html>

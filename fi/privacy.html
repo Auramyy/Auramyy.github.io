@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auramy — Tietosuojakäytäntö</title>
+<meta name="description" content="Tietosuojakäytäntö Auramylle, joka on galleria-, siivous-, jako- ja varmuuskopiosovellus iPhonelle, iPadille ja Androidille.">
+<link rel="icon" href="../assets/icon.png">
+<link rel="canonical" href="https://auramyy.github.io/fi/privacy.html">
+<link rel="alternate" hreflang="en" href="https://auramyy.github.io/privacy.html">
+<link rel="alternate" hreflang="tr" href="https://auramyy.github.io/tr/privacy.html">
+<link rel="alternate" hreflang="de" href="https://auramyy.github.io/de/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://auramyy.github.io/fr/privacy.html">
+<link rel="alternate" hreflang="es" href="https://auramyy.github.io/es/privacy.html">
+<link rel="alternate" hreflang="it" href="https://auramyy.github.io/it/privacy.html">
+<link rel="alternate" hreflang="pt-PT" href="https://auramyy.github.io/pt/privacy.html">
+<link rel="alternate" hreflang="nl" href="https://auramyy.github.io/nl/privacy.html">
+<link rel="alternate" hreflang="ru" href="https://auramyy.github.io/ru/privacy.html">
+<link rel="alternate" hreflang="uk" href="https://auramyy.github.io/uk/privacy.html">
+<link rel="alternate" hreflang="pl" href="https://auramyy.github.io/pl/privacy.html">
+<link rel="alternate" hreflang="da" href="https://auramyy.github.io/da/privacy.html">
+<link rel="alternate" hreflang="sv" href="https://auramyy.github.io/sv/privacy.html">
+<link rel="alternate" hreflang="nb" href="https://auramyy.github.io/nb/privacy.html">
+<link rel="alternate" hreflang="fi" href="https://auramyy.github.io/fi/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://auramyy.github.io/ja/privacy.html">
+<link rel="alternate" hreflang="ko" href="https://auramyy.github.io/ko/privacy.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://auramyy.github.io/zh-hans/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://auramyy.github.io/zh-hant/privacy.html">
+<link rel="alternate" hreflang="ar" href="https://auramyy.github.io/ar/privacy.html">
+<link rel="alternate" hreflang="hi" href="https://auramyy.github.io/hi/privacy.html">
+<link rel="alternate" hreflang="th" href="https://auramyy.github.io/th/privacy.html">
+<link rel="alternate" hreflang="vi" href="https://auramyy.github.io/vi/privacy.html">
+<link rel="alternate" hreflang="id" href="https://auramyy.github.io/id/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://auramyy.github.io/privacy.html">
+<meta property="og:title" content="Auramy — Tietosuojakäytäntö">
+<meta property="og:description" content="Tietosuojakäytäntö Auramylle, joka on galleria-, siivous-, jako- ja varmuuskopiosovellus iPhonelle, iPadille ja Androidille.">
+<meta property="og:image" content="https://auramyy.github.io/assets/icon.png">
+<meta property="og:url" content="https://auramyy.github.io/fi/privacy.html">
+<meta property="og:locale" content="fi_FI">
+<meta name="theme-color" content="#061820">
+
+<style>
+:root { --bg: #ffffff; --surface: #f6f6f8; --border: #e3e3e8; --text: #1c1c1e; --muted: #6a6a72; --accent: #6b4ee6; --accent-soft: #f2eeff; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #131316; --surface: #1c1c21; --border: #2e2e36; --text: #ececf0; --muted: #a0a0aa; --accent: #a48bff; --accent-soft: #221d38; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; -webkit-text-size-adjust: 100%; }
+.nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px); background: rgba(6,24,32,.9); border-bottom: 1px solid rgba(255,255,255,.08); }
+.nav .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; display: flex; align-items: center; gap: 1.1rem; height: 56px; }
+.brand { display: flex; align-items: center; gap: .55rem; color: #fff; text-decoration: none; font-weight: 700; }
+.brand img { width: 28px; height: 28px; border-radius: 8px; }
+.nav nav { display: flex; gap: 1rem; margin-inline-start: auto; }
+.nav nav a { color: rgba(255,255,255,.78); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+.nav nav a:hover, .nav nav a[aria-current] { color: #fff; }
+@media (max-width: 560px) { .nav nav { display: none; } .langs { margin-inline-start: auto; } }
+.langs { position: relative; flex: none; }
+.langs summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.85); font-size: .9rem; white-space: nowrap; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .2rem .75rem; }
+.langs summary::-webkit-details-marker { display: none; }
+.langs summary:hover, .langs[open] summary { color: #fff; border-color: rgba(255,255,255,.45); }
+.langs .menu { position: absolute; inset-inline-end: 0; top: calc(100% + .5rem); display: grid; grid-template-columns: repeat(2, minmax(8.5rem, 1fr)); gap: .1rem; padding: .45rem; max-height: min(70vh, 30rem); overflow-y: auto; background: rgba(10,22,30,.97); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; box-shadow: 0 20px 50px -10px rgba(0,0,0,.6); }
+.langs .menu a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .9rem; padding: .4rem .65rem; border-radius: 9px; white-space: nowrap; }
+.langs .menu a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.langs .menu a[aria-current] { background: rgba(92,255,194,.14); color: #5cffc2; }
+@media (max-width: 380px) { .langs .menu { grid-template-columns: 1fr; } }
+main { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.02em; }
+h2 { font-size: 1.2rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+h3 { font-size: 1rem; margin: 1.6rem 0 .4rem; }
+a { color: var(--accent); }
+.meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
+.callout { background: var(--accent-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; margin: 1.5rem 0; }
+.callout p { margin: 0; }
+.tnote { color: var(--muted); font-size: .88rem; border-inline-start: 3px solid var(--border); padding-inline-start: .8rem; margin: 0 0 1.5rem; }
+ul { padding-inline-start: 1.25rem; }
+li { margin: .4rem 0; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+th, td { text-align: start; padding: .6rem .7rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: .85rem; }
+code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .1rem .35rem; font-size: .88em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; direction: ltr; unicode-bidi: isolate; }
+footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+footer a { margin-inline-end: 1rem; }
+:lang(ko) { word-break: keep-all; }
+:is(:lang(ja), :lang(zh)) { line-break: strict; }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../assets/icon.png" alt="" width="28" height="28">Auramy</a>
+    <nav aria-label="Osiot"><a href="privacy.html" aria-current="page">Tietosuojakäytäntö</a><a href="support.html">Tuki</a></nav>
+    <details class="langs"><summary aria-label="Language"><svg viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg><span>Suomi</span></summary><div class="menu"><a href="../privacy.html" lang="en" hreflang="en" onclick="try{localStorage.setItem('auramy.lang','en')}catch(e){}">English</a><a href="../tr/privacy.html" lang="tr" hreflang="tr" onclick="try{localStorage.setItem('auramy.lang','tr')}catch(e){}">Türkçe</a><a href="../de/privacy.html" lang="de" hreflang="de" onclick="try{localStorage.setItem('auramy.lang','de')}catch(e){}">Deutsch</a><a href="../fr/privacy.html" lang="fr" hreflang="fr" onclick="try{localStorage.setItem('auramy.lang','fr')}catch(e){}">Français</a><a href="../es/privacy.html" lang="es" hreflang="es" onclick="try{localStorage.setItem('auramy.lang','es')}catch(e){}">Español</a><a href="../it/privacy.html" lang="it" hreflang="it" onclick="try{localStorage.setItem('auramy.lang','it')}catch(e){}">Italiano</a><a href="../pt/privacy.html" lang="pt-PT" hreflang="pt-PT" onclick="try{localStorage.setItem('auramy.lang','pt')}catch(e){}">Português</a><a href="../nl/privacy.html" lang="nl" hreflang="nl" onclick="try{localStorage.setItem('auramy.lang','nl')}catch(e){}">Nederlands</a><a href="../ru/privacy.html" lang="ru" hreflang="ru" onclick="try{localStorage.setItem('auramy.lang','ru')}catch(e){}">Русский</a><a href="../uk/privacy.html" lang="uk" hreflang="uk" onclick="try{localStorage.setItem('auramy.lang','uk')}catch(e){}">Українська</a><a href="../pl/privacy.html" lang="pl" hreflang="pl" onclick="try{localStorage.setItem('auramy.lang','pl')}catch(e){}">Polski</a><a href="../da/privacy.html" lang="da" hreflang="da" onclick="try{localStorage.setItem('auramy.lang','da')}catch(e){}">Dansk</a><a href="../sv/privacy.html" lang="sv" hreflang="sv" onclick="try{localStorage.setItem('auramy.lang','sv')}catch(e){}">Svenska</a><a href="../nb/privacy.html" lang="nb" hreflang="nb" onclick="try{localStorage.setItem('auramy.lang','nb')}catch(e){}">Norsk</a><a href="../fi/privacy.html" lang="fi" hreflang="fi" aria-current="page" onclick="try{localStorage.setItem('auramy.lang','fi')}catch(e){}">Suomi</a><a href="../ja/privacy.html" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('auramy.lang','ja')}catch(e){}">日本語</a><a href="../ko/privacy.html" lang="ko" hreflang="ko" onclick="try{localStorage.setItem('auramy.lang','ko')}catch(e){}">한국어</a><a href="../zh-hans/privacy.html" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('auramy.lang','zh-Hans')}catch(e){}">简体中文</a><a href="../zh-hant/privacy.html" lang="zh-Hant" hreflang="zh-Hant" onclick="try{localStorage.setItem('auramy.lang','zh-Hant')}catch(e){}">繁體中文</a><a href="../ar/privacy.html" lang="ar" hreflang="ar" onclick="try{localStorage.setItem('auramy.lang','ar')}catch(e){}">العربية</a><a href="../hi/privacy.html" lang="hi" hreflang="hi" onclick="try{localStorage.setItem('auramy.lang','hi')}catch(e){}">हिन्दी</a><a href="../th/privacy.html" lang="th" hreflang="th" onclick="try{localStorage.setItem('auramy.lang','th')}catch(e){}">ไทย</a><a href="../vi/privacy.html" lang="vi" hreflang="vi" onclick="try{localStorage.setItem('auramy.lang','vi')}catch(e){}">Tiếng Việt</a><a href="../id/privacy.html" lang="id" hreflang="id" onclick="try{localStorage.setItem('auramy.lang','id')}catch(e){}">Bahasa Indonesia</a></div></details>
+  </div>
+</header>
+<main>
+<h1>Auramyn tietosuojakäytäntö</h1>
+<p class="meta">Päivitetty viimeksi: 14. lokakuuta 2026</p>
+<p class="tnote">Tämä on käännös. Jos se poikkeaa englanninkielisestä alkuperäisestä, sovelletaan <a href="../privacy.html?lang=en">englanninkielistä versiota</a>.</p>
+
+<div class="callout">
+  <p><strong>Lyhyesti.</strong> Auramylla ei ole palvelimia. Kuvasi, videosi ja asetuksesi pysyvät
+  puhelimessasi. Kehittäjälle ei lähetetä mitään — ei analytiikkaa, ei seurantaa, ei mainoksia, ei tilejä.
+  Jotain lähtee laitteeltasi vain, kun pyydät sitä: varmuuskopio <em>omaan</em> Google Driveesi, kuvat,
+  jotka lähetät suoraan lähellä olevaan puhelimeen, tai kuvat, jotka jaat linkillä omasta Google
+  Drivestasi.</p>
+</div>
+
+<p>Tämä käytäntö kertoo, mitä Auramy (”sovellus”) tekee tiedoillasi. Se koskee Auramy-sovelluksia iPhonelle
+ja iPadille (App Store) sekä Androidille (Google Play) ja jaettujen linkkien sivua osoitteessa
+<code>auramyy.github.io/s/</code>. Auramyn kehittää ja sitä ylläpitää Mustafa Yağız (”kehittäjä”,
+”minä”).</p>
+
+<h2>1. Kehittäjän keräämät tiedot</h2>
+
+<p><strong>Ei mitään.</strong> Auramylla ei ole taustapalvelua. Luotavaa tiliä, tietojasi vastaanottavaa
+palvelinta tai kehittäjän keinoa nähdä kuviasi, kirjastoasi, hakujasi, jakamiasi asioita tai sitä, miten
+käytät sovellusta, ei ole.</p>
+
+<p>Auramy <em>ei</em> erityisesti:</p>
+<ul>
+  <li>kerää, siirrä tai tallenna kuviasi tai videoitasi millekään kehittäjän palvelimelle;</li>
+  <li>sisällä analytiikan, kaatumisraporttien, mainonnan tai attribuution SDK:ta;</li>
+  <li>seuraa sinua sovellusten tai verkkosivustojen välillä eikä muodosta sinusta profiilia;</li>
+  <li>myy tai jaa henkilötietoja kenellekään.</li>
+</ul>
+
+<h2>2. Laitteelle jäävät tiedot</h2>
+
+<p>Auramy tallentaa seuraavat tiedot paikallisesti. Kehittäjä ei saa niistä mitään, ja kaikki poistuu, kun
+poistat sovelluksen.</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>Mitä</th><th>Miksi</th><th>Missä</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kirjastosi hakuhakemisto (tunnisteet, mediatyyppi, päivämäärät, tiedostokoot ja johdetut avainsanat)</td>
+      <td>Jotta gallerian haku toimii heti ja ilman verkkoa</td>
+      <td>Sovelluksen yksityinen tallennustila</td>
+    </tr>
+    <tr>
+      <td>Asetuksesi — teema, sovelluslukitus, varmuuskopioinnin valinnat, viimeisimmät haut</td>
+      <td>Jotta muistetaan, miten olet määrittänyt sovelluksen</td>
+      <td>Sovelluksen asetukset, jaettu Auramy-widgetin kanssa</td>
+    </tr>
+    <tr>
+      <td>Google-tilisi sähköpostiosoite, jos yhdistät Driven, ja iPhonessa käyttöoikeustunnukset</td>
+      <td>Jotta näytetään, mikä tili on yhdistetty, ja pidetään sinut kirjautuneena</td>
+      <td>iPhone: avainnippu, jota hallitsee Googlen Sign-In-SDK. Android: sovelluksen asetukset; tunnukset säilyttävät Google Play -palvelut</td>
+    </tr>
+    <tr>
+      <td>Kuvat ja videot, jotka siirrät Yksityiseen holviin (Pro)</td>
+      <td>Jotta vain holvin PIN-koodi voi avata ne</td>
+      <td>Sovelluksen yksityinen tallennustila, salattu PIN-koodistasi johdetulla avaimella</td>
+    </tr>
+    <tr>
+      <td>Nimi, jonka tämä puhelin näyttää lähijaossa, ja asennuksen yhteydessä luotu satunnainen tunniste</td>
+      <td>Jotta toinen puhelin voi näyttää, kuka lähettää, ja tunnistaa puhelimesi seuraavalla kerralla</td>
+      <td>Sovelluksen asetukset</td>
+    </tr>
+    <tr>
+      <td>Luettelo vastaanotetusta: lähettäneen puhelimen nimi ja siitä tulleet kuvat</td>
+      <td>Jaettu kanssasi -kategoriaa varten</td>
+      <td>Sovelluksen yksityinen tallennustila</td>
+    </tr>
+    <tr>
+      <td>Luettelo jakamistasi linkeistä vanhenemispäivineen</td>
+      <td>Jotta voit kopioida tai lopettaa linkin ja jotta se poistetaan vanhetessaan</td>
+      <td>Sovelluksen yksityinen tallennustila</td>
+    </tr>
+    <tr>
+      <td>Väliaikaiset kopiot mediasta, jota muokkaat, viet, lähetät tai vastaanotat</td>
+      <td>Jotta tiedosto voidaan antaa jakovalikolle, editorille tai toiselle puhelimelle</td>
+      <td>Järjestelmän väliaikainen kansio; poistetaan käytön jälkeen</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Puhelimen oma varmuuskopio (iCloud tai Google) voi minkä tahansa sovelluksen tietojen tapaan sisältää
+Auramyn asetukset ja salatun holvin. Kopio kuuluu Apple- tai Google-tilillesi; kehittäjä ei pääse siihen
+käsiksi.</p>
+
+<h2>3. Varmuuskopiointi Google Driveen (valinnainen)</h2>
+
+<p>Auramy toimii täysin ilman Google-tiliä. Pilvivarmuuskopiointi on valinnainen. Jos otat sen käyttöön ja
+yhdistät Google Driven:</p>
+
+<ul>
+  <li>Auramy lataa valitsemasi kuvat ja videot <strong>Auramy</strong>-nimiseen kansioon <strong>omassa</strong>
+  Google Drivessasi. Kehittäjällä ei ole pääsyä siihen kansioon eikä Driveesi.</li>
+  <li>Auramy pyytää yhtä suppeaa lupaa — <code>drive.file</code> — sekä sähköpostiosoitettasi näyttääkseen
+  yhdistetyn tilin. <code>drive.file</code> antaa sovelluksen nähdä ja hallita <em>vain itse luomiaan
+  tiedostoja</em>. Muuta Driveäsi se ei voi lukea.</li>
+  <li>Yhdistämisen hoitaa Google: Googlen virallinen Sign-In-SDK iPhonessa ja iPadissa ja Google Play
+  -palvelut Androidissa. Auramy ei koskaan näe tai käsittele Google-salasanaasi.</li>
+  <li>Uloskirjautuminen peruu Auramyn käyttöoikeuden, poistaa tallennetun kirjautumisen ja tyhjentää
+  sovelluksen tiedot siitä, mitä on jo varmuuskopioitu. Drivessa jo olevat tiedostot jäävät ennalleen — ne
+  ovat sinun.</li>
+</ul>
+
+<p>Suhdettasi Googleen sääntelevät Googlen omat ehdot ja tietosuojakäytäntö:
+<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Auramyn tapa käyttää Googlen
+rajapinnoista saatuja tietoja noudattaa
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data
+Policya</a>, mukaan lukien rajoitetun käytön (Limited Use) vaatimukset.</p>
+
+<h2>4. Kuvien ja videoiden jakaminen</h2>
+
+<p>Jakaminen tapahtuu vain, kun aloitat sen, ja vain valitsemillasi kuvilla ja videoilla. Mikään ei kulje
+kehittäjän palvelimen kautta.</p>
+
+<h3>Lähellä, puhelimesta puhelimeen</h3>
+<ul>
+  <li>Puhelimet yhdistyvät suoraan toisiinsa — yhteisen Wi-Fi-verkon, toisen avaaman väliaikaisen verkon tai
+  suoran vertaisyhteyden kautta, ja toisensa ne löytävät Bluetoothilla. Internetyhteyttä ei käytetä, eikä
+  mikään kulje palvelimen kautta.</li>
+  <li>Yhteys on päästä päähän salattu. Ennen kuin mitään lähetetään, puhelimet todistavat näytön koodilla
+  tai skannatulla koodilla puhuvansa toisilleen, ja vastaanottavan puhelimen on hyväksyttävä jokainen
+  siirto.</li>
+  <li>Toinen puhelin näkee tämän puhelimen nimen (jonka valitset ja voit vaihtaa) ja luettelon tarjotusta:
+  tiedostonimet, koot, tyypit ja kuvauspäivät.</li>
+  <li>Vastaanotetut kuvat tallennetaan kirjastoon kuten mikä tahansa muu kuva.</li>
+</ul>
+
+<h3>Linkillä, oman Google Drivesi kautta</h3>
+<ul>
+  <li>Kun jaat linkillä, Auramy lataa valitut kuvat ja videot <strong>Auramy Shares</strong> -nimiseen
+  kansioon <strong>omassa</strong> Google Drivessasi — erillään varmuuskopiostasi — yhdessä pienen
+  luettelotiedoston kanssa, joka kuvaa ne: puhelimesi nimi, tiedostonimet, koot, tyypit, kuvauspäivät ja
+  tarkistussummat.</li>
+  <li>Nämä tiedostot muuttuvat luettaviksi <strong>kaikille, joilla on linkki</strong>. Jaa linkki vain
+  niille, joiden haluat näkevän kuvat.</li>
+  <li>Linkki lakkaa toimimasta 7 päivän kuluttua, kun Auramy poistaa tiedostot Drivestasi, tai aiemmin, jos
+  valitset Lopeta jakaminen. Jos Auramy ei sillä hetkellä tavoita Driveäsi, se yrittää uudelleen seuraavan
+  kerran avautuessaan; voit myös itse poistaa <strong>Auramy Shares</strong> -kansion Google Drivesta.</li>
+  <li>Sijainti poistetaan jaetuista tiedostoista, kun ”Poista sijainti jaettaessa” on päällä
+  Asetuksissa.</li>
+</ul>
+
+<h3>Linkin avaaminen</h3>
+<ul>
+  <li>Linkin avaamiseen ei tarvita Google-tiliä. Auramy-sovellus lataa tiedostot suoraan Google Drivesta,
+  tarkistaa jokaisen luetteloa vasten ja tallentaa ne kirjastoosi.</li>
+  <li>Ilman sovellusta linkki avaa verkkosivun osoitteessa <code>auramyy.github.io/s/</code>. Sivu toimii
+  kokonaan selaimessasi: se lukee tiedostot suoraan Google Drivesta Googlen Drive-rajapinnan kautta ja
+  antaa sinun tallentaa ne. Jaon tunnistava osa linkistä tulee <code>#</code>-merkin jälkeen, eivätkä
+  selaimet koskaan lähetä sitä sivustolle. Sivu ei aseta evästeitä, ei sisällä analytiikkaa eikä lataa
+  mitään muualta kuin tältä sivustolta ja Google Drivesta.</li>
+</ul>
+
+<h3>Verkkokohteet</h3>
+<p>Ostoissa käytettävän App Storen tai Google Playn lisäksi Auramy ottaa yhteyttä vain Googlen palvelimiin —
+<code>googleapis.com</code> ja Googlen kirjautumissivut varmuuskopiointia ja linkkijakoa varten sekä
+<code>drive.usercontent.google.com</code> ja <code>drive.google.com</code> jaettujen linkkien ja niiden
+esikatselujen lataamiseen — ja lähijaossa suoraan toiseen puhelimeen. Muita verkkokohteita ei ole.</p>
+
+<h2>5. Tämä verkkosivusto</h2>
+
+<p>Tämä sivusto, <code>auramyy.github.io</code>, ei aseta evästeitä eikä sisällä analytiikkaa, mainoksia tai
+kolmansien osapuolten skriptejä. Valitsemasi kieli muistetaan oman selaimesi tallennustilassa, joka ei
+koskaan poistu laitteeltasi. Sivustoa ylläpitää GitHub Pages, joka minkä tahansa verkkopalvelimen tavoin
+voi pitää teknisiä lokeja käynneistä
+<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHubin tietosuojaselosteen</a>
+mukaisesti.</p>
+
+<h2>6. Auramyn pyytämät luvat</h2>
+
+<h3>Kuvakirjasto</h3>
+<p>Tarvitaan sovelluksen päätarkoitukseen: gallerian näyttämiseen, poistettavien kaksoiskappaleiden ja
+turhien löytämiseen, muokkaamiseen, valitsemiesi varmuuskopiointiin ja vastaanotetun tallentamiseen.
+Auramy toimii myös rajoitetulla käyttöoikeudella — silloin se näkee vain kuvat, jotka olet jakanut sille.
+Poistaminen kulkee aina järjestelmän kautta, joka näyttää oman vahvistuksensa.</p>
+
+<h3>Bluetooth ja lähellä olevat laitteet</h3>
+<p>Vain lähellä lähetettäessä tai vastaanotettaessa, jotta puhelimet löytävät toisensa ja sopivat
+yhdistämistavasta myös ilman Wi-Fiä. Auramy ei käytä Bluetoothia sijaintisi selvittämiseen.</p>
+
+<h3>Paikallisverkko (iPhone)</h3>
+<p>Vain lähijaossa, jotta samassa verkossa olevat muut Auramya käyttävät puhelimet löytyvät ja niihin
+voidaan yhdistää suoraan.</p>
+
+<h3>Kamera (iPhone)</h3>
+<p>Vain toisen puhelimen koodin skannaamiseen lähijaossa. Mitään ei tallenneta. Androidissa koodit skannaa
+Google Play -palveluiden skanneri, eikä Auramy koskaan saa pääsyä kameraan.</p>
+
+<h3>Sijainti (Android 12 ja vanhemmat)</h3>
+<p>Näissä Android-versioissa järjestelmä vaatii sijaintiluvan, ennen kuin sovellus voi avata oman
+Wi-Fi-verkon tai etsiä lähellä olevia Wi-Fi-laitteita. Auramy pyytää sitä vain lähijakoon ilman yhteistä
+verkkoa eikä koskaan lue sijaintiasi.</p>
+
+<h3>Face ID / Touch ID / sormenjälki</h3>
+<p>Valinnainen, käytetään vain sovelluksen avaamiseen, kun otat sovelluslukituksen käyttöön. Järjestelmä
+palauttaa vain onnistumisen tai epäonnistumisen — Auramy ei koskaan saa eikä tallenna biometrisiä
+tietoja.</p>
+
+<h3>Ilmoitukset</h3>
+<p>Valinnaisia. Niillä kerrotaan, että taustalla tehty varmuuskopiointi on valmis, ja — jos otat
+tallennustilan ilmoitukset käyttöön — että tilaa voisi vapauttaa paljon. Ilmoitukset luodaan laitteellasi;
+push-palvelinta ei ole.</p>
+
+<h3>Taustatoiminta</h3>
+<p>Käytetään keskeneräisen varmuuskopioinnin jatkamiseen ja satunnaiseen tallennustilan tarkistukseen,
+kun sovellus ei ole näytöllä. Molemmat toimivat kokonaan puhelimessasi.</p>
+
+<h2>7. Sijaintitiedot</h2>
+
+<p>Auramy ei koskaan lue sijaintiasi. Kuvissa voi kuitenkin olla kameran tallentamia GPS-koordinaatteja.
+Kun jaat kuvan tai videon Auramysta, <strong>sijaintitiedot poistetaan oletuksena</strong>. Voit poistaa
+tämän käytöstä Asetuksissa, jos haluat sijainnin kulkevan tiedoston mukana. Omaan Google Driveesi tehdyt
+varmuuskopiot säilyttävät aina alkuperäisen tiedoston.</p>
+
+<h2>8. Ostot</h2>
+
+<p>Auramy Pro ostetaan App Storesta tai Google Playsta. Apple tai Google hoitaa maksun; Auramy saa niiltä
+tietää vain, onko Pro käytössä tililläsi. Kehittäjä ei koskaan näe maksutietojasi.</p>
+
+<h2>9. Säilytys ja poistaminen</h2>
+
+<ul>
+  <li>Kaikki, mitä Auramy tallentaa, on sovelluksen omassa tallennustilassa. Sovelluksen poistaminen poistaa
+  kaiken, myös hakuhakemiston, asetuksesi ja mahdollisen tallennetun kirjautumisen.</li>
+  <li><strong>Sovelluksen poistaminen poistaa myös Yksityisen holvin.</strong> Siirrä ensin holvista pois
+  kuvat, jotka haluat säilyttää.</li>
+  <li>Voit katkaista Google Driven yhteyden poistamatta sovellusta valitsemalla Asetuksista Kirjaudu ulos.
+  Voit myös milloin tahansa perua Auramyn käyttöoikeuden osoitteessa
+  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+  <li>Varmuuskopioidut kuvat pysyvät Google Drivessasi, kunnes poistat ne sieltä. Ne ovat sinun
+  tiedostojasi sinun tililläsi.</li>
+  <li>Jaetut linkit poistetaan Drivestasi 7 päivän kuluttua tai kun lopetat niiden jakamisen. Kuvat, jotka
+  joku on jo tallentanut linkistä, jäävät hänelle.</li>
+</ul>
+
+<h2>10. Lapset</h2>
+
+<p>Auramya ei ole tarkoitettu alle 13-vuotiaille, eikä se tietoisesti kerää heistä tietoja. Koska kehittäjä
+ei kerää tietoja keneltäkään, pyynnöstä ei ole mitään poistettavaa — mutta ota yhteyttä, jos olet
+huolissasi.</p>
+
+<h2>11. Oikeutesi</h2>
+
+<p>Asuinpaikastasi riippuen sinulla voi olla oikeuksia GDPR:n (Eurooppa), KVKK:n (Turkki), CCPA/CPRA:n
+(Kalifornia) tai vastaavien lakien nojalla — esimerkiksi oikeus saada pääsy sinua koskeviin
+henkilötietoihin, oikaista, siirtää tai poistaa niitä.</p>
+
+<p>Koska kehittäjällä ei ole sinusta henkilötietoja, kehittäjän puolella ei ole mitään luovutettavaa,
+siirrettävää tai poistettavaa. Laitteellasi olevat tiedot ovat suoraan hallinnassasi ja poistuvat, kun
+poistat sovelluksen. Google Drivesi tietoja hallitset Google-tilisi kautta. Jos haluat silti käyttää
+oikeuttasi tai kysyä jotain, yhteystiedot ovat alla, ja vastaan.</p>
+
+<h2>12. Tietoturva</h2>
+
+<p>Auramy luottaa käyttöjärjestelmän suojauksiin: sovellusten eristykseen, salattuun tallennukseen ja
+järjestelmän turvalliseen tallennukseen kirjautumistiedoille. Kaikki internetliikenne käyttää HTTPS:ää,
+lähisiirrot on salattu päästä päähän, ja Yksityinen holvi on salattu avaimella, jonka vain PIN-koodisi voi
+tuottaa. Valinnainen sovelluslukitus asettaa sovelluksen eteen Face ID:n, Touch ID:n, sormenjäljen tai
+laitteen pääsykoodin ja piilottaa gallerian sovellusvaihtimessa, kun sovellus on taustalla.</p>
+
+<p>Mikään järjestelmä ei ole täysin turvallinen. Laitteen pitäminen ajan tasalla ja koodilla suojattuna on
+tärkein asia, jonka voit tehdä sen sisällön suojaamiseksi.</p>
+
+<h2>13. Muutokset tähän käytäntöön</h2>
+
+<p>Jos käytäntö muuttuu olennaisesti, päivitetty versio julkaistaan täällä uudella päivämäärällä
+ylhäällä. Sovelluksen käytön jatkaminen muutoksen jälkeen tarkoittaa, että hyväksyt päivitetyn käytännön.</p>
+
+<h2>14. Yhteystiedot</h2>
+
+<p>Kysymykset, huolet tai tietosuojapyynnöt:
+<a href="https://instagram.com/dev.yagiz" rel="noopener">@dev.yagiz</a> (Instagram)</p>
+
+<footer>
+  Auramy — kehittäjä Mustafa Yağız. Tämä käytäntö koskee Auramy-sovelluksia iPhonelle, iPadille ja
+  Androidille, jaettujen linkkien sivua ja tätä verkkosivustoa.
+</footer>
+</main>
+<script>
+  document.addEventListener("click", function (e) {
+    var d = document.querySelector(".langs");
+    if (d && d.open && !d.contains(e.target)) d.open = false;
+  });
+  document.addEventListener("keydown", function (e) {
+    var d = document.querySelector(".langs");
+    if (e.key === "Escape" && d && d.open) { d.open = false; d.querySelector("summary").focus(); }
+  });
+</script>
+</body>
+</html>

@@ -29,8 +29,6 @@ App Store'a gönderim yaparken veya sürüm güncellerken ilgili alanlara girile
   `https://auramyy.github.io/`
 - **Standart Apple EULA (Son Kullanıcı Lisans Sözleşmesi):**  
   `https://www.apple.com/legal/internet-services/itunes/dev/stdeula/`
-- **Destek E-posta Adresi:**  
-  `yagjz@icloud.com`
 - **Geliştirici Instagram:**  
   `@dev.yagiz` ([https://instagram.com/dev.yagiz](https://instagram.com/dev.yagiz))
 
@@ -52,7 +50,6 @@ Linkleri ileride değiştirmek veya kontrol etmek isterseniz şu dosyalara bakab
 1. **`Auramy/AboutView.swift`**
    - `privacyPolicyURL`: `https://auramyy.github.io/privacy.html`
    - `supportURL`: `https://auramyy.github.io/support.html`
-   - `contactEmail`: `yagjz@icloud.com`
    - `instagramURL`: `https://instagram.com/dev.yagiz`
 
 2. **`Auramy/AuramyPro.swift`**
@@ -69,15 +66,21 @@ Linkleri ileride değiştirmek veya kontrol etmek isterseniz şu dosyalara bakab
 
 ## 🚀 Web Sitesinde Değişiklik Yapıldığında Canlıya Alma
 
-`docs/` klasöründe bir değişiklik yaptığınızda `Auramyy.github.io` sitesini güncellemek için Terminal'de şu komutları çalıştırmanız yeterlidir:
+Sayfalar elle düzenlenmez; Auramy reposundaki `Tools/Site/` üreticisiyle oluşturulur (24 dil):
+
+- Ana sayfa metinleri: `Tools/Site/strings/<dil>.json`
+- Gizlilik ve destek sayfaları: `Tools/Site/pages/privacy/<dil>.html`, `Tools/Site/pages/support/<dil>.html`
+- Görseller: `Tools/Site/make_assets.py`
 
 ```bash
-# 1. Değişen dosyaları site deposuna kopyalayın
-cp -R ~/Desktop/Auramy/docs/* ~/Desktop/Auramyy.github.io/
+# 1. Sayfaları bu depoya üretin
+python3 ~/Desktop/Auramy/Tools/Site/gen_site.py
 
-# 2. Site deposuna geçip commit & push yapın
+# 2. Commit & push
 cd ~/Desktop/Auramyy.github.io
 git add .
 git commit -m "Web sitesi guncellendi"
 git push origin main
 ```
+
+> Auramy reposundaki eski `docs/` klasörü güncel değildir; oradan bu depoya kopyalama yapmayın.
